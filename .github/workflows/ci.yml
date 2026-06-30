@@ -10,8 +10,10 @@ jobs:
   lint-typecheck:
     name: Lint & Type Check
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -20,6 +22,8 @@ jobs:
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
+        env:
+          DATABASE_URL: 'postgresql://placeholder:placeholder@localhost:5432/aof'
 
       - name: Run ESLint
         run: npm run lint
@@ -30,9 +34,11 @@ jobs:
   test-unit:
     name: Unit Tests
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     needs: lint-typecheck
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -41,6 +47,8 @@ jobs:
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
+        env:
+          DATABASE_URL: 'postgresql://test:test@localhost:5432/aof_test'
 
       - name: Run unit tests
         run: npm test -- --ci --coverage --coverageReporters=text-summary
@@ -52,9 +60,11 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    needs: [lint-typecheck]
+    timeout-minutes: 20
+    needs: lint-typecheck
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -63,6 +73,8 @@ jobs:
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
+        env:
+          DATABASE_URL: 'postgresql://placeholder:placeholder@localhost:5432/aof'
 
       - name: Generate Prisma client
         run: npx prisma generate
@@ -81,10 +93,12 @@ jobs:
   e2e:
     name: E2E Tests
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     needs: build
     if: github.event_name == 'pull_request'
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -93,6 +107,8 @@ jobs:
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
+        env:
+          DATABASE_URL: 'postgresql://placeholder:placeholder@localhost:5432/aof'
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
