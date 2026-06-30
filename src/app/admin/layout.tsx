@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { auth } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
@@ -17,7 +18,7 @@ const ADMIN_NAV = [
   { href: '/admin/settings', label: 'Settings', icon: '⚙️' },
 ];
 
-export default async function AdminLayout({ children }: { children: React.ReactNode }) {
+export default async function AdminLayout({ children }: { children: ReactNode }) {
   const { userId } = await auth();
 
   if (!userId) {

@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom';
+import type { ReactNode, HTMLAttributes } from 'react';
 
 // Mock next/navigation
 jest.mock('next/navigation', () => ({
@@ -23,7 +24,8 @@ jest.mock('next/font/google', () => ({
 
 // Mock Clerk
 jest.mock('@clerk/nextjs', () => ({
-  ClerkProvider: ({ children }: { children: React.ReactNode }) => children,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ClerkProvider: ({ children }: { children: ReactNode }) => children as any,
   SignIn: () => null,
   SignUp: () => null,
   useUser: () => ({ isSignedIn: false, user: null }),
@@ -40,26 +42,30 @@ jest.mock('@clerk/nextjs/server', () => ({
 }));
 
 // Mock framer-motion
-jest.mock('framer-motion', () => ({
-  motion: {
-    div: ({ children, ...props }: React.HTMLAttributes<HTMLDivElement>) =>
-      require('react').createElement('div', props, children),
-    section: ({ children, ...props }: React.HTMLAttributes<HTMLElement>) =>
-      require('react').createElement('section', props, children),
-    h1: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) =>
-      require('react').createElement('h1', props, children),
-    p: ({ children, ...props }: React.HTMLAttributes<HTMLParagraphElement>) =>
-      require('react').createElement('p', props, children),
-    span: ({ children, ...props }: React.HTMLAttributes<HTMLSpanElement>) =>
-      require('react').createElement('span', props, children),
-    button: ({ children, ...props }: React.HTMLAttributes<HTMLButtonElement>) =>
-      require('react').createElement('button', props, children),
-  },
-  AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
-  useScroll: () => ({ scrollYProgress: { get: () => 0 } }),
-  useTransform: () => 0,
-  useInView: () => true,
-}));
+jest.mock('framer-motion', () => {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const createElement = require('react').createElement;
+  return {
+    motion: {
+      div: ({ children, ...props }: HTMLAttributes<HTMLDivElement>) =>
+        createElement('div', props, children),
+      section: ({ children, ...props }: HTMLAttributes<HTMLElement>) =>
+        createElement('section', props, children),
+      h1: ({ children, ...props }: HTMLAttributes<HTMLHeadingElement>) =>
+        createElement('h1', props, children),
+      p: ({ children, ...props }: HTMLAttributes<HTMLParagraphElement>) =>
+        createElement('p', props, children),
+      span: ({ children, ...props }: HTMLAttributes<HTMLSpanElement>) =>
+        createElement('span', props, children),
+      button: ({ children, ...props }: HTMLAttributes<HTMLButtonElement>) =>
+        createElement('button', props, children),
+    },
+    AnimatePresence: ({ children }: { children: ReactNode }) => children,
+    useScroll: () => ({ scrollYProgress: { get: () => 0 } }),
+    useTransform: () => 0,
+    useInView: () => true,
+  };
+});
 
 // Suppress specific console warnings in tests
 const originalConsoleError = console.error;

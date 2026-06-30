@@ -161,8 +161,8 @@ export default function FAQPage() {
             <Button variant="default" size="lg" asChild>
               <Link href="/contact">Contact Us</Link>
             </Button>
-            <Button variant="outline" size="lg" onClick={() => typeof window !== 'undefined' && window.dispatchEvent(new CustomEvent('komai:open'))}>
-              Ask KOMAI AI
+            <Button variant="outline" size="lg" asChild>
+              <Link href="/contact?subject=komai-inquiry">Ask a Question</Link>
             </Button>
           </div>
         </div>

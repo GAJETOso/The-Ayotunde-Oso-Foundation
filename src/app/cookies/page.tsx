@@ -65,15 +65,10 @@ export default function CookiesPage() {
             <p className="text-gray-600 leading-relaxed">Cookies are small text files stored in your browser when you visit a website. They help websites function, remember your preferences, and collect usage information. This policy explains the cookies used by The Ayotunde Oso Foundation and how you can control them.</p>
 
             <h2 className="text-xl font-bold text-gray-900 mt-10 mb-4">Your Choices</h2>
-            <p className="text-gray-600 leading-relaxed">When you first visit our website, you will see a cookie consent banner where you can choose which categories of cookies to accept. You can change your preferences at any time by clicking the cookie icon in the footer or using the button below.</p>
+            <p className="text-gray-600 leading-relaxed">When you first visit our website, you will see a cookie consent banner where you can choose which categories of cookies to accept. You can change your preferences at any time using the banner that appears at the bottom of the page, or by clearing your browser cookies and revisiting the site.</p>
 
-            <div className="my-6">
-              <button
-                onClick={() => typeof window !== 'undefined' && window.dispatchEvent(new CustomEvent('aof:cookie-settings'))}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-green text-white rounded-lg text-sm font-medium hover:bg-brand-green/90 transition-colors"
-              >
-                Manage Cookie Preferences
-              </button>
+            <div className="my-6 p-4 bg-brand-green/5 border border-brand-green/20 rounded-xl">
+              <p className="text-sm text-gray-700 m-0">To update your cookie preferences, clear the <code className="text-xs bg-gray-100 px-1 py-0.5 rounded">aof-cookie-consent</code> item from your browser&apos;s local storage and reload the page. The consent banner will reappear.</p>
             </div>
 
             <h2 className="text-xl font-bold text-gray-900 mt-10 mb-6">Cookies We Use</h2>
