@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, type FormEvent } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Mail, ArrowRight, Check, Loader2 } from 'lucide-react'
 
@@ -10,7 +10,7 @@ export function Newsletter() {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     if (!email || status === 'loading') return
     setStatus('loading')

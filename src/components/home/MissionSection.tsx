@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, type ComponentType } from 'react'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import { Quote } from 'lucide-react'
@@ -9,7 +9,7 @@ import {
   Shield, Heart, Eye, CheckCircle, Lightbulb, Zap, Users, Globe, Leaf, Hand
 } from 'lucide-react'
 
-const VALUE_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+const VALUE_ICONS: Record<string, ComponentType<{ className?: string }>> = {
   integrity: Shield,
   compassion: Heart,
   transparency: Eye,

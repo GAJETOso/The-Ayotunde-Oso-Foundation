@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, type ComponentType } from 'react'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import {
@@ -14,7 +14,7 @@ import {
 import { PROGRAMS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
-const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+const ICONS: Record<string, ComponentType<{ className?: string }>> = {
   GraduationCap,
   HeartPulse,
   Users,

@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import type { Metadata, Viewport } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
@@ -7,7 +8,7 @@ import { FOUNDATION } from '@/lib/constants'
 import { Providers } from '@/components/providers/Providers'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import { KomaiWidget } from '@/components/komai/KomaiWidget'
+import { KomaiWidget } from '@/components/ai/KomaiWidget'
 import { CookieConsent } from '@/components/shared/CookieConsent'
 import '@/styles/globals.css'
 
@@ -144,7 +145,7 @@ export const viewport: Viewport = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: ReactNode
 }) {
   return (
     <ClerkProvider>
