@@ -1,13 +1,15 @@
-import { Metadata } from 'next';
-import Link from 'next/link';
-import PageHero from '@/components/shared/PageHero';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Button } from '@/components/ui/button';
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { PageHero } from '@/components/shared/PageHero'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { FadeUp, SlideIn, StaggerContainer, StaggerItem } from '@/components/ui/animations'
 
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions | The Ayotunde Oso Foundation',
   description: 'Find answers to common questions about donating, volunteering, programs, and more at The Ayotunde Oso Foundation.',
-};
+}
 
 const FAQ_SECTIONS = [
   {
@@ -119,54 +121,70 @@ const FAQ_SECTIONS = [
       },
     ],
   },
-];
+]
 
 export default function FAQPage() {
   return (
-    <main className="min-h-screen">
+    <main id="main-content">
       <PageHero
         eyebrow="FAQ"
         title="Questions, Answered"
         subtitle="Everything you need to know about donating, volunteering, our programs, and how we work. If your question is not here, we are always happy to help."
-        gradient="green"
         breadcrumbs={[{ label: 'FAQ', href: '/faq' }]}
+        size="sm"
       />
 
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="space-y-12">
-            {FAQ_SECTIONS.map((section) => (
-              <div key={section.category}>
-                <h2 className="text-xl font-bold text-brand-green mb-6 pb-3 border-b border-brand-green/20">{section.category}</h2>
-                <Accordion type="single" collapsible className="space-y-3">
-                  {section.items.map((item, i) => (
-                    <AccordionItem key={i} value={`${section.category}-${i}`} className="border border-gray-200 rounded-lg px-4">
-                      <AccordionTrigger className="text-left font-medium text-gray-900 py-4">{item.q}</AccordionTrigger>
-                      <AccordionContent className="text-gray-600 leading-relaxed pb-4">{item.a}</AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
+      <section className="section">
+        <div className="container-xl max-w-4xl">
+          <StaggerContainer className="space-y-12">
+            {FAQ_SECTIONS.map((section, si) => (
+              <StaggerItem key={section.category} direction="up">
+                <SlideIn from={si % 2 === 0 ? 'left' : 'right'}>
+                  <h2 className="text-xl font-bold text-brand-700 dark:text-brand-400 mb-6 pb-3 border-b border-brand-200 dark:border-brand-800">
+                    {section.category}
+                  </h2>
+                  <Accordion type="single" collapsible className="space-y-3">
+                    {section.items.map((item, i) => (
+                      <AccordionItem
+                        key={i}
+                        value={`${section.category}-${i}`}
+                        className="border border-neutral-200 dark:border-neutral-700 rounded-xl px-4 transition-all duration-200 hover:border-brand-300 dark:hover:border-brand-700"
+                      >
+                        <AccordionTrigger className="text-left font-medium text-neutral-900 dark:text-neutral-100 py-4">
+                          {item.q}
+                        </AccordionTrigger>
+                        <AccordionContent className="text-neutral-600 dark:text-neutral-400 leading-relaxed pb-4">
+                          {item.a}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </SlideIn>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
-      {/* Still Have Questions */}
-      <section className="py-16 bg-cream-50">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Still Have a Question?</h2>
-          <p className="text-gray-600 mb-8 max-w-md mx-auto">Our team responds to all inquiries within 24–48 business hours. You can also chat with KOMAI, our AI assistant, for immediate answers.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="default" size="lg" asChild>
-              <Link href="/contact">Contact Us</Link>
-            </Button>
-            <Button variant="outline" size="lg" asChild>
-              <Link href="/contact?subject=komai-inquiry">Ask a Question</Link>
-            </Button>
-          </div>
+      <section className="section bg-cream-50 dark:bg-neutral-900/50">
+        <div className="container-xl text-center">
+          <FadeUp>
+            <Badge variant="brand" className="mb-4">Still Have Questions?</Badge>
+            <h2 className="heading-2 mb-4">We Are Here to Help</h2>
+            <p className="text-neutral-600 dark:text-neutral-400 mb-8 max-w-md mx-auto">
+              Our team responds to all inquiries within 24–48 business hours. You can also chat with KOMAI, our AI assistant, for immediate answers.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="default" size="lg" asChild>
+                <Link href="/contact">Contact Us</Link>
+              </Button>
+              <Button variant="outline" size="lg" asChild>
+                <Link href="/contact?subject=komai-inquiry">Ask a Question</Link>
+              </Button>
+            </div>
+          </FadeUp>
         </div>
       </section>
     </main>
-  );
+  )
 }

@@ -108,14 +108,6 @@ const ALL_TESTIMONIALS = [
   },
 ]
 
-const PROGRAM_BADGES: Record<string, string> = {
-  Education: 'brand',
-  Healthcare: 'default',
-  Mentorship: 'secondary',
-  Environment: 'default',
-  'Emergency Relief': 'default',
-}
-
 const PROGRAM_ACCENT: Record<string, string> = {
   Education:        'border-brand-300 bg-brand-50/60 dark:bg-brand-900/20',
   Healthcare:       'border-red-300 bg-red-50/60 dark:bg-red-900/20',

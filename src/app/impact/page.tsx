@@ -9,7 +9,6 @@ import {
   SlideIn,
   StaggerContainer,
   StaggerItem,
-  ScaleIn,
   CountUp,
   AnimatedProgress,
 } from '@/components/ui/animations'

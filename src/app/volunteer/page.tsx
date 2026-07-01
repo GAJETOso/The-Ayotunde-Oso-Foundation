@@ -80,7 +80,7 @@ export default function VolunteerPage() {
             </div>
             <h1 className="heading-2 mb-4">Application Received!</h1>
             <p className="text-neutral-600 dark:text-neutral-400 mb-8">Thank you, {form.firstName}. Our volunteer coordinator will review your application and contact you within 5 business days.</p>
-            <Button asChild><a href="/">Return Home</a></Button>
+            <Button asChild><Link href="/">Return Home</Link></Button>
           </div>
         </div>
       </main>
@@ -192,7 +192,7 @@ export default function VolunteerPage() {
                     </div>
                   </div>
                   <div>
-                    <p className="font-semibold mb-3">Programmes you\'d like to support</p>
+                    <p className="font-semibold mb-3">Programmes you&apos;d like to support</p>
                     <div className="space-y-2">
                       {PROGRAMS_LIST.map(p => (
                         <div key={p} className="flex items-center gap-3">

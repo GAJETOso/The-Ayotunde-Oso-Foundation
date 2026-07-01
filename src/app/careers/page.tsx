@@ -27,9 +27,9 @@ const OPEN_ROLES = [
     location: 'Lagos, Nigeria',
     level: 'Mid-level',
     description:
-      'Lead the day-to-day implementation of AOF's education programs, including scholarship administration, digital learning center operations, and teacher training coordination across Lagos, Ogun, and Oyo states.',
+      "Lead the day-to-day implementation of AOF's education programs, including scholarship administration, digital learning center operations, and teacher training coordination across Lagos, Ogun, and Oyo states.",
     requirements: [
-      'Bachelor's degree in Education, Social Work, or related field',
+      "Bachelor's degree in Education, Social Work, or related field",
       'Minimum 3 years experience in program management',
       'Experience in community development or NGO sector',
       'Strong reporting and data management skills',
@@ -49,7 +49,7 @@ const OPEN_ROLES = [
       'Degree in Public Health, Nursing, or related healthcare field',
       'Community health experience in rural or riverine areas',
       'Strong logistics coordination skills',
-      'Valid driver's license',
+      "Valid driver's license",
       'Fluency in Itsekiri or Urhobo a plus',
     ],
     posted: '2025-06-10',
@@ -61,7 +61,7 @@ const OPEN_ROLES = [
     location: 'Lagos, Nigeria (Hybrid)',
     level: 'Senior',
     description:
-      'Drive AOF's brand narrative across digital and traditional channels. Create compelling content, manage social media presence, support media relations, and produce impact stories that inspire donors and partners.',
+      "Drive AOF's brand narrative across digital and traditional channels. Create compelling content, manage social media presence, support media relations, and produce impact stories that inspire donors and partners.",
     requirements: [
       'Degree in Communications, Journalism, or Marketing',
       'Minimum 4 years in communications, preferably nonprofit',
@@ -95,7 +95,7 @@ const OPEN_ROLES = [
     location: 'Abuja, Nigeria',
     level: 'Mid-level',
     description:
-      'Design and manage AOF's MEAL systems, conduct field assessments, analyze program data, and produce evidence-based learning products that strengthen program quality and demonstrate impact to stakeholders.',
+      "Design and manage AOF's MEAL systems, conduct field assessments, analyze program data, and produce evidence-based learning products that strengthen program quality and demonstrate impact to stakeholders.",
     requirements: [
       'Degree in Statistics, Social Sciences, or related field',
       'Minimum 3 years MEAL experience in development or humanitarian sector',
@@ -112,7 +112,7 @@ const OPEN_ROLES = [
     location: 'Lagos, Nigeria',
     level: 'Entry-level',
     description:
-      'Manage AOF's growing volunteer network: recruit, onboard, schedule, and recognize volunteers across all programs. Build community engagement through events, campaigns, and ambassador programs.',
+      "Manage AOF's growing volunteer network: recruit, onboard, schedule, and recognize volunteers across all programs. Build community engagement through events, campaigns, and ambassador programs.",
     requirements: [
       'Degree in any field',
       'Strong interpersonal and organizational skills',
