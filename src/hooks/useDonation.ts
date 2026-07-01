@@ -95,7 +95,7 @@ export function useDonation() {
           isAnonymous: state.anonymous,
           dedicatedTo: state.dedicatedTo,
           programDesignation: state.programDesignation,
-        } satisfies Partial<DonationFormData>),
+        }),
       })
 
       if (!res.ok) throw new Error('Failed to create payment intent')

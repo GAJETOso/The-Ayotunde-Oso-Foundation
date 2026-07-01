@@ -80,7 +80,7 @@ export function CookieConsent() {
 
     // Apply preferences
     if (typeof window !== 'undefined' && (window as { gtag?: unknown }).gtag) {
-      (window as { gtag: (...args: unknown[]) => void }).gtag('consent', 'update', {
+      (window as unknown as { gtag: (...args: unknown[]) => void }).gtag('consent', 'update', {
         analytics_storage: prefs.analytics ? 'granted' : 'denied',
         ad_storage: prefs.marketing ? 'granted' : 'denied',
         functionality_storage: prefs.functional ? 'granted' : 'denied',

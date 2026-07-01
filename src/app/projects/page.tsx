@@ -124,7 +124,7 @@ export default function ProjectsPage() {
         eyebrow="Our Projects"
         title="Where Work Meets Impact"
         subtitle="Every project is a deliberate effort to solve a specific problem in a specific community. Explore our active and completed initiatives across all program areas."
-        gradient="green"
+        gradient="brand"
         breadcrumbs={[{ label: 'Projects', href: '/projects' }]}
       />
 

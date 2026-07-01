@@ -86,7 +86,7 @@ export default async function ArticlePage({ params }: Props) {
         eyebrow={article.category}
         title={article.title}
         subtitle={article.excerpt}
-        gradient="green"
+        gradient="brand"
         breadcrumbs={[
           { label: 'News', href: '/news' },
           { label: article.title, href: `/news/${slug}` },

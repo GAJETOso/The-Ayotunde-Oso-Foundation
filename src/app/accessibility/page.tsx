@@ -16,7 +16,7 @@ export default function AccessibilityPage() {
         eyebrow="Legal"
         title="Accessibility Statement"
         subtitle={`Last updated: ${LAST_UPDATED}`}
-        gradient="green"
+        gradient="brand"
         breadcrumbs={[{ label: 'Accessibility', href: '/accessibility' }]}
       />
 

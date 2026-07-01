@@ -41,7 +41,7 @@ export default function MediaPage() {
         eyebrow="Media Gallery"
         title="Stories in Pictures"
         subtitle="A visual record of AOF’s work across communities. Every photo represents a life touched, a community strengthened, and hope realized."
-        gradient="green"
+        gradient="brand"
         breadcrumbs={[{ label: 'Media', href: '/media' }]}
       />
 

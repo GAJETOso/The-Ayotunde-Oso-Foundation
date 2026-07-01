@@ -95,7 +95,7 @@ export default function SearchPage() {
         eyebrow="Search"
         title="Find What You Need"
         subtitle="Search across all AOF programs, news, events, resources, and pages."
-        gradient="green"
+        gradient="brand"
         breadcrumbs={[{ label: 'Search', href: '/search' }]}
       />
 

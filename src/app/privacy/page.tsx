@@ -16,7 +16,7 @@ export default function PrivacyPage() {
         eyebrow="Legal"
         title="Privacy Policy"
         subtitle={`Last updated: ${LAST_UPDATED}`}
-        gradient="green"
+        gradient="brand"
         breadcrumbs={[{ label: 'Privacy Policy', href: '/privacy' }]}
       />
 

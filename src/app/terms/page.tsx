@@ -16,7 +16,7 @@ export default function TermsPage() {
         eyebrow="Legal"
         title="Terms of Service"
         subtitle={`Last updated: ${LAST_UPDATED}`}
-        gradient="green"
+        gradient="brand"
         breadcrumbs={[{ label: 'Terms of Service', href: '/terms' }]}
       />
 

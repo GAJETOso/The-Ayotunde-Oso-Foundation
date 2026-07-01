@@ -53,7 +53,7 @@ export default function CookiesPage() {
         eyebrow="Legal"
         title="Cookie Policy"
         subtitle={`Last updated: ${LAST_UPDATED}`}
-        gradient="green"
+        gradient="brand"
         breadcrumbs={[{ label: 'Cookie Policy', href: '/cookies' }]}
       />
 

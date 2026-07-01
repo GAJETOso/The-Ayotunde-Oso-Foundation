@@ -74,7 +74,7 @@ export default async function EventPage({ params }: Props) {
         eyebrow="Event"
         title={event.title}
         subtitle={event.description}
-        gradient="green"
+        gradient="brand"
         breadcrumbs={[
           { label: 'Events', href: '/events' },
           { label: event.title, href: `/events/${slug}` },
