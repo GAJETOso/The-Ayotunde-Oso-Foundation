@@ -267,7 +267,7 @@ export default function CareersPage() {
       <section className="section bg-brand-700">
         <div className="container-xl text-center">
           <FadeUp>
-            <h2 className="heading-2 mb-4 text-white">Don't See the Right Role?</h2>
+            <h2 className="heading-2 mb-4 text-white">Don&apos;t See the Right Role?</h2>
             <p className="text-brand-200 mb-8 max-w-lg mx-auto text-lg">
               We are always interested in hearing from exceptional people. Send us your CV and a note
               about the kind of work you would like to do with us.

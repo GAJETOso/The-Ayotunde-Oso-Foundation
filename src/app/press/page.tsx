@@ -3,7 +3,7 @@ import { PageHero } from '@/components/shared/PageHero'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { FadeUp, SlideIn, StaggerContainer, StaggerItem } from '@/components/ui/animations'
+import { SlideIn, StaggerContainer, StaggerItem } from '@/components/ui/animations'
 
 export const metadata: Metadata = {
   title: 'Press & Media | The Ayotunde Oso Foundation',

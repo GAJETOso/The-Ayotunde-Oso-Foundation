@@ -14,6 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Users, Clock, Globe, Award, ChevronRight, CheckCircle2 } from 'lucide-react'
+import Link from 'next/link'
 import { toast } from '@/components/ui/toast'
 
 const SKILLS = ['Teaching', 'Healthcare', 'Engineering', 'Technology', 'Law', 'Finance', 'Marketing', 'Photography', 'Project Management', 'Social Work', 'Agriculture', 'Research', 'Cooking', 'Logistics', 'Counselling']
