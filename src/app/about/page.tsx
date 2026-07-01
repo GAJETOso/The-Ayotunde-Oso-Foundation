@@ -4,8 +4,16 @@ import Link from 'next/link'
 import { PageHero } from '@/components/shared/PageHero'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Card, CardContent } from '@/components/ui/card'
-import { CORE_VALUES, IMPACT_STATS, FOUNDATION_DATA } from '@/lib/constants'
+import { Card } from '@/components/ui/card'
+import {
+  FadeUp,
+  SlideIn,
+  ScaleIn,
+  StaggerContainer,
+  StaggerItem,
+  CountUp,
+} from '@/components/ui/animations'
+import { CORE_VALUES } from '@/lib/constants'
 import { ChevronRight, Users, Globe, Award, Heart } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -15,7 +23,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'About Us | The Ayotunde Oso Foundation',
     description: 'Our story, mission, and the people behind meaningful change.',
-    url: 'https://ayotundeosofoundation.org/about',
   },
 }
 
@@ -71,10 +78,10 @@ const TIMELINE = [
 ]
 
 const REACH_STATS = [
-  { icon: Users, value: '127,400+', label: 'Lives Impacted', color: 'text-brand-600' },
-  { icon: Globe, value: '8', label: 'Countries Active', color: 'text-gold-600' },
-  { icon: Award, value: '47', label: 'Active Partners', color: 'text-emerald-600' },
-  { icon: Heart, value: '2,300+', label: 'Volunteers', color: 'text-red-500' },
+  { icon: Users,  to: 127400, suffix: '+', label: 'Lives Impacted',   color: 'text-brand-400'   },
+  { icon: Globe,  to: 8,      suffix: '',  label: 'Countries Active', color: 'text-gold-400'    },
+  { icon: Award,  to: 47,     suffix: '',  label: 'Active Partners',  color: 'text-emerald-400' },
+  { icon: Heart,  to: 2300,   suffix: '+', label: 'Volunteers',       color: 'text-red-400'     },
 ]
 
 export default function AboutPage() {
@@ -92,29 +99,30 @@ export default function AboutPage() {
       {/* Mission + Vision */}
       <section className="section">
         <div className="container-xl">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+          <div className="grid items-center gap-16 lg:grid-cols-2">
+            {/* Text — slide from left */}
+            <SlideIn from="left">
               <Badge variant="brand" className="mb-4">Our Purpose</Badge>
               <h2 className="heading-2 mb-6">Guided by a clear mission and bold vision</h2>
               <div className="space-y-6">
-                <div className="border-l-4 border-brand-600 pl-6">
-                  <h3 className="font-semibold text-lg mb-2 text-brand-700">Mission</h3>
-                  <p className="text-body text-neutral-600 dark:text-neutral-400">
+                <div className="rounded-r-xl border-l-4 border-brand-600 bg-brand-50/50 py-4 pl-6 pr-4 dark:bg-brand-900/20">
+                  <h3 className="mb-2 text-lg font-semibold text-brand-700">Mission</h3>
+                  <p className="text-body leading-relaxed text-neutral-600 dark:text-neutral-400">
                     To empower individuals and communities through education, healthcare, environmental
                     sustainability, mentorship, and emergency humanitarian response — creating pathways
                     to dignity, opportunity, and lasting change.
                   </p>
                 </div>
-                <div className="border-l-4 border-gold-500 pl-6">
-                  <h3 className="font-semibold text-lg mb-2 text-gold-700">Vision</h3>
-                  <p className="text-body text-neutral-600 dark:text-neutral-400">
+                <div className="rounded-r-xl border-l-4 border-gold-500 bg-gold-50/50 py-4 pl-6 pr-4 dark:bg-gold-900/10">
+                  <h3 className="mb-2 text-lg font-semibold text-gold-700">Vision</h3>
+                  <p className="text-body leading-relaxed text-neutral-600 dark:text-neutral-400">
                     A world where every individual — regardless of background, geography, or circumstance
                     — has access to the opportunities, healthcare, education, and support needed to
                     live with dignity and purpose.
                   </p>
                 </div>
               </div>
-              <div className="mt-8 flex gap-3">
+              <div className="mt-8 flex flex-wrap gap-3">
                 <Button asChild>
                   <Link href="/about/mission">Our Values &amp; Strategy</Link>
                 </Button>
@@ -122,128 +130,172 @@ export default function AboutPage() {
                   <Link href="/about/leadership">Meet Our Team</Link>
                 </Button>
               </div>
-            </div>
-            <div className="relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
-                <Image
-                  src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80"
-                  alt="AOF team members working with community"
-                  fill
-                  className="object-cover"
-                />
+            </SlideIn>
+
+            {/* Image — slide from right */}
+            <SlideIn from="right" delay={0.15}>
+              <div className="relative">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl">
+                  <Image
+                    src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80"
+                    alt="AOF team members working with community"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </div>
+                {/* Year badge */}
+                <ScaleIn delay={0.4}>
+                  <div className="absolute -bottom-6 -left-6 rounded-2xl bg-brand-700 p-6 text-white shadow-xl">
+                    <p className="font-display text-4xl font-bold">2018</p>
+                    <p className="mt-1 text-sm text-brand-200">Year founded</p>
+                  </div>
+                </ScaleIn>
+                {/* Impact badge */}
+                <ScaleIn delay={0.5}>
+                  <div className="absolute -right-4 -top-4 rounded-2xl bg-gold p-4 text-forest-dark shadow-xl">
+                    <p className="font-display text-2xl font-bold">127K+</p>
+                    <p className="mt-0.5 text-xs font-medium">Lives impacted</p>
+                  </div>
+                </ScaleIn>
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-brand-700 text-white rounded-2xl p-6 shadow-xl">
-                <p className="text-4xl font-bold font-display">2018</p>
-                <p className="text-brand-200 text-sm mt-1">Year founded</p>
-              </div>
-              <div className="absolute -top-4 -right-4 bg-gold-500 text-forest-900 rounded-2xl p-4 shadow-xl">
-                <p className="text-2xl font-bold">127K+</p>
-                <p className="text-xs font-medium mt-0.5">Lives impacted</p>
-              </div>
-            </div>
+            </SlideIn>
           </div>
         </div>
       </section>
 
       {/* Stats */}
-      <section className="bg-brand-900 dark:bg-brand-950 section">
+      <section className="section bg-brand-900 dark:bg-brand-950">
         <div className="container-xl">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {REACH_STATS.map(stat => {
+          <StaggerContainer className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+            {REACH_STATS.map((stat) => {
               const Icon = stat.icon
               return (
-                <div key={stat.label} className="text-center">
-                  <Icon className={`size-8 mx-auto mb-3 ${stat.color.replace('text-', 'text-')}`} />
-                  <p className="text-4xl font-bold text-white font-display">{stat.value}</p>
-                  <p className="text-brand-300 text-sm mt-1">{stat.label}</p>
-                </div>
+                <StaggerItem key={stat.label} direction="up">
+                  <div className="text-center">
+                    <Icon className={`mx-auto mb-3 h-8 w-8 ${stat.color}`} />
+                    <p className="font-display text-4xl font-bold text-white">
+                      <CountUp to={stat.to} suffix={stat.suffix} separator />
+                    </p>
+                    <p className="mt-1 text-sm text-brand-300">{stat.label}</p>
+                  </div>
+                </StaggerItem>
               )
             })}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Timeline */}
       <section className="section">
         <div className="container-xl">
-          <div className="text-center mb-16">
+          <FadeUp className="mb-16 text-center">
             <Badge variant="brand" className="mb-4">Our Journey</Badge>
             <h2 className="heading-2">Seven years of growing impact</h2>
-          </div>
+          </FadeUp>
+
           <div className="relative">
-            <div className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-px bg-brand-200 dark:bg-brand-800" aria-hidden />
-            <div className="space-y-12">
+            {/* Centre line */}
+            <div
+              className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-brand-200 via-brand-300 to-brand-100 dark:from-brand-800 dark:via-brand-700 dark:to-brand-900 lg:left-1/2"
+              aria-hidden
+            />
+
+            <div className="space-y-10">
               {TIMELINE.map((item, i) => (
-                <div
-                  key={item.year}
-                  className={`relative flex gap-8 lg:gap-16 ${
-                    i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                  }`}
-                >
-                  <div className="hidden lg:block flex-1" />
-                  {/* Year bubble */}
-                  <div className="flex-shrink-0 relative z-10">
-                    <div className="size-12 rounded-full bg-brand-700 text-white font-bold text-sm flex items-center justify-center shadow-lg border-4 border-white dark:border-neutral-950">
-                      {item.year.slice(2)}
+                <SlideIn key={item.year} from={i % 2 === 0 ? 'left' : 'right'} delay={0.05}>
+                  <div
+                    className={`relative flex gap-6 lg:gap-16 ${
+                      i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                    }`}
+                  >
+                    <div className="hidden lg:block lg:flex-1" />
+
+                    {/* Year bubble */}
+                    <div className="relative z-10 flex-shrink-0">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-white bg-brand-700 font-bold text-sm text-white shadow-lg dark:border-neutral-950">
+                        {item.year.slice(2)}
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 pb-4">
+                      <Card className="p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card">
+                        <Badge variant="brand" size="sm" className="mb-2">{item.year}</Badge>
+                        <h3 className="font-display mb-2 text-lg font-semibold">{item.title}</h3>
+                        <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+                          {item.description}
+                        </p>
+                      </Card>
                     </div>
                   </div>
-                  {/* Content */}
-                  <div className="flex-1 pb-4">
-                    <Card className="p-6">
-                      <Badge variant="brand" size="sm" className="mb-2">{item.year}</Badge>
-                      <h3 className="font-display font-semibold text-lg mb-2">{item.title}</h3>
-                      <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">{item.description}</p>
-                    </Card>
-                  </div>
-                </div>
+                </SlideIn>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Core Values preview */}
+      {/* Core Values */}
       <section className="section bg-cream-50 dark:bg-neutral-900/50">
         <div className="container-xl">
-          <div className="text-center mb-12">
+          <FadeUp className="mb-12 text-center">
             <Badge variant="gold" className="mb-4">What We Stand For</Badge>
             <h2 className="heading-2">Our Core Values</h2>
-            <p className="text-body max-w-2xl mx-auto mt-4 text-neutral-600 dark:text-neutral-400">
+            <p className="text-body mx-auto mt-4 max-w-2xl text-neutral-600 dark:text-neutral-400">
               Ten principles that guide every decision, programme, and partnership at the Ayotunde Oso Foundation.
             </p>
-          </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {CORE_VALUES.map(value => (
-              <Card key={value.name} hover className="text-center p-6">
-                <div className="text-3xl mb-3">{value.icon}</div>
-                <h3 className="font-semibold text-sm text-neutral-900 dark:text-neutral-100">{value.name}</h3>
-                <p className="text-xs text-neutral-500 mt-1 leading-relaxed">{value.description}</p>
-              </Card>
+          </FadeUp>
+
+          <StaggerContainer className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+            {CORE_VALUES.map((value) => (
+              <StaggerItem key={value.name} direction="scale">
+                <Card
+                  hover
+                  className="flex h-full flex-col items-center p-6 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card hover:ring-1 hover:ring-brand-200"
+                >
+                  <div className="mb-3 text-3xl">{value.icon}</div>
+                  <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
+                    {value.name}
+                  </h3>
+                  <p className="mt-1 text-xs leading-relaxed text-neutral-500">{value.description}</p>
+                </Card>
+              </StaggerItem>
             ))}
-          </div>
-          <div className="text-center mt-8">
+          </StaggerContainer>
+
+          <FadeUp delay={0.2} className="mt-10 text-center">
             <Button variant="outline" asChild>
-              <Link href="/about/mission">Read Our Full Mission Statement <ChevronRight className="size-4" /></Link>
+              <Link href="/about/mission">
+                Read Our Full Mission Statement
+                <ChevronRight className="ml-1 h-4 w-4" />
+              </Link>
             </Button>
-          </div>
+          </FadeUp>
         </div>
       </section>
 
       {/* CTA */}
       <section className="section bg-brand-700">
         <div className="container-xl text-center">
-          <h2 className="heading-2 text-white mb-4">Be Part of Our Story</h2>
-          <p className="text-brand-200 text-lg mb-8 max-w-2xl mx-auto">
-            Whether you donate, volunteer, partner, or simply spread the word — your involvement creates
-            the ripple that becomes a wave of change.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="gold" size="lg" asChild><Link href="/donate">Donate Today</Link></Button>
-            <Button variant="outline-white" size="lg" asChild><Link href="/volunteer">Volunteer</Link></Button>
-            <Button variant="ghost" size="lg" className="text-white hover:bg-brand-600" asChild>
-              <Link href="/partners">Partner With Us</Link>
-            </Button>
-          </div>
+          <FadeUp>
+            <h2 className="heading-2 mb-4 text-white">Be Part of Our Story</h2>
+            <p className="mx-auto mb-8 max-w-2xl text-lg text-brand-200">
+              Whether you donate, volunteer, partner, or simply spread the word — your involvement creates
+              the ripple that becomes a wave of change.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button variant="gold" size="lg" asChild>
+                <Link href="/donate">Donate Today</Link>
+              </Button>
+              <Button variant="outline-white" size="lg" asChild>
+                <Link href="/volunteer">Volunteer</Link>
+              </Button>
+              <Button variant="ghost" size="lg" className="text-white hover:bg-brand-600" asChild>
+                <Link href="/partners">Partner With Us</Link>
+              </Button>
+            </div>
+          </FadeUp>
         </div>
       </section>
     </main>
