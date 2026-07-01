@@ -36,18 +36,22 @@ describe('formatCurrency', () => {
 });
 
 describe('calculateImpact', () => {
-  it('returns education impact for education program', () => {
-    const result = calculateImpact(25000, 'education');
-    expect(result).toContain('scholarship');
+  it('returns impact value and unit for a known program type', () => {
+    const result = calculateImpact(25000, 'schoolDays');
+    expect(result.value).toBeGreaterThan(0);
+    expect(result.unit).toBeTruthy();
   });
 
   it('returns a fallback for unknown programs', () => {
-    const result = calculateImpact(10000, 'unknown-program');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const result = calculateImpact(10000, 'unknown-program' as any);
     expect(result).toBeTruthy();
+    expect(result.value).toBe(0);
   });
 
   it('handles large amounts', () => {
-    const result = calculateImpact(1000000, 'healthcare');
-    expect(result).toBeTruthy();
+    const result = calculateImpact(1000000, 'medicalVisits');
+    expect(result.value).toBeGreaterThan(0);
+    expect(result.unit).toBeTruthy();
   });
 });
