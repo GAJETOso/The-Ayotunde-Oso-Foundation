@@ -1,0 +1,217 @@
+import type { Metadata } from 'next'
+import { PageHero } from '@/components/shared/PageHero'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Progress } from '@/components/ui/progress'
+import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Impact Dashboard | The Ayotunde Oso Foundation',
+  description:
+    'Real-time impact data: lives changed, programmes delivered, funds deployed. Full transparency on how AOF is creating measurable change.',
+  openGraph: { title: 'Impact Dashboard | The Ayotunde Oso Foundation' },
+}
+
+const IMPACT_NUMBERS = [
+  { value: '127,400', label: 'Total Lives Impacted', delta: '+18% YoY', color: 'text-brand-700' },
+  { value: '$4.2M', label: 'Total Funds Deployed', delta: '+32% YoY', color: 'text-gold-700' },
+  { value: '8', label: 'Countries of Operation', delta: '+2 this year', color: 'text-emerald-700' },
+  { value: '2,340', label: 'Active Volunteers', delta: '+410 this year', color: 'text-blue-700' },
+  { value: '47', label: 'Partner Organisations', delta: '+12 this year', color: 'text-purple-700' },
+  { value: '312', label: 'Active Scholars', delta: '100% retained', color: 'text-brand-700' },
+]
+
+const PROGRAM_BREAKDOWN = [
+  { name: 'Education & Youth', beneficiaries: 45200, budget: 38, color: 'brand' as const },
+  { name: 'Healthcare', beneficiaries: 38100, budget: 29, color: 'success' as const },
+  { name: 'Mentorship', beneficiaries: 3200, budget: 12, color: 'gold' as const },
+  { name: 'Environment', beneficiaries: 9500, budget: 11, color: 'success' as const },
+  { name: 'Emergency Relief', beneficiaries: 31400, budget: 10, color: 'warning' as const },
+]
+
+const ANNUAL_DATA = [
+  { year: '2019', lives: 4200, funds: 320000 },
+  { year: '2020', lives: 18400, funds: 890000 },
+  { year: '2021', lives: 38700, funds: 1400000 },
+  { year: '2022', lives: 64200, funds: 2100000 },
+  { year: '2023', lives: 98600, funds: 3300000 },
+  { year: '2024', lives: 127400, funds: 4200000 },
+]
+
+const SDG_ALIGNMENT = [
+  { number: 1, title: 'No Poverty', programmes: ['Emergency Relief', 'Education'] },
+  { number: 3, title: 'Good Health', programmes: ['Healthcare'] },
+  { number: 4, title: 'Quality Education', programmes: ['Education', 'Mentorship'] },
+  { number: 6, title: 'Clean Water', programmes: ['Environment'] },
+  { number: 10, title: 'Reduced Inequalities', programmes: ['All Programmes'] },
+  { number: 13, title: 'Climate Action', programmes: ['Environment'] },
+  { number: 17, title: 'Partnerships', programmes: ['All Programmes'] },
+]
+
+export default function ImpactPage() {
+  return (
+    <main id="main-content">
+      <PageHero
+        title="Impact Dashboard"
+        subtitle="Full transparency on our reach, results, and resource deployment. Updated quarterly."
+        eyebrow="Accountability"
+        breadcrumbs={[{ label: 'Impact', href: '/impact' }]}
+        image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&q=80"
+        size="sm"
+      />
+
+      {/* Key Numbers */}
+      <section className="section">
+        <div className="container-xl">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <Badge variant="brand" className="mb-2">As of Q4 2024</Badge>
+              <h2 className="heading-2">Impact at a Glance</h2>
+            </div>
+            <Button variant="outline" asChild>
+              <Link href="/resources">Download Annual Report</Link>
+            </Button>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+            {IMPACT_NUMBERS.map(stat => (
+              <Card key={stat.label}>
+                <CardContent className="p-6">
+                  <p className={`text-4xl font-bold font-display ${stat.color}`}>{stat.value}</p>
+                  <p className="font-semibold text-neutral-800 dark:text-neutral-200 mt-1">{stat.label}</p>
+                  <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-1 font-medium">{stat.delta}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Year-over-Year Growth */}
+      <section className="section bg-neutral-50 dark:bg-neutral-900/50">
+        <div className="container-xl">
+          <div className="mb-8">
+            <Badge variant="brand" className="mb-2">Growth</Badge>
+            <h2 className="heading-2">Year-over-Year Progress</h2>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-neutral-200 dark:border-neutral-800">
+                  <th className="text-left py-3 px-4 font-semibold text-neutral-700 dark:text-neutral-300">Year</th>
+                  <th className="text-right py-3 px-4 font-semibold text-neutral-700 dark:text-neutral-300">Lives Impacted</th>
+                  <th className="text-right py-3 px-4 font-semibold text-neutral-700 dark:text-neutral-300">Funds Deployed</th>
+                  <th className="text-right py-3 px-4 hidden md:table-cell font-semibold text-neutral-700 dark:text-neutral-300">Growth</th>
+                </tr>
+              </thead>
+              <tbody>
+                {ANNUAL_DATA.map((row, i) => {
+                  const prev = ANNUAL_DATA[i - 1]
+                  const growth = prev ? Math.round(((row.lives - prev.lives) / prev.lives) * 100) : null
+                  return (
+                    <tr key={row.year} className="border-b border-neutral-100 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-800/50 transition-colors">
+                      <td className="py-3 px-4 font-bold text-neutral-900 dark:text-neutral-100">{row.year}</td>
+                      <td className="py-3 px-4 text-right text-neutral-700 dark:text-neutral-300">{row.lives.toLocaleString()}</td>
+                      <td className="py-3 px-4 text-right text-neutral-700 dark:text-neutral-300">${(row.funds / 1000000).toFixed(1)}M</td>
+                      <td className="py-3 px-4 text-right hidden md:table-cell">
+                        {growth !== null && (
+                          <span className="text-emerald-600 font-semibold">+{growth}%</span>
+                        )}
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Programme Breakdown */}
+      <section className="section">
+        <div className="container-xl">
+          <div className="mb-8">
+            <Badge variant="gold" className="mb-2">Allocation</Badge>
+            <h2 className="heading-2">Programme Breakdown</h2>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div className="space-y-6">
+              {PROGRAM_BREAKDOWN.map(p => (
+                <div key={p.name}>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-sm font-semibold">{p.name}</span>
+                    <div className="text-right">
+                      <span className="text-sm font-bold text-neutral-900 dark:text-neutral-100">{p.beneficiaries.toLocaleString()}</span>
+                      <span className="text-xs text-neutral-500 ml-1">beneficiaries</span>
+                    </div>
+                  </div>
+                  <Progress value={p.budget} label={`${p.budget}% of budget`} showValue color={p.color} />
+                </div>
+              ))}
+            </div>
+            <div className="space-y-4">
+              <h3 className="font-display font-semibold text-xl">Financial Summary</h3>
+              {[
+                { label: 'Total Revenue 2024', value: '$4.8M' },
+                { label: 'Programme Expenditure', value: '$4.2M (87.5%)' },
+                { label: 'Fundraising Costs', value: '$384K (8%)' },
+                { label: 'Administration', value: '$216K (4.5%)' },
+                { label: 'Reserve Fund', value: '$520K' },
+              ].map(row => (
+                <div key={row.label} className="flex justify-between py-3 border-b border-neutral-100 dark:border-neutral-800">
+                  <span className="text-sm text-neutral-600 dark:text-neutral-400">{row.label}</span>
+                  <span className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">{row.value}</span>
+                </div>
+              ))}
+              <p className="text-xs text-neutral-500 pt-2">Figures are unaudited estimates. Audited accounts available in the Annual Report.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SDG Alignment */}
+      <section className="section bg-brand-900 dark:bg-brand-950">
+        <div className="container-xl">
+          <div className="mb-8 text-center">
+            <Badge variant="gold" className="mb-2">Global Goals</Badge>
+            <h2 className="heading-2 text-white">UN Sustainable Development Goal Alignment</h2>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4">
+            {SDG_ALIGNMENT.map(sdg => (
+              <div key={sdg.number} className="bg-brand-800 rounded-2xl p-4 text-center">
+                <div className="text-3xl font-bold text-gold-400 mb-1">#{sdg.number}</div>
+                <p className="text-white text-xs font-semibold mb-2">{sdg.title}</p>
+                {sdg.programmes.map(p => (
+                  <span key={p} className="block text-[10px] text-brand-300">{p}</span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Transparency CTA */}
+      <section className="section">
+        <div className="container-xl">
+          <div className="grid lg:grid-cols-3 gap-6">
+            <Card className="p-6 text-center">
+              <h3 className="font-semibold mb-2">Annual Report</h3>
+              <p className="text-sm text-neutral-500 mb-4">Full financial statements, programme results, and auditor\'s report.</p>
+              <Button variant="outline" size="sm" asChild><Link href="/resources">Download PDF</Link></Button>
+            </Card>
+            <Card className="p-6 text-center bg-brand-700 border-brand-700">
+              <h3 className="font-semibold mb-2 text-white">Donate Transparently</h3>
+              <p className="text-sm text-brand-200 mb-4">See exactly how your donation is allocated before you give.</p>
+              <Button variant="gold" size="sm" asChild><Link href="/donate">Give Now</Link></Button>
+            </Card>
+            <Card className="p-6 text-center">
+              <h3 className="font-semibold mb-2">Verify Our Work</h3>
+              <p className="text-sm text-neutral-500 mb-4">CAC registration, EFCC clearance, and partner verifications.</p>
+              <Button variant="outline" size="sm" asChild><Link href="/about">Our Credentials</Link></Button>
+            </Card>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
+}

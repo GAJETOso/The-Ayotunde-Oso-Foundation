@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+          http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Core Pages -->
+  <url><loc>https://ayotundeosofouncation.org/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/about</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/about/founder</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/about/leadership</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/about/mission</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/donate</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/volunteer</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/impact</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Programs -->
+  <url><loc>https://ayotundeosofouncation.org/programs</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/programs/education</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/programs/healthcare</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/programs/mentorship</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/programs/environment</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/programs/emergency</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Community -->
+  <url><loc>https://ayotundeosofouncation.org/events</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/news</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/projects</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/campaigns</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/testimonials</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/partners</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Resources -->
+  <url><loc>https://ayotundeosofouncation.org/resources</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/resources/grants</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/careers</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/press</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/media</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/faq</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Legal -->
+  <url><loc>https://ayotundeosofouncation.org/privacy</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/terms</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/cookies</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/accessibility</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+
+</urlset>

@@ -1,0 +1,416 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  clerkId       String    @unique
+  email         String    @unique
+  firstName     String
+  lastName      String
+  imageUrl      String?
+  role          UserRole  @default(USER)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  donations        Donation[]
+  volunteer        Volunteer?
+  eventRegistrations EventRegistration[]
+  grantApplications  GrantApplication[]
+
+  @@index([clerkId])
+  @@index([email])
+}
+
+enum UserRole {
+  USER
+  DONOR
+  VOLUNTEER
+  STAFF
+  ADMIN
+}
+
+model Donation {
+  id                String          @id @default(cuid())
+  userId            String?
+  email             String
+  firstName         String
+  lastName          String
+  amount            Decimal         @db.Decimal(10, 2)
+  currency          String          @default("USD")
+  frequency         DonationFrequency @default(ONE_TIME)
+  paymentMethod     String
+  paymentIntentId   String?         @unique
+  paystackRef       String?         @unique
+  flutterwaveRef    String?         @unique
+  paypalOrderId     String?         @unique
+  status            DonationStatus  @default(PENDING)
+  programDesignation String?
+  dedicatedTo       String?
+  message           String?
+  anonymous         Boolean         @default(false)
+  receiptSent       Boolean         @default(false)
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+
+  user User? @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([email])
+  @@index([status])
+  @@index([createdAt])
+}
+
+enum DonationFrequency {
+  ONE_TIME
+  WEEKLY
+  MONTHLY
+  QUARTERLY
+  ANNUALLY
+}
+
+enum DonationStatus {
+  PENDING
+  PROCESSING
+  SUCCEEDED
+  FAILED
+  REFUNDED
+  CANCELLED
+}
+
+model Volunteer {
+  id                String              @id @default(cuid())
+  userId            String?             @unique
+  email             String              @unique
+  firstName         String
+  lastName          String
+  phone             String?
+  dateOfBirth       DateTime?
+  address           String?
+  city              String?
+  state             String?
+  country           String              @default("Nigeria")
+  occupation        String?
+  skills            String[]
+  interests         String[]
+  availability      String[]
+  hoursPerWeek      Int                 @default(4)
+  programs          String[]
+  motivation        String
+  emergencyName     String?
+  emergencyPhone    String?
+  backgroundCheck   Boolean             @default(false)
+  status            VolunteerStatus     @default(PENDING)
+  verifiedAt        DateTime?
+  notes             String?
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+
+  user User? @relation(fields: [userId], references: [id])
+
+  @@index([status])
+  @@index([email])
+}
+
+enum VolunteerStatus {
+  PENDING
+  REVIEWING
+  APPROVED
+  ACTIVE
+  INACTIVE
+  REJECTED
+}
+
+model Event {
+  id              String        @id @default(cuid())
+  slug            String        @unique
+  title           String
+  description     String
+  type            EventType     @default(COMMUNITY)
+  status          EventStatus   @default(UPCOMING)
+  startDate       DateTime
+  endDate         DateTime
+  location        String?
+  locationUrl     String?
+  isVirtual       Boolean       @default(false)
+  virtualLink     String?
+  imageUrl        String?
+  maxAttendees    Int?
+  registrationDeadline DateTime?
+  isFeatured      Boolean       @default(false)
+  tags            String[]
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  registrations EventRegistration[]
+
+  @@index([startDate])
+  @@index([status])
+  @@index([slug])
+}
+
+enum EventType {
+  CONFERENCE
+  WORKSHOP
+  OUTREACH
+  FUNDRAISER
+  COMMUNITY
+  VIRTUAL
+  TRAINING
+  GALA
+}
+
+enum EventStatus {
+  UPCOMING
+  ONGOING
+  COMPLETED
+  CANCELLED
+  POSTPONED
+}
+
+model EventRegistration {
+  id          String   @id @default(cuid())
+  eventId     String
+  userId      String?
+  email       String
+  firstName   String
+  lastName    String
+  phone       String?
+  notes       String?
+  attended    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  event Event @relation(fields: [eventId], references: [id])
+  user  User? @relation(fields: [userId], references: [id])
+
+  @@unique([eventId, email])
+  @@index([eventId])
+  @@index([email])
+}
+
+model Article {
+  id          String          @id @default(cuid())
+  slug        String          @unique
+  title       String
+  excerpt     String
+  content     String
+  category    ArticleCategory
+  imageUrl    String?
+  authorName  String
+  authorRole  String?
+  authorImage String?
+  readingTime Int             @default(5)
+  isFeatured  Boolean         @default(false)
+  isPublished Boolean         @default(false)
+  publishedAt DateTime?
+  tags        String[]
+  views       Int             @default(0)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  @@index([slug])
+  @@index([isPublished, publishedAt])
+  @@index([category])
+}
+
+enum ArticleCategory {
+  NEWS
+  IMPACT_STORY
+  PRESS_RELEASE
+  BLOG
+  REPORT
+  ANNOUNCEMENT
+}
+
+model Program {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  description String
+  imageUrl    String?
+  isActive    Boolean  @default(true)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  projects Project[]
+}
+
+model Project {
+  id              String        @id @default(cuid())
+  slug            String        @unique
+  title           String
+  description     String
+  programId       String?
+  status          ProjectStatus @default(PLANNING)
+  startDate       DateTime?
+  endDate         DateTime?
+  budget          Decimal?      @db.Decimal(14, 2)
+  raised          Decimal?      @db.Decimal(14, 2)
+  currency        String        @default("USD")
+  beneficiaries   Int           @default(0)
+  location        String?
+  imageUrl        String?
+  isFeatured      Boolean       @default(false)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  program Program? @relation(fields: [programId], references: [id])
+
+  @@index([programId])
+  @@index([status])
+}
+
+enum ProjectStatus {
+  PLANNING
+  ACTIVE
+  COMPLETED
+  PAUSED
+  CANCELLED
+}
+
+model Partner {
+  id          String      @id @default(cuid())
+  name        String
+  logoUrl     String?
+  website     String?
+  type        PartnerType @default(CORPORATE)
+  description String?
+  isFeatured  Boolean     @default(false)
+  order       Int         @default(0)
+  createdAt   DateTime    @default(now())
+}
+
+enum PartnerType {
+  CORPORATE
+  NGO
+  GOVERNMENT
+  ACADEMIC
+  MEDIA
+  INDIVIDUAL
+}
+
+model Campaign {
+  id          String         @id @default(cuid())
+  slug        String         @unique
+  title       String
+  description String
+  goal        Decimal        @db.Decimal(14, 2)
+  raised      Decimal        @default(0) @db.Decimal(14, 2)
+  currency    String         @default("USD")
+  status      CampaignStatus @default(ACTIVE)
+  imageUrl    String?
+  startDate   DateTime?
+  endDate     DateTime?
+  isFeatured  Boolean        @default(false)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  @@index([status])
+  @@index([slug])
+}
+
+enum CampaignStatus {
+  DRAFT
+  ACTIVE
+  PAUSED
+  COMPLETED
+  CANCELLED
+}
+
+model GrantApplication {
+  id                String      @id @default(cuid())
+  userId            String?
+  organizationName  String
+  contactName       String
+  email             String
+  phone             String?
+  website           String?
+  description       String
+  projectTitle      String
+  projectSummary    String
+  amountRequested   Decimal     @db.Decimal(14, 2)
+  currency          String      @default("USD")
+  projectDuration   String
+  targetBeneficiaries String
+  location          String
+  status            GrantStatus @default(SUBMITTED)
+  reviewNotes       String?
+  decisionDate      DateTime?
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+
+  user User? @relation(fields: [userId], references: [id])
+
+  @@index([status])
+  @@index([email])
+}
+
+enum GrantStatus {
+  SUBMITTED
+  UNDER_REVIEW
+  SHORTLISTED
+  APPROVED
+  REJECTED
+  FUNDED
+}
+
+model Testimonial {
+  id          String   @id @default(cuid())
+  name        String
+  role        String?
+  location    String?
+  imageUrl    String?
+  content     String
+  rating      Int      @default(5)
+  programId   String?
+  isFeatured  Boolean  @default(false)
+  isApproved  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  @@index([isFeatured, isApproved])
+}
+
+model NewsletterSubscriber {
+  id          String   @id @default(cuid())
+  email       String   @unique
+  firstName   String?
+  source      String?
+  isActive    Boolean  @default(true)
+  confirmedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([email])
+  @@index([isActive])
+}
+
+model ContactSubmission {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  phone       String?
+  subject     String
+  message     String
+  isRead      Boolean  @default(false)
+  repliedAt   DateTime?
+  createdAt   DateTime @default(now())
+
+  @@index([isRead])
+  @@index([createdAt])
+}
+
+model ImpactStat {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  label     String
+  value     Decimal  @db.Decimal(14, 2)
+  unit      String?
+  updatedAt DateTime @updatedAt
+}
