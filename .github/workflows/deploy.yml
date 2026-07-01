@@ -22,20 +22,23 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     environment:
       name: ${{ github.event.inputs.environment || 'production' }}
       url: ${{ steps.deploy.outputs.deployment-url }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --legacy-peer-deps
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
       - name: Run database migrations
         run: npx prisma migrate deploy
@@ -53,5 +56,4 @@ jobs:
 
       - name: Notify on failure
         if: failure()
-        run: |
-          echo "::error::Deployment failed. Check the logs above for details."
+        run: echo "::error::Deployment failed. Check the logs above for details."

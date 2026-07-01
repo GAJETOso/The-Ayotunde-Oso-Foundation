@@ -44,5 +44,7 @@
   <url><loc>https://ayotundeosofouncation.org/terms</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ayotundeosofouncation.org/cookies</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ayotundeosofouncation.org/accessibility</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/resources/reports</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ayotundeosofouncation.org/resources/financials</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
 </urlset>
