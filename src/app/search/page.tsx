@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import PageHero from '@/components/shared/PageHero';
+import { PageHero } from '@/components/shared/PageHero';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 

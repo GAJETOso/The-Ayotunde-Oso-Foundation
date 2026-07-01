@@ -114,13 +114,13 @@ export default function MissionPage() {
           </FadeUp>
           <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {CORE_VALUES.map((value, i) => (
-              <StaggerItem key={value.name} direction="scale">
+              <StaggerItem key={value.title} direction="scale">
                 <Card className="p-6 h-full group hover:border-brand-300 hover:shadow-card transition-all duration-300 hover:-translate-y-1">
                   <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-200">
                     {value.icon}
                   </div>
                   <h3 className="font-display font-bold text-base text-neutral-900 dark:text-neutral-100 mb-2">
-                    {value.name}
+                    {value.title}
                   </h3>
                   <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
                     {value.description}

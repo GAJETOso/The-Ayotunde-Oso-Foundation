@@ -92,7 +92,7 @@ export function useDonation() {
           firstName: state.firstName,
           lastName: state.lastName,
           message: state.message,
-          anonymous: state.anonymous,
+          isAnonymous: state.anonymous,
           dedicatedTo: state.dedicatedTo,
           programDesignation: state.programDesignation,
         } satisfies Partial<DonationFormData>),

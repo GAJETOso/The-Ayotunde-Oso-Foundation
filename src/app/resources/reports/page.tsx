@@ -135,10 +135,9 @@ export default function AnnualReportsPage() {
   return (
     <>
       <PageHero
-        label="Transparency"
-        title="Annual Reports"
-        highlight="& Impact Assessments"
-        description="We believe accountability is the foundation of trust. Every year, we publish comprehensive reports detailing exactly how your support translates into measurable change."
+        eyebrow="Transparency"
+        title="Annual Reports & Impact Assessments"
+        subtitle="We believe accountability is the foundation of trust. Every year, we publish comprehensive reports detailing exactly how your support translates into measurable change."
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Resources', href: '/resources' },

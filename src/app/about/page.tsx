@@ -249,14 +249,14 @@ export default function AboutPage() {
 
           <StaggerContainer className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
             {CORE_VALUES.map((value) => (
-              <StaggerItem key={value.name} direction="scale">
+              <StaggerItem key={value.title} direction="scale">
                 <Card
                   hover
                   className="flex h-full flex-col items-center p-6 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card hover:ring-1 hover:ring-brand-200"
                 >
                   <div className="mb-3 text-3xl">{value.icon}</div>
                   <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
-                    {value.name}
+                    {value.title}
                   </h3>
                   <p className="mt-1 text-xs leading-relaxed text-neutral-500">{value.description}</p>
                 </Card>

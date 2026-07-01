@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import PageHero from '@/components/shared/PageHero';
+import { PageHero } from '@/components/shared/PageHero';
 
 export const metadata: Metadata = {
   title: 'Terms of Service | The Ayotunde Oso Foundation',

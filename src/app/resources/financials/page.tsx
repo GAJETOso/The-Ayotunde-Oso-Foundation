@@ -94,10 +94,9 @@ export default function FinancialStatementsPage() {
   return (
     <>
       <PageHero
-        label="Transparency & Accountability"
-        title="Financial Statements"
-        highlight="& Disclosures"
-        description="We hold ourselves to the highest standard of financial transparency. Every dollar received and spent is documented, independently audited, and made publicly available."
+        eyebrow="Transparency & Accountability"
+        title="Financial Statements & Disclosures"
+        subtitle="We hold ourselves to the highest standard of financial transparency. Every dollar received and spent is documented, independently audited, and made publicly available."
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Resources', href: '/resources' },

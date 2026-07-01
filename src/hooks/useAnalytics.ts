@@ -6,7 +6,7 @@ import type { AnalyticsEvent, AnalyticsEventName } from '@/types'
 
 export function useAnalytics() {
   const track = React.useCallback((event: AnalyticsEvent) => {
-    trackEvent(event)
+    trackEvent(event.name, event.properties)
   }, [])
 
   const trackPageView = React.useCallback((url: string, title?: string) => {
@@ -33,14 +33,14 @@ export function useAnalytics() {
   const trackVolunteerSignup = React.useCallback((program?: string) => {
     track({
       name: 'volunteer_signup' as AnalyticsEventName,
-      properties: { program },
+      properties: program !== undefined ? { program } : undefined,
     })
   }, [track])
 
   const trackNewsletterSignup = React.useCallback((source?: string) => {
     track({
       name: 'newsletter_signup' as AnalyticsEventName,
-      properties: { source },
+      properties: source !== undefined ? { source } : undefined,
     })
   }, [track])
 

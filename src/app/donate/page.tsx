@@ -171,7 +171,7 @@ export default function DonatePage() {
                         className="mt-6 p-4 bg-brand-50 dark:bg-brand-900/20 rounded-xl border border-brand-200 dark:border-brand-800"
                       >
                         <p className="text-sm font-semibold text-brand-700 dark:text-brand-300">
-                          {formatCurrency(displayAmount, currency as 'USD')} can {impact}
+                          {formatCurrency(displayAmount, currency)} can provide {impact.value.toLocaleString()} {impact.unit}
                         </p>
                       </motion.div>
                     )}
