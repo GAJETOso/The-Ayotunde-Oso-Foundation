@@ -29,6 +29,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/testimonials`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.7 },
     { url: `${BASE_URL}/resources`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.8 },
     { url: `${BASE_URL}/resources/grants`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.8 },
+    { url: `${BASE_URL}/resources/reports`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.8 },
+    { url: `${BASE_URL}/resources/financials`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.7 },
     { url: `${BASE_URL}/careers`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.7 },
     { url: `${BASE_URL}/press`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.7 },
     { url: `${BASE_URL}/faq`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.7 },
