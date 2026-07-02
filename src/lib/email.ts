@@ -1,7 +1,5 @@
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 const FROM = 'The Ayotunde Oso Foundation <hello@ayotundeosofoundation.org>'
 const REPLY_TO = 'info@ayotundeosofoundation.org'
 
@@ -18,6 +16,7 @@ export async function sendEmail({
   text?: string
   replyTo?: string
 }) {
+  const resend = new Resend(process.env.RESEND_API_KEY)
   return resend.emails.send({
     from: FROM,
     to,
