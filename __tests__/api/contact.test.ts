@@ -3,29 +3,30 @@
  */
 import { POST } from '@/app/api/contact/route';
 import { NextRequest } from 'next/server';
-
-const mockCreate = jest.fn().mockResolvedValue({ id: 'test-id' });
-const mockRateLimit = jest.fn().mockResolvedValue({ allowed: true });
-const mockSendContactConfirmation = jest.fn().mockResolvedValue(undefined);
+import db from '@/lib/db';
+import { cache } from '@/lib/redis';
 
 jest.mock('@/lib/db', () => ({
   __esModule: true,
   default: {
     contactSubmission: {
-      create: mockCreate,
+      create: jest.fn().mockResolvedValue({ id: 'test-id' }),
     },
   },
 }));
 
 jest.mock('@/lib/redis', () => ({
   cache: {
-    rateLimit: mockRateLimit,
+    rateLimit: jest.fn().mockResolvedValue({ allowed: true }),
   },
 }));
 
 jest.mock('@/lib/email', () => ({
-  sendContactConfirmation: mockSendContactConfirmation,
+  sendContactConfirmation: jest.fn().mockResolvedValue(undefined),
 }));
+
+const mockCreate = db.contactSubmission.create as jest.Mock;
+const mockRateLimit = cache.rateLimit as jest.Mock;
 
 function makeRequest(body: unknown): NextRequest {
   return new NextRequest('http://localhost:3000/api/contact', {
@@ -39,6 +40,7 @@ describe('POST /api/contact', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     mockRateLimit.mockResolvedValue({ allowed: true });
+    mockCreate.mockResolvedValue({ id: 'test-id' });
   });
 
   it('returns 200 for valid submission', async () => {
