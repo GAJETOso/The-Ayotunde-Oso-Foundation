@@ -1,3 +1,6 @@
+/**
+ * @jest-environment node
+ */
 import { POST, DELETE } from '@/app/api/newsletter/route';
 import { NextRequest } from 'next/server';
 
