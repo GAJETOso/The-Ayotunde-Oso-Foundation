@@ -114,7 +114,7 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Run E2E tests
-        run: npx playwright test
+        run: npx playwright test --project=chromium
         env:
           PLAYWRIGHT_BASE_URL: 'http://localhost:3000'
           DATABASE_URL: 'postgresql://placeholder:placeholder@localhost:5432/aof'
