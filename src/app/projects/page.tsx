@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import PageHero from '@/components/shared/PageHero';
+import { PageHero } from '@/components/shared/PageHero';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -124,7 +124,7 @@ export default function ProjectsPage() {
         eyebrow="Our Projects"
         title="Where Work Meets Impact"
         subtitle="Every project is a deliberate effort to solve a specific problem in a specific community. Explore our active and completed initiatives across all program areas."
-        gradient="green"
+        gradient="brand"
         breadcrumbs={[{ label: 'Projects', href: '/projects' }]}
       />
 

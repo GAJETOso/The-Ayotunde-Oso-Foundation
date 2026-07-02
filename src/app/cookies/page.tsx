@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import PageHero from '@/components/shared/PageHero';
+import { PageHero } from '@/components/shared/PageHero';
 
 export const metadata: Metadata = {
   title: 'Cookie Policy | The Ayotunde Oso Foundation',
@@ -53,7 +53,7 @@ export default function CookiesPage() {
         eyebrow="Legal"
         title="Cookie Policy"
         subtitle={`Last updated: ${LAST_UPDATED}`}
-        gradient="green"
+        gradient="brand"
         breadcrumbs={[{ label: 'Cookie Policy', href: '/cookies' }]}
       />
 

@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
       },
     })
 
-    let responseData: Record<string, unknown> = { donationId: donation.id }
+    const responseData: Record<string, unknown> = { donationId: donation.id }
 
     if (data.paymentMethod === 'stripe') {
       const paymentIntent = await createPaymentIntent({

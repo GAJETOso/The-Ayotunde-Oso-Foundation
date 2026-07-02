@@ -192,18 +192,18 @@ export function KomaiChat({ onClose, onMinimize }: KomaiChatProps) {
                   exit={{ opacity: 0, y: 4, scale: 0.95 }}
                   className="absolute right-0 top-full mt-1 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl shadow-xl z-10 py-1 min-w-[130px]"
                 >
-                  {KOMAI_CONFIG.languages.map(lang => (
+                  {KOMAI_CONFIG.supportedLanguages.map(({ code, name }) => (
                     <button
-                      key={lang}
-                      onClick={() => { setLanguage(lang); setShowLangMenu(false) }}
+                      key={code}
+                      onClick={() => { setLanguage(code); setShowLangMenu(false) }}
                       className={cn(
                         'w-full text-left px-3 py-1.5 text-xs transition-colors',
-                        language === lang
+                        language === code
                           ? 'text-brand-700 font-semibold bg-brand-50'
                           : 'text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800'
                       )}
                     >
-                      {lang}
+                      {name}
                     </button>
                   ))}
                 </motion.div>

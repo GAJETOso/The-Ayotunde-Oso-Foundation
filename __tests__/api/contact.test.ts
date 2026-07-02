@@ -1,23 +1,30 @@
+/**
+ * @jest-environment node
+ */
 import { POST } from '@/app/api/contact/route';
 import { NextRequest } from 'next/server';
 
-// Mock dependencies
+const mockCreate = jest.fn().mockResolvedValue({ id: 'test-id' });
+const mockRateLimit = jest.fn().mockResolvedValue({ allowed: true });
+const mockSendContactConfirmation = jest.fn().mockResolvedValue(undefined);
+
 jest.mock('@/lib/db', () => ({
-  prisma: {
+  __esModule: true,
+  default: {
     contactSubmission: {
-      create: jest.fn().mockResolvedValue({ id: 'test-id' }),
+      create: mockCreate,
     },
   },
 }));
 
 jest.mock('@/lib/redis', () => ({
   cache: {
-    rateLimit: jest.fn().mockResolvedValue(false),
+    rateLimit: mockRateLimit,
   },
 }));
 
 jest.mock('@/lib/email', () => ({
-  sendContactConfirmation: jest.fn().mockResolvedValue(undefined),
+  sendContactConfirmation: mockSendContactConfirmation,
 }));
 
 function makeRequest(body: unknown): NextRequest {
@@ -29,7 +36,10 @@ function makeRequest(body: unknown): NextRequest {
 }
 
 describe('POST /api/contact', () => {
-  beforeEach(() => jest.clearAllMocks());
+  beforeEach(() => {
+    jest.clearAllMocks();
+    mockRateLimit.mockResolvedValue({ allowed: true });
+  });
 
   it('returns 200 for valid submission', async () => {
     const req = makeRequest({
@@ -37,51 +47,46 @@ describe('POST /api/contact', () => {
       email: 'test@example.com',
       subject: 'Test Subject',
       message: 'This is a test message that is long enough to pass validation.',
-      department: 'GENERAL',
     });
     const res = await POST(req);
     expect(res.status).toBe(200);
   });
 
-  it('returns 422 for missing required fields', async () => {
+  it('returns 400 for missing required fields', async () => {
     const req = makeRequest({ name: 'Test' });
     const res = await POST(req);
-    expect(res.status).toBe(422);
+    expect(res.status).toBe(400);
   });
 
-  it('returns 422 for invalid email', async () => {
+  it('returns 400 for invalid email', async () => {
     const req = makeRequest({
       name: 'Test User',
       email: 'not-an-email',
       subject: 'Test',
       message: 'Long enough message for validation purposes here.',
-      department: 'GENERAL',
     });
     const res = await POST(req);
-    expect(res.status).toBe(422);
+    expect(res.status).toBe(400);
   });
 
-  it('returns 422 for message too short', async () => {
+  it('returns 400 for message too short', async () => {
     const req = makeRequest({
       name: 'Test User',
       email: 'test@example.com',
       subject: 'Test',
       message: 'Too short',
-      department: 'GENERAL',
     });
     const res = await POST(req);
-    expect(res.status).toBe(422);
+    expect(res.status).toBe(400);
   });
 
   it('returns 429 when rate limit is exceeded', async () => {
-    const { cache } = require('@/lib/redis');
-    cache.rateLimit.mockResolvedValueOnce(true);
+    mockRateLimit.mockResolvedValueOnce({ allowed: false });
     const req = makeRequest({
       name: 'Test User',
       email: 'test@example.com',
       subject: 'Test Subject',
       message: 'This is a test message that is long enough.',
-      department: 'GENERAL',
     });
     const res = await POST(req);
     expect(res.status).toBe(429);

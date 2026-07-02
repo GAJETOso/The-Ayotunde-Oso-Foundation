@@ -4,6 +4,13 @@ import Link from 'next/link'
 import { PageHero } from '@/components/shared/PageHero'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import {
+  FadeUp,
+  SlideIn,
+  StaggerContainer,
+  StaggerItem,
+} from '@/components/ui/animations'
 import { Linkedin, Twitter, Mail } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -125,24 +132,36 @@ const ADVISORS: Leader[] = [
 
 function LeaderCard({ person }: { person: Leader }) {
   return (
-    <Card hover className="overflow-hidden">
+    <Card hover className="overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
       <div className="relative h-64">
-        <Image src={person.image} alt={person.name} fill className="object-cover" />
+        <Image src={person.image} alt={person.name} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
         {(person.linkedin || person.twitter || person.email) && (
           <div className="absolute bottom-3 right-3 flex gap-2">
             {person.linkedin && (
-              <Link href={person.linkedin} className="size-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/40 transition-colors" aria-label="LinkedIn">
+              <Link
+                href={person.linkedin}
+                className="size-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/40 transition-colors"
+                aria-label="LinkedIn"
+              >
                 <Linkedin className="size-3.5" />
               </Link>
             )}
             {person.twitter && (
-              <Link href={person.twitter} className="size-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/40 transition-colors" aria-label="Twitter">
+              <Link
+                href={person.twitter}
+                className="size-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/40 transition-colors"
+                aria-label="Twitter"
+              >
                 <Twitter className="size-3.5" />
               </Link>
             )}
             {person.email && (
-              <Link href={`mailto:${person.email}`} className="size-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/40 transition-colors" aria-label="Email">
+              <Link
+                href={`mailto:${person.email}`}
+                className="size-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/40 transition-colors"
+                aria-label="Email"
+              >
                 <Mail className="size-3.5" />
               </Link>
             )}
@@ -163,7 +182,7 @@ export default function LeadershipPage() {
     <main id="main-content">
       <PageHero
         title="Our Leadership"
-        subtitle="Experienced, diverse, and deeply committed leaders guiding AOF\'s mission across every level of the organisation."
+        subtitle="Experienced, diverse, and deeply committed leaders guiding AOF's mission across every level of the organisation."
         eyebrow="The Team"
         breadcrumbs={[
           { label: 'About', href: '/about' },
@@ -175,57 +194,80 @@ export default function LeadershipPage() {
       {/* Board */}
       <section className="section">
         <div className="container-xl">
-          <div className="mb-12">
+          <SlideIn from="left" className="mb-12">
             <Badge variant="brand" className="mb-3">Governance</Badge>
             <h2 className="heading-2">Board of Trustees</h2>
             <p className="text-body max-w-2xl mt-3 text-neutral-600 dark:text-neutral-400">
-              Our Board provides strategic oversight, fiduciary accountability, and institutional wisdom to ensure AOF fulfils its mission with integrity.
+              Our Board provides strategic oversight, fiduciary accountability, and institutional wisdom
+              to ensure AOF fulfils its mission with integrity.
             </p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {BOARD.map(p => <LeaderCard key={p.name} person={p} />)}
-          </div>
+          </SlideIn>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {BOARD.map((p) => (
+              <StaggerItem key={p.name} direction="scale">
+                <LeaderCard person={p} />
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Executive */}
       <section className="section bg-neutral-50 dark:bg-neutral-900/50">
         <div className="container-xl">
-          <div className="mb-12">
+          <SlideIn from="left" className="mb-12">
             <Badge variant="gold" className="mb-3">Operations</Badge>
             <h2 className="heading-2">Executive Team</h2>
             <p className="text-body max-w-2xl mt-3 text-neutral-600 dark:text-neutral-400">
-              Day-to-day leadership with deep field experience, sector expertise, and an unyielding drive for results.
+              Day-to-day leadership with deep field experience, sector expertise, and an unyielding
+              drive for results.
             </p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {EXECUTIVE.map(p => <LeaderCard key={p.name} person={p} />)}
-          </div>
+          </SlideIn>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {EXECUTIVE.map((p) => (
+              <StaggerItem key={p.name} direction="scale">
+                <LeaderCard person={p} />
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Advisors */}
       <section className="section">
         <div className="container-xl">
-          <div className="mb-12">
+          <FadeUp className="mb-12">
             <Badge variant="secondary" className="mb-3">Expert Guidance</Badge>
             <h2 className="heading-2">Advisory Council</h2>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-6">
-            {ADVISORS.map(p => <LeaderCard key={p.name} person={p} />)}
-          </div>
+          </FadeUp>
+          <StaggerContainer className="grid sm:grid-cols-3 gap-6">
+            {ADVISORS.map((p) => (
+              <StaggerItem key={p.name} direction="scale">
+                <LeaderCard person={p} />
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Join */}
       <section className="section bg-brand-700">
         <div className="container-xl text-center">
-          <h2 className="heading-2 text-white mb-4">Join Our Team</h2>
-          <p className="text-brand-200 mb-8 max-w-xl mx-auto">We are always looking for passionate individuals to join our staff, volunteer corps, or advisory network.</p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/careers" className="bg-gold-500 text-forest-900 px-8 py-3 rounded-xl font-semibold hover:bg-gold-400 transition-colors">View Open Positions</Link>
-            <Link href="/volunteer" className="border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white/10 transition-colors">Volunteer With Us</Link>
-          </div>
+          <FadeUp>
+            <h2 className="heading-2 text-white mb-4">Join Our Team</h2>
+            <p className="text-brand-200 mb-8 max-w-xl mx-auto">
+              We are always looking for passionate individuals to join our staff, volunteer corps,
+              or advisory network.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button variant="gold" size="lg" asChild>
+                <Link href="/careers">View Open Positions</Link>
+              </Button>
+              <Button variant="outline-white" size="lg" asChild>
+                <Link href="/volunteer">Volunteer With Us</Link>
+              </Button>
+            </div>
+          </FadeUp>
         </div>
       </section>
     </main>

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import PageHero from '@/components/shared/PageHero';
+import { PageHero } from '@/components/shared/PageHero';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
@@ -41,7 +41,7 @@ export default function MediaPage() {
         eyebrow="Media Gallery"
         title="Stories in Pictures"
         subtitle="A visual record of AOF’s work across communities. Every photo represents a life touched, a community strengthened, and hope realized."
-        gradient="green"
+        gradient="brand"
         breadcrumbs={[{ label: 'Media', href: '/media' }]}
       />
 

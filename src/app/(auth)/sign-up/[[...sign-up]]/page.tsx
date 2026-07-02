@@ -1,7 +1,7 @@
 import { SignUp } from '@clerk/nextjs';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import AOFLogo from '@/components/shared/AOFLogo';
+import { AOFLogo } from '@/components/shared/AOFLogo';
 
 export const metadata: Metadata = {
   title: 'Create Account | The Ayotunde Oso Foundation',

@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
 import { Calendar, MapPin, Clock, Users, ArrowRight, Video } from 'lucide-react'
+import { FadeUp, SlideIn, StaggerContainer, StaggerItem } from '@/components/ui/animations'
 
 export const metadata: Metadata = {
   title: 'Events | The Ayotunde Oso Foundation',
@@ -26,7 +27,7 @@ const EVENTS = [
   {
     id: '2', slug: 'education-summit-abuja', type: 'CONFERENCE', status: 'UPCOMING',
     title: 'Education for All Summit — Abuja',
-    description: 'Two-day policy and practice conference convening educators, government officials, civil society leaders, and community voices around Nigeria\'s education crisis.',
+    description: "Two-day policy and practice conference convening educators, government officials, civil society leaders, and community voices around Nigeria's education crisis.",
     date: 'Thur–Fri, 10–11 April 2025', time: '9:00 AM – 5:00 PM WAT',
     location: 'International Conference Centre, Abuja',
     image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80',
@@ -93,12 +94,12 @@ export default function EventsPage() {
         <div className="container-xl">
           {/* Featured Event */}
           {featured && (
-            <div className="mb-12">
+            <FadeUp className="mb-12">
               <Badge variant="gold" className="mb-4">Featured Event</Badge>
-              <Card className="overflow-hidden">
+              <Card className="overflow-hidden transition-all duration-300 hover:shadow-card">
                 <div className="grid lg:grid-cols-2">
                   <div className="relative h-64 lg:h-auto">
-                    <Image src={featured.image} alt={featured.title} fill className="object-cover" />
+                    <Image src={featured.image} alt={featured.title} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
                     <div className="absolute top-4 left-4">
                       <span className={`px-3 py-1 rounded-full text-xs font-bold ${TYPE_COLORS[featured.type] || 'bg-neutral-100 text-neutral-700'}`}>
                         {featured.type}
@@ -139,17 +140,19 @@ export default function EventsPage() {
                   </div>
                 </div>
               </Card>
-            </div>
+            </FadeUp>
           )}
 
           {/* All Upcoming */}
-          <div>
-            <h2 className="heading-2 mb-6">Upcoming Events</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {upcoming.map(event => (
-                <Card key={event.id} hover className="overflow-hidden flex flex-col">
+          <SlideIn from="left" className="mb-6">
+            <h2 className="heading-2">Upcoming Events</h2>
+          </SlideIn>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {upcoming.map(event => (
+              <StaggerItem key={event.id} direction="scale">
+                <Card hover className="overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
                   <div className="relative h-48">
-                    <Image src={event.image} alt={event.title} fill className="object-cover" />
+                    <Image src={event.image} alt={event.title} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                     <div className="absolute top-3 left-3 flex gap-2">
                       <span className={`px-2.5 py-1 rounded-full text-xs font-bold ${TYPE_COLORS[event.type] || 'bg-neutral-100 text-neutral-700'}`}>
                         {event.type}
@@ -177,9 +180,9 @@ export default function EventsPage() {
                     </Button>
                   </div>
                 </Card>
-              ))}
-            </div>
-          </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
       </section>
     </main>

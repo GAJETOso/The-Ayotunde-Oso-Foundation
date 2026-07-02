@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import PageHero from '@/components/shared/PageHero';
+import { PageHero } from '@/components/shared/PageHero';
 
 export const metadata: Metadata = {
   title: 'Accessibility Statement | The Ayotunde Oso Foundation',
@@ -16,7 +16,7 @@ export default function AccessibilityPage() {
         eyebrow="Legal"
         title="Accessibility Statement"
         subtitle={`Last updated: ${LAST_UPDATED}`}
-        gradient="green"
+        gradient="brand"
         breadcrumbs={[{ label: 'Accessibility', href: '/accessibility' }]}
       />
 

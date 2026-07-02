@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import PageHero from '@/components/shared/PageHero';
+import { PageHero } from '@/components/shared/PageHero';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -74,7 +74,7 @@ export default async function EventPage({ params }: Props) {
         eyebrow="Event"
         title={event.title}
         subtitle={event.description}
-        gradient="green"
+        gradient="brand"
         breadcrumbs={[
           { label: 'Events', href: '/events' },
           { label: event.title, href: `/events/${slug}` },

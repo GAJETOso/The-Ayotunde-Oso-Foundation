@@ -19,6 +19,6 @@ describe('Card', () => {
 
   it('applies hover styles when hover prop is true', () => {
     const { container } = render(<Card hover>Hoverable Card</Card>);
-    expect(container.firstChild).toHaveClass('hover:shadow-lg');
+    expect(container.firstChild).toHaveClass('hover:shadow-card-hover');
   });
 });

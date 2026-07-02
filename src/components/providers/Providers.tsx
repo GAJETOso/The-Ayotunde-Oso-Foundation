@@ -4,7 +4,7 @@ import type { ReactNode } from 'react'
 import { ThemeProvider } from 'next-themes'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { useState } from 'react'
-import { Toaster } from '@/components/ui/toaster'
+import { Toaster } from '@/components/ui/toast'
 
 export function Providers({ children }: { children: ReactNode }) {
   const [queryClient] = useState(

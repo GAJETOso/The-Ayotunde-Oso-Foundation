@@ -1,7 +1,8 @@
 import Link from 'next/link'
-import { Heart, Mail, Phone, MapPin, ExternalLink } from 'lucide-react'
+import { Heart, Mail, Phone, MapPin } from 'lucide-react'
 import { AOFLogo } from '@/components/shared/AOFLogo'
 import { FOUNDATION } from '@/lib/constants'
+import { FooterNewsletter } from './FooterNewsletter'
 
 const FOOTER_LINKS = {
   organization: [
@@ -239,23 +240,7 @@ export function Footer() {
                 delivered to your inbox.
               </p>
             </div>
-            <form
-              className="flex w-full max-w-md flex-col gap-3 sm:flex-row"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="flex-1 rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20"
-                aria-label="Email address for newsletter"
-              />
-              <button
-                type="submit"
-                className="whitespace-nowrap rounded-xl bg-gold px-6 py-3 text-sm font-semibold text-forest-dark transition-all hover:bg-gold-light"
-              >
-                Subscribe
-              </button>
-            </form>
+            <FooterNewsletter />
           </div>
         </div>
       </div>

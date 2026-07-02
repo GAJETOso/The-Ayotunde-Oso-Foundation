@@ -1,14 +1,14 @@
-import { Metadata } from 'next';
-import Link from 'next/link';
-import PageHero from '@/components/shared/PageHero';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { PageHero } from '@/components/shared/PageHero'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
+import { FadeUp, StaggerContainer, StaggerItem } from '@/components/ui/animations'
 
 export const metadata: Metadata = {
   title: 'Resources | The Ayotunde Oso Foundation',
   description: 'Access reports, guides, grant information, toolkits, and other resources from The Ayotunde Oso Foundation.',
-};
+}
 
 const RESOURCE_CATEGORIES = [
   {
@@ -77,73 +77,77 @@ const RESOURCE_CATEGORIES = [
     ],
     cta: { label: 'Visit Press Page', href: '/press' },
   },
-];
+]
 
 const TYPE_COLORS: Record<string, string> = {
   PDF: 'bg-red-100 text-red-700',
-  XLSX: 'bg-green-100 text-green-700',
+  XLSX: 'bg-emerald-100 text-emerald-700',
   ZIP: 'bg-purple-100 text-purple-700',
   DOCX: 'bg-blue-100 text-blue-700',
-};
+}
 
 export default function ResourcesPage() {
   return (
-    <main className="min-h-screen">
+    <main id="main-content">
       <PageHero
         eyebrow="Resources"
         title="Knowledge Shared, Impact Multiplied"
         subtitle="We believe in radical transparency. Access our reports, toolkits, grant information, and media assets — all publicly available because accountability is core to who we are."
-        gradient="green"
         breadcrumbs={[{ label: 'Resources', href: '/resources' }]}
       />
 
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="section">
+        <div className="container-xl">
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {RESOURCE_CATEGORIES.map((cat) => (
-              <Card key={cat.title} className="border hover:shadow-md transition-shadow">
-                <CardContent className="p-6">
-                  <div className="text-3xl mb-3">{cat.icon}</div>
-                  <h2 className="text-lg font-bold text-gray-900 mb-2">{cat.title}</h2>
-                  <p className="text-sm text-gray-600 mb-5">{cat.description}</p>
-                  <ul className="space-y-3 mb-5">
-                    {cat.resources.map((res) => (
-                      <li key={res.title}>
-                        <a
-                          href={res.href}
-                          className="flex items-center gap-3 text-sm hover:text-brand-green transition-colors group"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <span className={`text-xs px-1.5 py-0.5 rounded font-mono font-medium flex-shrink-0 ${TYPE_COLORS[res.type] || 'bg-gray-100 text-gray-600'}`}>{res.type}</span>
-                          <span className="flex-1 text-gray-700 group-hover:text-brand-green">{res.title}</span>
-                          <span className="text-gray-400 text-xs flex-shrink-0">{res.size}</span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                  {cat.cta && (
-                    <Button variant="outline" size="sm" asChild className="w-full">
-                      <Link href={cat.cta.href}>{cat.cta.label}</Link>
-                    </Button>
-                  )}
-                </CardContent>
-              </Card>
+              <StaggerItem key={cat.title} direction="scale">
+                <Card className="h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
+                  <CardContent className="p-6 h-full flex flex-col">
+                    <div className="text-3xl mb-3">{cat.icon}</div>
+                    <h2 className="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-2">{cat.title}</h2>
+                    <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-5">{cat.description}</p>
+                    <ul className="space-y-3 mb-5 flex-1">
+                      {cat.resources.map((res) => (
+                        <li key={res.title}>
+                          <a
+                            href={res.href}
+                            className="flex items-center gap-3 text-sm hover:text-brand-700 dark:hover:text-brand-400 transition-colors group"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <span className={`text-xs px-1.5 py-0.5 rounded font-mono font-medium flex-shrink-0 ${TYPE_COLORS[res.type] || 'bg-neutral-100 text-neutral-600'}`}>{res.type}</span>
+                            <span className="flex-1 text-neutral-700 dark:text-neutral-300 group-hover:text-brand-700 dark:group-hover:text-brand-400">{res.title}</span>
+                            <span className="text-neutral-400 text-xs flex-shrink-0">{res.size}</span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                    {cat.cta && (
+                      <Button variant="outline" size="sm" asChild className="w-full mt-auto">
+                        <Link href={cat.cta.href}>{cat.cta.label}</Link>
+                      </Button>
+                    )}
+                  </CardContent>
+                </Card>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
-      {/* Newsletter CTA */}
-      <section className="py-16 bg-cream-50">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Stay Informed</h2>
-          <p className="text-gray-600 mb-8 max-w-md mx-auto">Subscribe to our newsletter to receive new reports, toolkits, and resources directly in your inbox.</p>
-          <Button variant="default" size="lg" asChild>
-            <Link href="/#newsletter">Subscribe to Newsletter</Link>
-          </Button>
+      <section className="section bg-cream-50 dark:bg-neutral-900/50">
+        <div className="container-xl text-center">
+          <FadeUp>
+            <h2 className="heading-2 mb-4">Stay Informed</h2>
+            <p className="text-neutral-600 dark:text-neutral-400 mb-8 max-w-md mx-auto">
+              Subscribe to our newsletter to receive new reports, toolkits, and resources directly in your inbox.
+            </p>
+            <Button variant="default" size="lg" asChild>
+              <Link href="/#newsletter">Subscribe to Newsletter</Link>
+            </Button>
+          </FadeUp>
         </div>
       </section>
     </main>
-  );
+  )
 }

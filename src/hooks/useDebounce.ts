@@ -16,7 +16,7 @@ export function useDebouncedCallback<T extends (...args: unknown[]) => unknown>(
   delay: number = 300
 ): T {
   const callbackRef = React.useRef(callback)
-  const timerRef = React.useRef<ReturnType<typeof setTimeout>>()
+  const timerRef = React.useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
 
   React.useLayoutEffect(() => {
     callbackRef.current = callback

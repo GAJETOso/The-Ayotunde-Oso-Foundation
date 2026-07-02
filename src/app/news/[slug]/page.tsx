@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import PageHero from '@/components/shared/PageHero';
+import { PageHero } from '@/components/shared/PageHero';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
@@ -86,7 +86,7 @@ export default async function ArticlePage({ params }: Props) {
         eyebrow={article.category}
         title={article.title}
         subtitle={article.excerpt}
-        gradient="green"
+        gradient="brand"
         breadcrumbs={[
           { label: 'News', href: '/news' },
           { label: article.title, href: `/news/${slug}` },

@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import PageHero from '@/components/shared/PageHero';
+import { PageHero } from '@/components/shared/PageHero';
 
 export const metadata: Metadata = {
   title: 'Terms of Service | The Ayotunde Oso Foundation',
@@ -16,7 +16,7 @@ export default function TermsPage() {
         eyebrow="Legal"
         title="Terms of Service"
         subtitle={`Last updated: ${LAST_UPDATED}`}
-        gradient="green"
+        gradient="brand"
         breadcrumbs={[{ label: 'Terms of Service', href: '/terms' }]}
       />
 
