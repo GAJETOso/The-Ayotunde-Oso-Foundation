@@ -142,87 +142,90 @@ export const viewport: Viewport = {
   colorScheme: 'light dark',
 }
 
+const clerkKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY ?? ''
+const isClerkEnabled = clerkKey.startsWith('pk_') && clerkKey.length > 24 && !clerkKey.includes('placeholder')
+
 export default function RootLayout({
   children,
 }: {
   children: ReactNode
 }) {
-  return (
-    <ClerkProvider>
-      <html
-        lang="en"
-        className={`${inter.variable} ${playfair.variable}`}
-        suppressHydrationWarning
-      >
-        <head>
-          {/* JSON-LD Structured Data */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                '@context': 'https://schema.org',
-                '@type': 'NGO',
-                name: FOUNDATION.name,
-                alternateName: 'AOF',
-                url: siteUrl,
-                logo: `${siteUrl}/logo.svg`,
-                description: FOUNDATION.mission,
-                foundingDate: String(FOUNDATION.founded),
-                address: {
-                  '@type': 'PostalAddress',
-                  streetAddress: FOUNDATION.address.street,
-                  addressLocality: FOUNDATION.address.city,
-                  addressRegion: FOUNDATION.address.state,
-                  addressCountry: 'NG',
-                },
-                contactPoint: {
-                  '@type': 'ContactPoint',
-                  telephone: FOUNDATION.phone,
-                  contactType: 'customer service',
-                  email: FOUNDATION.email,
-                  availableLanguage: ['English', 'Yoruba', 'Hausa', 'Igbo'],
-                },
-                sameAs: Object.values(FOUNDATION.socialMedia),
-                knowsAbout: [
-                  'Education',
-                  'Healthcare',
-                  'Environmental Sustainability',
-                  'Youth Mentorship',
-                  'Emergency Relief',
-                ],
-                areaServed: ['Nigeria', 'West Africa', 'Africa'],
-              }),
-            }}
-          />
-          {/* Preconnect to external domains */}
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin="anonymous"
-          />
-          <link rel="preconnect" href="https://images.unsplash.com" />
-        </head>
-        <body className="flex min-h-dvh flex-col antialiased">
-          <Providers>
-            <a
-              href="#main-content"
-              className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-brand-900 focus:px-4 focus:py-2 focus:text-white focus:ring-2 focus:ring-white"
-            >
-              Skip to main content
-            </a>
-            <Header />
-            <main id="main-content" className="flex-1">
-              {children}
-            </main>
-            <Footer />
-            <KomaiWidget />
-            <CookieConsent />
-          </Providers>
-          <Analytics />
-          <SpeedInsights />
-        </body>
-      </html>
-    </ClerkProvider>
+  const inner = (
+    <html
+      lang="en"
+      className={`${inter.variable} ${playfair.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'NGO',
+              name: FOUNDATION.name,
+              alternateName: 'AOF',
+              url: siteUrl,
+              logo: `${siteUrl}/logo.svg`,
+              description: FOUNDATION.mission,
+              foundingDate: String(FOUNDATION.founded),
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: FOUNDATION.address.street,
+                addressLocality: FOUNDATION.address.city,
+                addressRegion: FOUNDATION.address.state,
+                addressCountry: 'NG',
+              },
+              contactPoint: {
+                '@type': 'ContactPoint',
+                telephone: FOUNDATION.phone,
+                contactType: 'customer service',
+                email: FOUNDATION.email,
+                availableLanguage: ['English', 'Yoruba', 'Hausa', 'Igbo'],
+              },
+              sameAs: Object.values(FOUNDATION.socialMedia),
+              knowsAbout: [
+                'Education',
+                'Healthcare',
+                'Environmental Sustainability',
+                'Youth Mentorship',
+                'Emergency Relief',
+              ],
+              areaServed: ['Nigeria', 'West Africa', 'Africa'],
+            }),
+          }}
+        />
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="preconnect" href="https://images.unsplash.com" />
+      </head>
+      <body className="flex min-h-dvh flex-col antialiased">
+        <Providers>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-brand-900 focus:px-4 focus:py-2 focus:text-white focus:ring-2 focus:ring-white"
+          >
+            Skip to content
+          </a>
+          <Header />
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+          <KomaiWidget />
+          <CookieConsent />
+        </Providers>
+        <Analytics />
+        <SpeedInsights />
+      </body>
+    </html>
   )
+
+  return isClerkEnabled ? <ClerkProvider>{inner}</ClerkProvider> : inner
 }

@@ -28,60 +28,48 @@ export const metadata: Metadata = {
 
 const TIMELINE = [
   {
-    year: '2018',
-    title: 'A Vision Takes Root',
-    description:
-      'Ayotunde Oso begins informal mentorship sessions in Lagos, recognising that access to opportunity — not lack of talent — was the barrier facing most young people.',
-  },
-  {
-    year: '2019',
+    year: 'May 2025',
     title: 'Foundation Established',
     description:
-      'The Ayotunde Oso Foundation is formally registered, with a five-programme mandate: Education, Healthcare, Mentorship, Environment, and Emergency Relief.',
+      'The Ayotunde Oso Foundation is formally registered with the CAC in Lagos, launching with a five-programme mandate: Education, Healthcare, Mentorship, Environment, and Emergency Relief.',
   },
   {
-    year: '2020',
-    title: 'Pandemic Response',
+    year: 'Jul 2025',
+    title: 'First Community Outreach',
     description:
-      'During COVID-19, AOF pivoted to emergency relief — distributing food, PPE, and educational materials to over 8,000 families across three states.',
+      'AOF conducts its inaugural free medical outreach in Mushin, Lagos, screening over 200 community members and distributing essential health supplies.',
   },
   {
-    year: '2021',
-    title: 'First Scholarship Cohort',
+    year: 'Sep 2025',
+    title: 'Education Programme Launches',
     description:
-      'Launched the AOF Scholars Programme, awarding full scholarships to 47 students from underserved communities. 100% progressed to higher education.',
+      'The AOF Education initiative awards its first set of scholarships to 12 students from underserved communities in Lagos and Ogun states.',
   },
   {
-    year: '2022',
-    title: 'Healthcare Expansion',
+    year: 'Nov 2025',
+    title: 'Youth Mentorship Cohort',
     description:
-      'Mobile health clinics reached rural communities in Ogun, Ekiti, and Kogi states, providing free medical care to 12,000+ individuals.',
+      'Sixty young people enrol in the first AOF mentorship cohort, matched with professionals across tech, healthcare, education, and entrepreneurship.',
   },
   {
-    year: '2023',
-    title: 'Regional Partnerships',
+    year: 'Feb 2026',
+    title: 'Environmental Drive',
     description:
-      'Signed MoUs with 6 organisations across Ghana, Kenya, and Senegal, beginning AOF\'s continental expansion strategy.',
+      'AOF volunteers plant 1,000+ trees across two communities and run a waste management awareness campaign reaching 800+ residents.',
   },
   {
-    year: '2024',
-    title: '100,000 Lives Milestone',
+    year: '2026',
+    title: 'Growing Our Reach',
     description:
-      'AOF crosses the 100,000-lives-impacted milestone and launches the KOMAI digital platform, bringing mentorship and resources online.',
-  },
-  {
-    year: '2025',
-    title: 'Looking Ahead',
-    description:
-      'Ambitious five-year plan: 500,000 lives, 15 African countries, $10M endowment fund, and a permanent Learning and Innovation Centre.',
+      'With 3,200+ lives impacted and 94 active volunteers, AOF is building toward expanding into two additional Nigerian states and deepening community partnerships.',
   },
 ]
 
 const REACH_STATS = [
-  { icon: Users,  to: 127400, suffix: '+', label: 'Lives Impacted',   color: 'text-brand-400'   },
-  { icon: Globe,  to: 8,      suffix: '',  label: 'Countries Active', color: 'text-gold-400'    },
-  { icon: Award,  to: 47,     suffix: '',  label: 'Active Partners',  color: 'text-emerald-400' },
-  { icon: Heart,  to: 2300,   suffix: '+', label: 'Volunteers',       color: 'text-red-400'     },
+  { icon: Users,  to: 3200,  suffix: '+', label: 'Lives Impacted',   color: 'text-brand-400'   },
+  { icon: Globe,  to: 7,     suffix: '',  label: 'Communities Served', color: 'text-gold-400'  },
+  { icon: Award,  to: 9,     suffix: '',  label: 'Projects Completed', color: 'text-emerald-400' },
+  { icon: Heart,  to: 94,    suffix: '+', label: 'Volunteers',         color: 'text-red-400'   },
 ]
 
 export default function AboutPage() {
@@ -147,14 +135,14 @@ export default function AboutPage() {
                 {/* Year badge */}
                 <ScaleIn delay={0.4}>
                   <div className="absolute -bottom-6 -left-6 rounded-2xl bg-brand-700 p-6 text-white shadow-xl">
-                    <p className="font-display text-4xl font-bold">2018</p>
+                    <p className="font-display text-4xl font-bold">2025</p>
                     <p className="mt-1 text-sm text-brand-200">Year founded</p>
                   </div>
                 </ScaleIn>
                 {/* Impact badge */}
                 <ScaleIn delay={0.5}>
                   <div className="absolute -right-4 -top-4 rounded-2xl bg-gold p-4 text-forest-dark shadow-xl">
-                    <p className="font-display text-2xl font-bold">127K+</p>
+                    <p className="font-display text-2xl font-bold">3.2K+</p>
                     <p className="mt-0.5 text-xs font-medium">Lives impacted</p>
                   </div>
                 </ScaleIn>
@@ -191,7 +179,7 @@ export default function AboutPage() {
         <div className="container-xl">
           <FadeUp className="mb-16 text-center">
             <Badge variant="brand" className="mb-4">Our Journey</Badge>
-            <h2 className="heading-2">Seven years of growing impact</h2>
+            <h2 className="heading-2">One year of growing impact</h2>
           </FadeUp>
 
           <div className="relative">

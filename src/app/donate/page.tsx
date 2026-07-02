@@ -13,7 +13,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { formatCurrency, calculateImpact } from '@/lib/utils'
-import { SUGGESTED_AMOUNTS, IMPACT_MESSAGES } from '@/lib/constants'
+import { SUGGESTED_AMOUNTS, CURRENCY_SYMBOLS, IMPACT_MESSAGES, IMPACT_MESSAGES_NGN } from '@/lib/constants'
 import { Heart, Shield, Lock, RefreshCw, ChevronRight, CheckCircle2 } from 'lucide-react'
 
 const PROGRAMS = [
@@ -25,14 +25,27 @@ const PROGRAMS = [
   { value: 'emergency', label: 'Emergency Relief' },
 ]
 
-const PRESET_AMOUNTS = [10, 25, 50, 100, 250, 500]
+const CURRENCIES = [
+  { value: 'NGN', label: '₦ NGN' },
+  { value: 'USD', label: '$ USD' },
+  { value: 'GBP', label: '£ GBP' },
+  { value: 'EUR', label: '€ EUR' },
+]
 
 export default function DonatePage() {
-  const [amount, setAmount] = React.useState(50)
+  const [currency, setCurrency] = React.useState('NGN')
+  const presetAmounts = (SUGGESTED_AMOUNTS[currency as keyof typeof SUGGESTED_AMOUNTS] ?? SUGGESTED_AMOUNTS.NGN) as readonly number[]
+  const [amount, setAmount] = React.useState<number>(presetAmounts[2])
   const [customAmount, setCustomAmount] = React.useState('')
   const [frequency, setFrequency] = React.useState<'one-time' | 'monthly'>('one-time')
   const [program, setProgram] = React.useState('general')
-  const [currency, setCurrency] = React.useState('USD')
+
+  const handleCurrencyChange = (val: string) => {
+    setCurrency(val)
+    const defaults = (SUGGESTED_AMOUNTS[val as keyof typeof SUGGESTED_AMOUNTS] ?? SUGGESTED_AMOUNTS.NGN) as readonly number[]
+    setAmount(defaults[2])
+    setCustomAmount('')
+  }
   const [step, setStep] = React.useState(1)
   const [anonymous, setAnonymous] = React.useState(false)
   const [tribute, setTribute] = React.useState(false)
@@ -41,6 +54,18 @@ export default function DonatePage() {
 
   const displayAmount = customAmount ? parseFloat(customAmount) || 0 : amount
   const impact = calculateImpact(displayAmount, program)
+  const currencySymbol = CURRENCY_SYMBOLS[currency] ?? currency
+
+  const getImpactMessage = (): string | null => {
+    if (displayAmount <= 0) return null
+    const messages = currency === 'NGN' ? IMPACT_MESSAGES_NGN : IMPACT_MESSAGES
+    const keys = Object.keys(messages).map(Number).sort((a, b) => b - a)
+    for (const key of keys) {
+      if (displayAmount >= key) return (messages as Record<number, string>)[key]
+    }
+    return null
+  }
+  const impactMessage = getImpactMessage()
 
   const handlePreset = (val: number) => {
     setAmount(val)
@@ -72,7 +97,7 @@ export default function DonatePage() {
     <main id="main-content">
       <PageHero
         title="Make a Difference Today"
-        subtitle="Your gift funds education, healthcare, mentorship, environmental action, and emergency relief. 87.5 cents of every dollar goes directly to programmes."
+        subtitle="Your gift funds education, healthcare, mentorship, environmental action, and emergency relief. Donate in Naira (₦) or Dollars ($) — every kobo and cent counts."
         eyebrow="Donate"
         breadcrumbs={[{ label: 'Donate', href: '/donate' }]}
         image="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=1600&q=80"
@@ -116,17 +141,27 @@ export default function DonatePage() {
                   <motion.div key="step1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
                     <h2 className="heading-3 mb-6">Choose your gift</h2>
 
-                    {/* Frequency */}
-                    <Tabs value={frequency} onValueChange={v => setFrequency(v as 'one-time' | 'monthly')} className="mb-6">
-                      <TabsList>
-                        <TabsTrigger value="one-time">Give Once</TabsTrigger>
-                        <TabsTrigger value="monthly">Give Monthly</TabsTrigger>
-                      </TabsList>
-                    </Tabs>
+                    {/* Currency + Frequency row */}
+                    <div className="flex items-center gap-3 mb-6 flex-wrap">
+                      <Select value={currency} onValueChange={handleCurrencyChange}>
+                        <SelectTrigger className="w-32">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {CURRENCIES.map(c => <SelectItem key={c.value} value={c.value}>{c.label}</SelectItem>)}
+                        </SelectContent>
+                      </Select>
+                      <Tabs value={frequency} onValueChange={v => setFrequency(v as 'one-time' | 'monthly')} className="flex-1">
+                        <TabsList className="w-full">
+                          <TabsTrigger value="one-time" className="flex-1">Give Once</TabsTrigger>
+                          <TabsTrigger value="monthly" className="flex-1">Give Monthly</TabsTrigger>
+                        </TabsList>
+                      </Tabs>
+                    </div>
 
                     {/* Preset amounts */}
                     <div className="grid grid-cols-3 gap-3 mb-4">
-                      {PRESET_AMOUNTS.map(a => (
+                      {presetAmounts.map(a => (
                         <button
                           key={a}
                           onClick={() => handlePreset(a)}
@@ -136,7 +171,7 @@ export default function DonatePage() {
                               : 'border-neutral-200 hover:border-brand-300 text-neutral-700 dark:border-neutral-700 dark:text-neutral-300'
                           }`}
                         >
-                          ${a}
+                          {CURRENCY_SYMBOLS[currency] ?? currency}{a.toLocaleString()}
                         </button>
                       ))}
                     </div>
@@ -148,7 +183,7 @@ export default function DonatePage() {
                       placeholder="Enter amount"
                       value={customAmount}
                       onChange={e => handleCustom(e.target.value)}
-                      leftIcon={<span className="text-neutral-500 font-semibold">$</span>}
+                      leftIcon={<span className="text-neutral-500 font-semibold">{CURRENCY_SYMBOLS[currency] ?? currency}</span>}
                       min={1}
                     />
 
@@ -164,14 +199,14 @@ export default function DonatePage() {
                     </div>
 
                     {/* Impact message */}
-                    {displayAmount > 0 && (
+                    {impactMessage && (
                       <motion.div
                         initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="mt-6 p-4 bg-brand-50 dark:bg-brand-900/20 rounded-xl border border-brand-200 dark:border-brand-800"
                       >
                         <p className="text-sm font-semibold text-brand-700 dark:text-brand-300">
-                          {formatCurrency(displayAmount, currency)} can provide {impact.value.toLocaleString()} {impact.unit}
+                          {currencySymbol}{displayAmount.toLocaleString()} {impactMessage}
                         </p>
                       </motion.div>
                     )}

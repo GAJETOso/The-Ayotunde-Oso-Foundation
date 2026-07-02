@@ -74,7 +74,7 @@ export function Hero() {
             <div className="flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gold" />
               <span className="text-xs font-semibold uppercase tracking-widest text-gold">
-                Transforming Lives Since {new Date().getFullYear() - 7}
+                Transforming Lives Since May 2025
               </span>
             </div>
           </motion.div>

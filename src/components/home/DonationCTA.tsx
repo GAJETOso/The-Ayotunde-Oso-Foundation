@@ -4,28 +4,47 @@ import { useRef, useState } from 'react'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import { Heart, ArrowRight, Check } from 'lucide-react'
-import { SUGGESTED_AMOUNTS, IMPACT_MESSAGES } from '@/lib/constants'
+import { SUGGESTED_AMOUNTS, CURRENCY_SYMBOLS, IMPACT_MESSAGES, IMPACT_MESSAGES_NGN } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
-const IMPACT_ITEMS = [
+const IMPACT_ITEMS_NGN = [
+  '₦5,000 feeds a family for a week',
+  '₦10,000 funds 5 medical screenings',
+  '₦25,000 plants trees & funds a clean-up',
+  '₦50,000 mentors 10 youth for a month',
+  '₦100,000 supports a term scholarship',
+]
+
+const IMPACT_ITEMS_USD = [
+  '$10 provides school supplies for a child',
   '$25 feeds a family for a week',
   '$50 funds 5 medical screenings',
   '$100 plants 40 trees',
   '$250 mentors 10 youth for a month',
-  '$500 supports a term scholarship',
 ]
 
 export function DonationCTA() {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
-  const [selectedAmount, setSelectedAmount] = useState(50)
+  const [activeCurrency, setActiveCurrency] = useState<'NGN' | 'USD'>('NGN')
+  const amounts = activeCurrency === 'NGN'
+    ? SUGGESTED_AMOUNTS.NGN.slice(0, 6)
+    : SUGGESTED_AMOUNTS.USD.slice(0, 6)
+  const [selectedAmount, setSelectedAmount] = useState<number>(amounts[2])
+  const currencySymbol = CURRENCY_SYMBOLS[activeCurrency]
+  const impactItems = activeCurrency === 'NGN' ? IMPACT_ITEMS_NGN : IMPACT_ITEMS_USD
 
-  const amounts = SUGGESTED_AMOUNTS.USD.slice(0, 6)
+  const handleCurrencySwitch = (curr: 'NGN' | 'USD') => {
+    setActiveCurrency(curr)
+    const newAmounts = curr === 'NGN' ? SUGGESTED_AMOUNTS.NGN : SUGGESTED_AMOUNTS.USD
+    setSelectedAmount(newAmounts[2])
+  }
 
   const getImpactMessage = (amount: number): string => {
-    const keys = Object.keys(IMPACT_MESSAGES).map(Number).sort((a, b) => b - a)
+    const messages = activeCurrency === 'NGN' ? IMPACT_MESSAGES_NGN : IMPACT_MESSAGES
+    const keys = Object.keys(messages).map(Number).sort((a, b) => b - a)
     for (const key of keys) {
-      if (amount >= key) return IMPACT_MESSAGES[key]
+      if (amount >= key) return (messages as Record<number, string>)[key]
     }
     return 'helps someone in need'
   }
@@ -76,7 +95,7 @@ export function DonationCTA() {
             </p>
 
             <ul className="space-y-3">
-              {IMPACT_ITEMS.map((item) => (
+              {impactItems.map((item) => (
                 <li key={item} className="flex items-center gap-3">
                   <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gold">
                     <Check className="h-3 w-3 text-forest-dark" />
@@ -114,14 +133,32 @@ export function DonationCTA() {
             transition={{ duration: 0.8, delay: 0.15, ease: [0.19, 1, 0.22, 1] }}
           >
             <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
-              <h3 className="mb-6 font-serif text-2xl font-bold text-white">
+              <h3 className="mb-4 font-serif text-2xl font-bold text-white">
                 Quick Donate
               </h3>
+
+              {/* Currency toggle */}
+              <div className="mb-6 flex rounded-xl border border-white/15 p-1">
+                {(['NGN', 'USD'] as const).map((curr) => (
+                  <button
+                    key={curr}
+                    onClick={() => handleCurrencySwitch(curr)}
+                    className={cn(
+                      'flex-1 rounded-lg py-2 text-sm font-bold transition-all duration-200',
+                      activeCurrency === curr
+                        ? 'bg-gold text-forest-dark shadow-sm'
+                        : 'text-white/60 hover:text-white'
+                    )}
+                  >
+                    {curr === 'NGN' ? '₦ Naira' : '$ Dollar'}
+                  </button>
+                ))}
+              </div>
 
               {/* Amount Selection */}
               <div className="mb-6">
                 <label className="mb-3 block text-sm font-semibold text-white/70">
-                  Choose an amount (USD)
+                  Choose an amount ({activeCurrency})
                 </label>
                 <div className="grid grid-cols-3 gap-3">
                   {amounts.map((amount) => (
@@ -135,7 +172,7 @@ export function DonationCTA() {
                           : 'border-white/20 text-white hover:border-gold/50 hover:bg-white/10'
                       )}
                     >
-                      ${amount}
+                      {currencySymbol}{amount.toLocaleString()}
                     </button>
                   ))}
                 </div>
@@ -143,7 +180,7 @@ export function DonationCTA() {
                 {/* Custom amount */}
                 <div className="relative mt-3">
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 text-sm font-bold text-white/50">
-                    $
+                    {currencySymbol}
                   </span>
                   <input
                     type="number"
@@ -162,7 +199,7 @@ export function DonationCTA() {
                   className="mb-6 rounded-xl bg-gold/10 p-4"
                 >
                   <p className="text-sm text-white/70">
-                    <span className="font-bold text-gold">${selectedAmount}</span>{' '}
+                    <span className="font-bold text-gold">{currencySymbol}{selectedAmount.toLocaleString()}</span>{' '}
                     {getImpactMessage(selectedAmount)}
                   </p>
                 </motion.div>
@@ -182,11 +219,11 @@ export function DonationCTA() {
 
               {/* Donate Button */}
               <Link
-                href={`/donate?amount=${selectedAmount}`}
+                href={`/donate?amount=${selectedAmount}&currency=${activeCurrency}`}
                 className="flex w-full items-center justify-center gap-2.5 rounded-xl bg-gold py-4 text-base font-bold text-forest-dark shadow-gold transition-all hover:-translate-y-0.5 hover:bg-gold-light hover:shadow-glow-gold active:translate-y-0"
               >
                 <Heart className="h-5 w-5" />
-                Donate ${selectedAmount || '...'} Now
+                Donate {currencySymbol}{selectedAmount ? selectedAmount.toLocaleString() : '...'} Now
                 <ArrowRight className="h-4 w-4" />
               </Link>
 

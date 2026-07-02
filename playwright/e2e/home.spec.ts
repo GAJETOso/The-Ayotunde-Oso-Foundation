@@ -65,7 +65,7 @@ test.describe('Contact page', () => {
   test('loads contact form', async ({ page }) => {
     await page.goto('/contact');
     await expect(page).toHaveTitle(/Contact/);
-    await expect(page.locator('form')).toBeVisible();
+    await expect(page.locator('main form')).toBeVisible();
   });
 
   test('form fields are present', async ({ page }) => {

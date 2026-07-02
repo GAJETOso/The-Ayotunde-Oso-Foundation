@@ -102,9 +102,9 @@ export default function ContactPage() {
                     </Alert>
                   )}
                   <div className="grid sm:grid-cols-2 gap-4">
-                    <Input label="Full Name" required value={form.name} onChange={e => update('name', e.target.value)} />
-                    <Input label="Email Address" type="email" required value={form.email} onChange={e => update('email', e.target.value)} />
-                    <Input label="Phone (optional)" type="tel" value={form.phone} onChange={e => update('phone', e.target.value)} />
+                    <Input label="Full Name" name="name" required value={form.name} onChange={e => update('name', e.target.value)} />
+                    <Input label="Email Address" name="email" type="email" required value={form.email} onChange={e => update('email', e.target.value)} />
+                    <Input label="Phone (optional)" name="phone" type="tel" value={form.phone} onChange={e => update('phone', e.target.value)} />
                     <div>
                       <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1.5">Department</label>
                       <Select value={form.department} onValueChange={v => update('department', v)}>
@@ -120,6 +120,7 @@ export default function ContactPage() {
                     <div className="sm:col-span-2">
                       <Textarea
                         label="Message"
+                        name="message"
                         required
                         value={form.message}
                         onChange={e => update('message', e.target.value)}
