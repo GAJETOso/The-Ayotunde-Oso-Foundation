@@ -10,17 +10,17 @@ describe('Button', () => {
   it('applies the default variant class', () => {
     render(<Button>Default</Button>);
     const btn = screen.getByRole('button');
-    expect(btn).toHaveClass('bg-brand-green');
+    expect(btn).toHaveClass('bg-brand-700');
   });
 
   it('applies gold variant', () => {
     render(<Button variant="gold">Gold</Button>);
     const btn = screen.getByRole('button');
-    expect(btn).toHaveClass('bg-brand-gold');
+    expect(btn).toHaveClass('bg-gold-500');
   });
 
-  it('shows loading spinner when isLoading is true', () => {
-    render(<Button isLoading>Submit</Button>);
+  it('shows loading spinner when loading is true', () => {
+    render(<Button loading>Submit</Button>);
     expect(screen.getByRole('button')).toBeDisabled();
   });
 
@@ -59,6 +59,6 @@ describe('Button', () => {
 
   it('applies sm size class', () => {
     render(<Button size="sm">Small</Button>);
-    expect(screen.getByRole('button')).toHaveClass('h-8');
+    expect(screen.getByRole('button')).toHaveClass('h-9');
   });
 });
