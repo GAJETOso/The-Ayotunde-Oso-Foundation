@@ -12,7 +12,8 @@ export const FOUNDATION = {
     'To empower individuals and communities by providing tools, education, mentorship, healthcare, and opportunities that improve lives and create lasting impact.',
   vision:
     'To build a world where every individual, regardless of background, has access to opportunities, quality healthcare, education, dignity, and hope.',
-  founded: 2018,
+  founded: 2025,
+  foundedMonth: 'May',
   registrationNumber: 'CAC/IT/NO 123456',
   email: 'info@ayotundeosofoundation.org',
   supportEmail: 'support@ayotundeosofoundation.org',
@@ -128,19 +129,19 @@ export const CORE_VALUES = [
 // ============================================================
 
 export const IMPACT_STATS: ImpactStats = {
-  livesImpacted: 50000,
-  communitiesReached: 28,
-  volunteersEngaged: 340,
-  countriesPresent: 4,
-  donationsReceived: 8200,
-  projectsCompleted: 47,
-  medicalOutreaches: 19,
-  treesPlanted: 12500,
-  studentsSupported: 4800,
-  youthMentored: 1200,
-  emergencyResponses: 8,
-  totalFundsRaised: 2400000,
-  yearsOfImpact: 7,
+  livesImpacted: 3200,
+  communitiesReached: 7,
+  volunteersEngaged: 94,
+  countriesPresent: 1,
+  donationsReceived: 410,
+  projectsCompleted: 9,
+  medicalOutreaches: 6,
+  treesPlanted: 1850,
+  studentsSupported: 480,
+  youthMentored: 260,
+  emergencyResponses: 3,
+  totalFundsRaised: 24500000,
+  yearsOfImpact: 1,
 }
 
 // ============================================================
@@ -168,12 +169,12 @@ export const PROGRAMS: Omit<Program, 'projects'>[] = [
     ],
     beneficiaries: 'Children aged 5-18, young adults 18-30, adult learners',
     impact: {
-      peopleReached: 4800,
-      communitiesServed: 12,
-      keyAchievement: '98% graduation rate among scholarship recipients',
+      peopleReached: 480,
+      communitiesServed: 4,
+      keyAchievement: '100% of inaugural scholarship cohort progressed to higher education',
     },
     isActive: true,
-    startedAt: new Date('2018-09-01'),
+    startedAt: new Date('2025-09-01'),
   },
   {
     id: 'mentorship',
@@ -195,12 +196,12 @@ export const PROGRAMS: Omit<Program, 'projects'>[] = [
     ],
     beneficiaries: 'Students and young adults aged 16-30',
     impact: {
-      peopleReached: 1200,
-      communitiesServed: 8,
-      keyAchievement: '87% of mentees secured employment or entrepreneurship opportunities',
+      peopleReached: 260,
+      communitiesServed: 3,
+      keyAchievement: '60 mentees matched in inaugural cohort with 30 professional mentors',
     },
     isActive: true,
-    startedAt: new Date('2019-01-15'),
+    startedAt: new Date('2025-11-15'),
   },
   {
     id: 'healthcare',
@@ -223,12 +224,12 @@ export const PROGRAMS: Omit<Program, 'projects'>[] = [
     ],
     beneficiaries: 'All community members, with focus on elderly, women, and children',
     impact: {
-      peopleReached: 18000,
-      communitiesServed: 15,
-      keyAchievement: '19 medical outreaches conducted with 650+ medical professionals',
+      peopleReached: 1200,
+      communitiesServed: 3,
+      keyAchievement: '6 medical outreaches conducted across Lagos communities',
     },
     isActive: true,
-    startedAt: new Date('2018-11-01'),
+    startedAt: new Date('2025-07-01'),
   },
   {
     id: 'environment',
@@ -423,10 +424,10 @@ export const NAV_ITEMS = [
 // ============================================================
 
 export const SUGGESTED_AMOUNTS = {
-  USD: [10, 25, 50, 100, 250, 500],
+  USD: [5, 10, 25, 50, 100, 250],
   GBP: [10, 20, 50, 100, 200, 500],
   EUR: [10, 25, 50, 100, 250, 500],
-  NGN: [5000, 10000, 25000, 50000, 100000, 250000],
+  NGN: [2000, 5000, 10000, 25000, 50000, 100000],
   GHS: [50, 100, 250, 500, 1000, 2500],
   ZAR: [100, 250, 500, 1000, 2500, 5000],
   KES: [500, 1000, 2500, 5000, 10000, 25000],
@@ -447,6 +448,7 @@ export const CURRENCY_SYMBOLS: Record<string, string> = {
 }
 
 export const IMPACT_MESSAGES: Record<number, string> = {
+  5: 'provides stationery for one child for a month',
   10: 'provides school supplies for one child for a month',
   25: 'feeds a family of four for one week',
   50: 'covers a health screening for five community members',
@@ -455,6 +457,17 @@ export const IMPACT_MESSAGES: Record<number, string> = {
   500: 'covers a full scholarship for one term of secondary education',
   1000: 'deploys emergency relief supplies for one affected family',
   5000: 'funds an entire medical outreach event for 200+ people',
+}
+
+export const IMPACT_MESSAGES_NGN: Record<number, string> = {
+  2000: 'provides stationery and supplies for one student',
+  5000: 'feeds a family of four for one week',
+  10000: 'covers a health screening for five community members',
+  25000: 'plants trees and funds a community clean-up',
+  50000: 'funds one month of mentorship for 10 youth',
+  100000: 'covers a scholarship for one term of secondary education',
+  250000: 'deploys emergency relief for one affected family',
+  500000: 'funds a full medical outreach event for 200+ people',
 }
 
 // ============================================================
@@ -481,7 +494,7 @@ export const KOMAI_CONFIG = {
 Key facts:
 - Foundation: The Ayotunde Oso Foundation (AOF)
 - Mission: Empowering people, transforming communities through education, healthcare, environment, mentorship, and emergency relief
-- Founded: 2018 in Lagos, Nigeria
+- Founded: May 2025 in Lagos, Nigeria
 - Programs: Education & Youth Development, Youth Mentorship, Health & Wellbeing Outreaches, Environmental Sustainability, Emergency Humanitarian Relief
 - Contact: info@ayotundeosofoundation.org | +234 901 234 5678
 - Website: ayotundeosofoundation.org
@@ -503,8 +516,8 @@ Always be helpful, accurate, and compassionate. For donations, direct to /donate
 // ============================================================
 
 export const HERO_STATS = [
-  { value: '50K+', label: 'Lives Impacted' },
-  { value: '28', label: 'Communities Served' },
-  { value: '340+', label: 'Volunteers' },
-  { value: '4', label: 'Countries' },
+  { value: '3.2K+', label: 'Lives Impacted' },
+  { value: '7', label: 'Communities Served' },
+  { value: '94+', label: 'Volunteers' },
+  { value: '1', label: 'Country' },
 ] as const

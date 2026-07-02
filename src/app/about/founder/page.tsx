@@ -35,13 +35,12 @@ const QUOTES = [
 ]
 
 const ACHIEVEMENTS = [
-  { year: '2018', milestone: 'Founded The Ayotunde Oso Foundation' },
-  { year: '2019', milestone: 'Forbes Africa 30 Under 30 Nominee' },
-  { year: '2020', milestone: 'Led COVID-19 relief to 8,000+ families' },
-  { year: '2021', milestone: 'UN Youth Delegate, Climate Conference' },
-  { year: '2022', milestone: 'Ashoka Fellow — Changemakers Programme' },
-  { year: '2023', milestone: 'Africa Leadership Award — Humanitarian Impact' },
-  { year: '2024', milestone: 'AOF crosses 100,000 lives impacted' },
+  { year: 'May 2025', milestone: 'Founded The Ayotunde Oso Foundation' },
+  { year: 'Jul 2025', milestone: 'First medical outreach — 200+ screened in Mushin, Lagos' },
+  { year: 'Sep 2025', milestone: 'Inaugural scholarship cohort — 12 students supported' },
+  { year: 'Nov 2025', milestone: 'Launched youth mentorship programme with 60 mentees' },
+  { year: 'Feb 2026', milestone: 'Environmental drive — 1,000+ trees planted' },
+  { year: '2026', milestone: '3,200+ lives impacted across 7 communities' },
 ]
 
 export default function FounderPage() {
@@ -150,17 +149,17 @@ export default function FounderPage() {
 
                   <p>
                     After completing a Master&apos;s degree in International Development in London, Ayotunde
-                    returned to Nigeria with a clear mandate. In 2018, he formally established The Ayotunde
-                    Oso Foundation, drawing on seven years of grassroots experience, academic rigour,
-                    and an unshakeable belief in human potential.
+                    returned to Nigeria with a clear mandate. In May 2025, he formally established The Ayotunde
+                    Oso Foundation, combining academic rigour with deep grassroots passion and an
+                    unshakeable belief in human potential.
                   </p>
 
                   <p>
-                    Today, the Foundation operates five integrated programmes across eight African countries,
-                    has impacted over 127,000 lives, and works with 47 partners ranging from global
-                    institutions to local community organisations. But Ayotunde remains most at home in
-                    the field — visiting schools, sitting with community elders, and listening to the
-                    people the Foundation exists to serve.
+                    In just over a year, the Foundation has launched five integrated programmes, impacted
+                    over 3,200 lives across seven communities in Nigeria, and built partnerships with
+                    local organisations and individuals committed to lasting change. Ayotunde remains most
+                    at home in the field — visiting schools, sitting with community elders, and listening
+                    to the people the Foundation exists to serve.
                   </p>
 
                   <p>
