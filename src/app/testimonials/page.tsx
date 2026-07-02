@@ -27,7 +27,7 @@ const FEATURED_TESTIMONIALS = [
     quote:
       'I grew up in a home where my parents could barely afford two meals a day. The idea of university felt like a dream for other people. When AOF gave me a scholarship, they did not just pay my fees — they sent me to school with a mentor, a laptop, and the belief that I belonged there. Today I am studying Computer Science at University of Nigeria Nsukka, and I am on the Dean\'s list. AOF did not just change my trajectory — they changed how I see myself.',
     impact: 'First in family to attend university',
-    year: '2024',
+    year: '2025',
   },
   {
     name: 'Fatima Aliyu',
@@ -37,7 +37,7 @@ const FEATURED_TESTIMONIALS = [
     quote:
       'My daughter had malaria and we had no money for the clinic. The AOF mobile health team came to our village and treated her for free — the same day. She was back in school within a week. In my village, children have died from things that were treatable. AOF treats our lives as if they matter as much as anyone else\'s. They do not make us feel like charity. They make us feel like people.',
     impact: 'Daughter\'s malaria treated, now in school',
-    year: '2024',
+    year: '2025',
   },
   {
     name: 'Emmanuel Chukwu',
@@ -47,7 +47,7 @@ const FEATURED_TESTIMONIALS = [
     quote:
       'I had the idea but I had no direction, no network, no capital. My AOF mentor was a tech founder who had built two companies. He met with me every two weeks for a year. He reviewed my business plan, connected me to my first investor, and told me hard truths that my friends would not. My startup now has 11 employees and serves 4,000 customers. I owe that to the mentorship programme.',
     impact: 'Startup launched with 11 employees',
-    year: '2024',
+    year: '2025',
   },
 ]
 
@@ -59,7 +59,7 @@ const ALL_TESTIMONIALS = [
     location: 'Imo State',
     quote:
       'The AOF digital learning center in our community changed how I teach. For the first time my students can see the world beyond our village. Their curiosity has exploded. I have never seen them more engaged.',
-    year: '2024',
+    year: '2025',
   },
   {
     name: 'Ibrahim Musa',
@@ -67,8 +67,8 @@ const ALL_TESTIMONIALS = [
     program: 'Environment',
     location: 'Kano State',
     quote:
-      'When AOF came to plant trees with our youth, some elders were skeptical. Now we have 40,000 trees growing and the young people who planted them feel ownership of our environment. That pride is the most valuable thing.',
-    year: '2023',
+      'When AOF came to plant trees with our youth, some elders were skeptical. Now we have hundreds of trees growing and the young people who planted them feel ownership of our environment. That pride is the most valuable thing.',
+    year: '2025',
   },
   {
     name: 'Ngozi Eze',
@@ -77,7 +77,7 @@ const ALL_TESTIMONIALS = [
     location: 'Anambra State',
     quote:
       'We lost everything to the floods — our home, our belongings, our sense of security. AOF arrived within two days with food, blankets, and medical help. But more than that, they stayed. They helped us rebuild. That is not something I will ever forget.',
-    year: '2024',
+    year: '2025',
   },
   {
     name: 'Chisom Ikenna',
@@ -86,7 +86,7 @@ const ALL_TESTIMONIALS = [
     location: 'Anambra State',
     quote:
       'My father is a farmer. Medical school was impossible on farming income. The AOF health scholarship made it possible. I want to give back by becoming a doctor in my own community one day — inspired by what I have received.',
-    year: '2023',
+    year: '2025',
   },
   {
     name: 'Yusuf Abdullahi',
@@ -95,7 +95,7 @@ const ALL_TESTIMONIALS = [
     location: 'Kaduna State',
     quote:
       'I was directionless after my NYSC. The mentorship program connected me with a civil servant who helped me understand public service and guided me into a career in local government. I now work in community development, directly helping people.',
-    year: '2024',
+    year: '2026',
   },
   {
     name: 'Amaka Obi',
@@ -104,7 +104,7 @@ const ALL_TESTIMONIALS = [
     location: 'Enugu State',
     quote:
       'I had not seen a doctor in seven years. When the AOF health outreach came I did not believe the service was free. They screened me for hypertension, diabetes, and breast cancer. They found my hypertension early. That early detection may have saved my life.',
-    year: '2024',
+    year: '2025',
   },
 ]
 
