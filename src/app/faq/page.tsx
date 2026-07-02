@@ -7,7 +7,7 @@ import { Badge } from '@/components/ui/badge'
 import { FadeUp, SlideIn, StaggerContainer, StaggerItem } from '@/components/ui/animations'
 
 export const metadata: Metadata = {
-  title: 'Frequently Asked Questions | The Ayotunde Oso Foundation',
+  title: 'FAQ',
   description: 'Find answers to common questions about donating, volunteering, programs, and more at The Ayotunde Oso Foundation.',
 }
 

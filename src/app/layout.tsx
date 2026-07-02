@@ -211,7 +211,7 @@ export default function RootLayout({
             href="#main-content"
             className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-brand-900 focus:px-4 focus:py-2 focus:text-white focus:ring-2 focus:ring-white"
           >
-            Skip to main content
+            Skip to content
           </a>
           <Header />
           <main id="main-content" className="flex-1">
