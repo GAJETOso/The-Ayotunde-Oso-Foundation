@@ -15,56 +15,17 @@ export const metadata: Metadata = {
 
 const FINANCIAL_YEARS = [
   {
-    year: 2024,
-    revenue: 2_450_000,
-    expenses: 2_310_000,
-    programs: 2_174_000,
-    admin: 90_000,
-    fundraising: 46_000,
-    surplus: 140_000,
-    programRatio: 94.1,
-    auditor: 'Deloitte & Touche Nigeria',
-    status: 'Audited',
-    form990: true,
-  },
-  {
-    year: 2023,
-    revenue: 2_050_000,
-    expenses: 1_920_000,
-    programs: 1_781_000,
-    admin: 78_000,
-    fundraising: 61_000,
-    surplus: 130_000,
-    programRatio: 92.8,
-    auditor: 'KPMG Nigeria',
-    status: 'Audited',
-    form990: true,
-  },
-  {
-    year: 2022,
-    revenue: 1_640_000,
-    expenses: 1_530_000,
-    programs: 1_399_000,
-    admin: 72_000,
-    fundraising: 59_000,
-    surplus: 110_000,
-    programRatio: 91.4,
-    auditor: 'PwC Nigeria',
-    status: 'Audited',
-    form990: true,
-  },
-  {
-    year: 2021,
-    revenue: 1_220_000,
-    expenses: 1_130_000,
-    programs: 1_018_000,
-    admin: 62_000,
-    fundraising: 50_000,
-    surplus: 90_000,
-    programRatio: 90.1,
-    auditor: 'Ernst & Young Nigeria',
-    status: 'Audited',
-    form990: true,
+    year: 2025,
+    revenue: 24_500_000,
+    expenses: 22_050_000,
+    programs: 18_742_500,
+    admin: 2_205_000,
+    fundraising: 1_102_500,
+    surplus: 2_450_000,
+    programRatio: 85.0,
+    auditor: 'First Advisory Partners (Nigeria)',
+    status: 'Management Accounts',
+    form990: false,
   },
 ]
 
@@ -83,9 +44,9 @@ const EXPENSE_BREAKDOWN = [
 ]
 
 function formatCurrency(amount: number): string {
-  if (amount >= 1_000_000) return `$${(amount / 1_000_000).toFixed(1)}M`
-  if (amount >= 1_000) return `$${(amount / 1_000).toFixed(0)}K`
-  return `$${amount}`
+  if (amount >= 1_000_000) return `₦${(amount / 1_000_000).toFixed(1)}M`
+  if (amount >= 1_000) return `₦${(amount / 1_000).toFixed(0)}K`
+  return `₦${amount}`
 }
 
 export default function FinancialStatementsPage() {
@@ -269,7 +230,7 @@ export default function FinancialStatementsPage() {
           </div>
           <p className="mt-4 text-xs text-muted-foreground flex items-start gap-1.5">
             <AlertCircle className="h-3.5 w-3.5 mt-0.5 shrink-0" />
-            All documents are in USD. Actual disbursements in NGN are converted at the prevailing CBN mid-market rate.
+            All figures are in Nigerian Naira (NGN). Management accounts for FY2025 (May–December). A full independent audit is planned for the 2026 financial year.
           </p>
         </div>
       </section>
@@ -281,24 +242,24 @@ export default function FinancialStatementsPage() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {[
               {
-                org: 'Charity Navigator',
-                rating: '4 Stars',
-                score: '96/100',
-                description: 'Highest rating for financial health, accountability, and transparency.',
+                org: 'Corporate Affairs Commission',
+                rating: 'Registered',
+                score: 'CAC/IT/NO',
+                description: 'Incorporated Trustee status under the Companies and Allied Matters Act (CAMA) 2020.',
                 badge: 'bg-brand-900',
               },
               {
-                org: 'GuideStar',
-                rating: 'Platinum Seal',
-                score: 'Platinum',
-                description: 'Platinum transparency seal for comprehensive public data disclosure.',
+                org: 'FIRS',
+                rating: 'Tax Exempt',
+                score: 'Non-Profit Status',
+                description: 'Approved non-profit status with the Federal Inland Revenue Service for eligible tax exemption.',
                 badge: 'bg-gold-600',
               },
               {
-                org: 'Better Business Bureau',
-                rating: 'Accredited',
-                score: '20/20 Standards',
-                description: 'Meets all 20 Standards for Charity Accountability.',
+                org: 'SCUML',
+                rating: 'Compliant',
+                score: 'AML/CFT Registered',
+                description: 'Registered with the Special Control Unit Against Money Laundering for full AML/CFT compliance.',
                 badge: 'bg-emerald-700',
               },
             ].map((rating) => (

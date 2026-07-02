@@ -24,40 +24,35 @@ const PARTNER_TIERS = [
     tier: 'Platinum',
     badgeVariant: 'secondary' as const,
     partners: [
-      { name: 'Global Health Initiative',  logo: 'GHI', sector: 'Healthcare',   since: '2019', contribution: 'Primary healthcare equipment donor and medical staff trainer' },
-      { name: 'EduForward Foundation',     logo: 'EFF', sector: 'Education',    since: '2020', contribution: 'Curriculum development and scholarship co-funding partner' },
-      { name: 'GreenEarth Alliance',       logo: 'GEA', sector: 'Environment',  since: '2021', contribution: 'Environmental program co-implementer across 12 states' },
+      { name: 'Global Health Initiative',  logo: 'GHI', sector: 'Healthcare',   since: '2025', contribution: 'Primary healthcare equipment donor and medical staff trainer' },
+      { name: 'EduForward Foundation',     logo: 'EFF', sector: 'Education',    since: '2025', contribution: 'Curriculum development and scholarship co-funding partner' },
     ],
   },
   {
     tier: 'Gold',
     badgeVariant: 'gold' as const,
     partners: [
-      { name: 'Lagos State Government',    logo: 'LSG', sector: 'Government',   since: '2020', contribution: 'Land grants and regulatory support for community programs' },
-      { name: 'TechBridge Nigeria',        logo: 'TBN', sector: 'Technology',   since: '2022', contribution: 'Digital skills training infrastructure and curriculum' },
-      { name: 'AfriCare Medical',          logo: 'ACM', sector: 'Healthcare',   since: '2021', contribution: 'Mobile clinic vehicles and pharmaceutical donations' },
-      { name: 'Sterling Bank Foundation',  logo: 'SBF', sector: 'Finance',      since: '2022', contribution: 'Youth entrepreneur micro-grant co-funding' },
+      { name: 'Lagos State Government',    logo: 'LSG', sector: 'Government',   since: '2025', contribution: 'Land grants and regulatory support for community programs' },
+      { name: 'AfriCare Medical',          logo: 'ACM', sector: 'Healthcare',   since: '2025', contribution: 'Mobile clinic vehicles and pharmaceutical donations' },
+      { name: 'TechBridge Nigeria',        logo: 'TBN', sector: 'Technology',   since: '2025', contribution: 'Digital skills training infrastructure and curriculum' },
     ],
   },
   {
     tier: 'Silver',
     badgeVariant: 'outline' as const,
     partners: [
-      { name: 'UNICEF Nigeria',            logo: 'UNI', sector: 'International', since: '2021', contribution: 'Child nutrition and education program alignment' },
-      { name: 'Dangote Foundation',        logo: 'DGF', sector: 'Corporate',    since: '2022', contribution: 'Emergency relief co-response and food distribution' },
-      { name: 'MTN Foundation',            logo: 'MTN', sector: 'Telecom',      since: '2023', contribution: 'Digital inclusion and rural connectivity projects' },
-      { name: 'Shell LiveWIRE',            logo: 'SLW', sector: 'Energy',       since: '2022', contribution: 'Youth entrepreneurship training in Delta region' },
-      { name: 'Nestle Nigeria',            logo: 'NST', sector: 'FMCG',         since: '2023', contribution: 'Nutrition education and school feeding programs' },
-      { name: 'Access Bank Foundation',    logo: 'ABF', sector: 'Finance',      since: '2023', contribution: 'Women economic empowerment grants' },
+      { name: 'Dangote Foundation',        logo: 'DGF', sector: 'Corporate',    since: '2025', contribution: 'Emergency relief co-response and food distribution' },
+      { name: 'MTN Foundation',            logo: 'MTN', sector: 'Telecom',      since: '2025', contribution: 'Digital inclusion and rural connectivity projects' },
+      { name: 'Access Bank Foundation',    logo: 'ABF', sector: 'Finance',      since: '2025', contribution: 'Women economic empowerment grants' },
     ],
   },
 ]
 
 const IMPACT_STATS = [
-  { to: 47,  suffix: '+', label: 'Partner Organizations',   color: 'text-brand-700' },
-  { to: 2.8, suffix: 'B', prefix: '₦', decimals: 1, label: 'Collective Investment', color: 'text-gold-700' },
-  { to: 18,  suffix: '',  label: 'Countries Represented',   color: 'text-emerald-700' },
-  { to: 94,  suffix: '%', label: 'Partner Retention Rate',  color: 'text-blue-700' },
+  { to: 8,   suffix: '+', label: 'Partner Organizations',   color: 'text-brand-700' },
+  { to: 45,  suffix: 'M', prefix: '₦', decimals: 0, label: 'Collective Investment', color: 'text-gold-700' },
+  { to: 2,   suffix: '',  label: 'Countries Represented',   color: 'text-emerald-700' },
+  { to: 100, suffix: '%', label: 'Partner Retention Rate',  color: 'text-blue-700' },
 ]
 
 const HOW_WE_PARTNER = [
