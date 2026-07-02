@@ -41,9 +41,12 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
       - name: Run database migrations
-        run: npx prisma migrate deploy
+        run: |
+          export DIRECT_URL="${DIRECT_URL:-$DATABASE_URL}"
+          npx prisma migrate deploy
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DIRECT_URL: ${{ secrets.DIRECT_URL }}
 
       - name: Deploy to Vercel
         id: deploy

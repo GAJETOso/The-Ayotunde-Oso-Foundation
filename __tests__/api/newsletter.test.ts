@@ -3,33 +3,39 @@
  */
 import { POST, DELETE } from '@/app/api/newsletter/route';
 import { NextRequest } from 'next/server';
-
-const mockFindUnique = jest.fn().mockResolvedValue(null);
-const mockCreate = jest.fn().mockResolvedValue({ id: 'test-id', email: 'test@example.com' });
-const mockUpdate = jest.fn().mockResolvedValue({ id: 'test-id' });
-const mockRateLimit = jest.fn().mockResolvedValue({ allowed: true });
-const mockSendNewsletterConfirmation = jest.fn().mockResolvedValue(undefined);
+import db from '@/lib/db';
+import { cache } from '@/lib/redis';
 
 jest.mock('@/lib/db', () => ({
   __esModule: true,
   default: {
     newsletterSubscriber: {
-      findUnique: mockFindUnique,
-      create: mockCreate,
-      update: mockUpdate,
+      findUnique: jest.fn().mockResolvedValue(null),
+      create: jest.fn().mockResolvedValue({ id: 'test-id', email: 'test@example.com' }),
+      update: jest.fn().mockResolvedValue({ id: 'test-id' }),
     },
   },
 }));
 
 jest.mock('@/lib/redis', () => ({
   cache: {
-    rateLimit: mockRateLimit,
+    rateLimit: jest.fn().mockResolvedValue({ allowed: true }),
   },
 }));
 
 jest.mock('@/lib/email', () => ({
-  sendNewsletterConfirmation: mockSendNewsletterConfirmation,
+  sendNewsletterConfirmation: jest.fn().mockResolvedValue(undefined),
 }));
+
+const mockDb = db.newsletterSubscriber as {
+  findUnique: jest.Mock;
+  create: jest.Mock;
+  update: jest.Mock;
+};
+const mockFindUnique = mockDb.findUnique;
+const mockCreate = mockDb.create;
+const mockUpdate = mockDb.update;
+const mockRateLimit = cache.rateLimit as jest.Mock;
 
 function makePostRequest(body: unknown): NextRequest {
   return new NextRequest('http://localhost:3000/api/newsletter', {
@@ -50,6 +56,7 @@ describe('POST /api/newsletter', () => {
     jest.clearAllMocks();
     mockRateLimit.mockResolvedValue({ allowed: true });
     mockFindUnique.mockResolvedValue(null);
+    mockCreate.mockResolvedValue({ id: 'test-id', email: 'test@example.com' });
   });
 
   it('subscribes a valid email', async () => {
