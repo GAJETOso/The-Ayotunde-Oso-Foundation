@@ -87,7 +87,7 @@ const EXECUTIVE: Leader[] = [
   {
     name: 'Ms. Amaka Obi',
     title: 'Director of Partnerships & Fundraising',
-    bio: 'Strategic partnership builder with experience at UNICEF and Save the Children. Has secured over $3M in grants and corporate partnerships for AOF since 2020.',
+    bio: 'Strategic partnership builder with experience at UNICEF and Save the Children. Has secured over ₦45M in grants and corporate partnerships since AOF\'s founding in 2025.',
     image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&q=80',
     linkedin: '#',
     twitter: '#',

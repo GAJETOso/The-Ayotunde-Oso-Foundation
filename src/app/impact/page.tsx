@@ -21,29 +21,25 @@ export const metadata: Metadata = {
 }
 
 const IMPACT_NUMBERS = [
-  { to: 127400, suffix: '', prefix: '',  label: 'Total Lives Impacted',    delta: '+18% YoY', color: 'text-brand-700'   },
-  { to: 4.2,   suffix: 'M', prefix: '$', label: 'Total Funds Deployed',    delta: '+32% YoY', color: 'text-gold-700',  decimals: 1 },
-  { to: 8,     suffix: '', prefix: '',  label: 'Countries of Operation',    delta: '+2 this year', color: 'text-emerald-700' },
-  { to: 2340,  suffix: '', prefix: '',  label: 'Active Volunteers',         delta: '+410 this year', color: 'text-blue-700'   },
-  { to: 47,    suffix: '', prefix: '',  label: 'Partner Organisations',     delta: '+12 this year', color: 'text-purple-700' },
-  { to: 312,   suffix: '', prefix: '',  label: 'Active Scholars',           delta: '100% retained',  color: 'text-brand-700'  },
+  { to: 3200, suffix: '+', prefix: '',  label: 'Total Lives Impacted',    delta: 'Year 1 milestone', color: 'text-brand-700'   },
+  { to: 24.5, suffix: 'M', prefix: '₦', label: 'Total Funds Raised',      delta: 'since May 2025',   color: 'text-gold-700',  decimals: 1 },
+  { to: 1,    suffix: '',  prefix: '',  label: 'Country of Operation',     delta: 'Nigeria',          color: 'text-emerald-700' },
+  { to: 94,   suffix: '+', prefix: '',  label: 'Active Volunteers',        delta: 'and growing',      color: 'text-blue-700'   },
+  { to: 8,    suffix: '',  prefix: '',  label: 'Partner Organisations',    delta: '100% retained',    color: 'text-purple-700' },
+  { to: 60,   suffix: '',  prefix: '',  label: 'Active Scholars',          delta: 'current cycle',    color: 'text-brand-700'  },
 ]
 
 const PROGRAM_BREAKDOWN = [
-  { name: 'Education & Youth', beneficiaries: 45200, budget: 38, color: 'brand'   as const },
-  { name: 'Healthcare',        beneficiaries: 38100, budget: 29, color: 'success' as const },
-  { name: 'Mentorship',        beneficiaries: 3200,  budget: 12, color: 'gold'    as const },
-  { name: 'Environment',       beneficiaries: 9500,  budget: 11, color: 'success' as const },
-  { name: 'Emergency Relief',  beneficiaries: 31400, budget: 10, color: 'warning' as const },
+  { name: 'Education & Youth', beneficiaries: 480,  budget: 38, color: 'brand'   as const },
+  { name: 'Healthcare',        beneficiaries: 1500, budget: 29, color: 'success' as const },
+  { name: 'Mentorship',        beneficiaries: 260,  budget: 12, color: 'gold'    as const },
+  { name: 'Environment',       beneficiaries: 600,  budget: 11, color: 'success' as const },
+  { name: 'Emergency Relief',  beneficiaries: 360,  budget: 10, color: 'warning' as const },
 ]
 
 const ANNUAL_DATA = [
-  { year: '2019', lives: 4200,   funds: 320000  },
-  { year: '2020', lives: 18400,  funds: 890000  },
-  { year: '2021', lives: 38700,  funds: 1400000 },
-  { year: '2022', lives: 64200,  funds: 2100000 },
-  { year: '2023', lives: 98600,  funds: 3300000 },
-  { year: '2024', lives: 127400, funds: 4200000 },
+  { year: '2025', lives: 1850, funds: 14500000 },
+  { year: '2026', lives: 3200, funds: 24500000 },
 ]
 
 const SDG_ALIGNMENT = [
@@ -73,7 +69,7 @@ export default function ImpactPage() {
         <div className="container-xl">
           <FadeUp className="mb-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <Badge variant="brand" className="mb-2">As of Q4 2024</Badge>
+              <Badge variant="brand" className="mb-2">As of Q2 2026</Badge>
               <h2 className="heading-2">Impact at a Glance</h2>
             </div>
             <Button variant="outline" asChild>
@@ -124,7 +120,7 @@ export default function ImpactPage() {
                   <tr className="border-b border-neutral-200 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-800/50">
                     <th className="px-5 py-4 text-left font-semibold text-neutral-700 dark:text-neutral-300">Year</th>
                     <th className="px-5 py-4 text-right font-semibold text-neutral-700 dark:text-neutral-300">Lives Impacted</th>
-                    <th className="px-5 py-4 text-right font-semibold text-neutral-700 dark:text-neutral-300">Funds Deployed</th>
+                    <th className="px-5 py-4 text-right font-semibold text-neutral-700 dark:text-neutral-300">Funds Raised (₦)</th>
                     <th className="hidden px-5 py-4 text-right font-semibold text-neutral-700 dark:text-neutral-300 md:table-cell">Growth</th>
                   </tr>
                 </thead>
@@ -146,7 +142,7 @@ export default function ImpactPage() {
                           {row.lives.toLocaleString()}
                         </td>
                         <td className="px-5 py-4 text-right text-neutral-700 dark:text-neutral-300">
-                          ${(row.funds / 1_000_000).toFixed(1)}M
+                          ₦{(row.funds / 1_000_000).toFixed(1)}M
                         </td>
                         <td className="hidden px-5 py-4 text-right md:table-cell">
                           {growth !== null && (
