@@ -15,53 +15,63 @@ export const metadata: Metadata = {
 
 const EVENTS = [
   {
-    id: '1', slug: 'aof-annual-gala-2025', type: 'GALA', status: 'UPCOMING',
-    title: 'AOF Annual Fundraising Gala 2025',
-    description: 'Our flagship annual gala bringing together donors, partners, community leaders, and volunteers to celebrate impact and raise funds for the year ahead. Black-tie optional.',
-    date: 'Saturday, 15 March 2025', time: '6:00 PM – 10:00 PM WAT',
+    id: '1', slug: 'aof-annual-gala-2026', type: 'GALA', status: 'UPCOMING',
+    title: 'AOF Annual Fundraising Gala 2026',
+    description: 'Our second annual gala bringing together donors, partners, community leaders, and volunteers to celebrate year-one impact and raise funds for our 2026 expansion. Black-tie optional.',
+    date: 'Saturday, 19 September 2026', time: '6:00 PM – 10:00 PM WAT',
     location: 'Eko Hotel & Suites, Victoria Island, Lagos',
     image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80',
-    registrations: 284, capacity: 350, isFeatured: true, isVirtual: false,
+    registrations: 118, capacity: 300, isFeatured: true, isVirtual: false,
     tags: ['Fundraiser', 'Networking', 'Awards'],
   },
   {
-    id: '2', slug: 'education-summit-abuja', type: 'CONFERENCE', status: 'UPCOMING',
-    title: 'Education for All Summit — Abuja',
-    description: "Two-day policy and practice conference convening educators, government officials, civil society leaders, and community voices around Nigeria's education crisis.",
-    date: 'Thur–Fri, 10–11 April 2025', time: '9:00 AM – 5:00 PM WAT',
+    id: '2', slug: 'education-summit-abuja-2026', type: 'CONFERENCE', status: 'UPCOMING',
+    title: 'Education for All Forum — Abuja 2026',
+    description: 'One-day policy forum bringing together educators, government officials, civil society leaders, and community voices around access to quality education in underserved Nigerian communities.',
+    date: 'Thursday, 22 October 2026', time: '9:00 AM – 5:00 PM WAT',
     location: 'International Conference Centre, Abuja',
     image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80',
-    registrations: 412, capacity: 500, isFeatured: false, isVirtual: false,
+    registrations: 74, capacity: 200, isFeatured: false, isVirtual: false,
     tags: ['Education', 'Policy', 'Conference'],
   },
   {
-    id: '3', slug: 'free-medical-outreach-ogun', type: 'OUTREACH', status: 'UPCOMING',
-    title: 'Free Medical Outreach — Ogun State',
-    description: 'One-day free medical outreach providing consultations, medications, eye care, dental care, and health education to residents of Sagamu and surrounding communities.',
-    date: 'Saturday, 3 May 2025', time: '8:00 AM – 4:00 PM WAT',
-    location: 'Sagamu Town Hall, Ogun State',
+    id: '3', slug: 'free-medical-outreach-lagos-2026', type: 'OUTREACH', status: 'UPCOMING',
+    title: 'Free Medical Outreach — Lagos State (Q3 2026)',
+    description: 'One-day free medical outreach providing consultations, medications, eye care, and health education to residents of Ikorodu and surrounding communities.',
+    date: 'Saturday, 8 August 2026', time: '8:00 AM – 4:00 PM WAT',
+    location: 'Ikorodu Town Hall, Lagos State',
     image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80',
     registrations: 0, capacity: null, isFeatured: false, isVirtual: false,
     tags: ['Healthcare', 'Outreach', 'Free'],
   },
   {
-    id: '4', slug: 'webinar-mentorship-across-borders', type: 'VIRTUAL', status: 'UPCOMING',
-    title: 'Webinar: Mentorship Across Borders',
-    description: 'Global online panel featuring AOF mentors and mentees sharing how cross-border mentorship relationships are transforming careers and breaking barriers.',
-    date: 'Wednesday, 21 May 2025', time: '3:00 PM – 4:30 PM WAT',
+    id: '4', slug: 'webinar-digital-skills-2026', type: 'VIRTUAL', status: 'UPCOMING',
+    title: 'Webinar: Digital Skills for Underserved Youth',
+    description: 'Online panel featuring AOF programme officers and scholarship beneficiaries sharing how digital literacy is transforming career prospects in rural and peri-urban Nigerian communities.',
+    date: 'Wednesday, 30 July 2026', time: '3:00 PM – 4:30 PM WAT',
     location: 'Zoom (link sent on registration)',
     image: 'https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=800&q=80',
-    registrations: 156, capacity: 500, isFeatured: false, isVirtual: true,
-    tags: ['Mentorship', 'Virtual', 'Free'],
+    registrations: 62, capacity: 300, isFeatured: false, isVirtual: true,
+    tags: ['Education', 'Virtual', 'Free'],
   },
   {
-    id: '5', slug: 'tree-planting-drive-ibadan', type: 'COMMUNITY', status: 'UPCOMING',
-    title: 'Community Tree Planting Drive — Ibadan',
-    description: 'Join 500+ volunteers for a mass tree-planting event across three degraded sites in Ibadan. Transport, breakfast, and refreshments provided.',
-    date: 'Saturday, 7 June 2025', time: '7:00 AM – 1:00 PM WAT',
-    location: 'Agodi Gardens, Ibadan, Oyo State',
+    id: '5', slug: 'aof-annual-gala-2025', type: 'GALA', status: 'PAST',
+    title: 'AOF Inaugural Fundraising Gala 2025',
+    description: 'AOF\'s first-ever fundraising gala celebrated the foundation\'s launch and secured key partnerships. Over 180 guests attended at Eko Hotel, raising ₦6.2M for programme expansion.',
+    date: 'Saturday, 15 November 2025', time: '6:00 PM – 10:00 PM WAT',
+    location: 'Eko Hotel & Suites, Victoria Island, Lagos',
+    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80',
+    registrations: 184, capacity: 200, isFeatured: false, isVirtual: false,
+    tags: ['Fundraiser', 'Networking', 'Inaugural'],
+  },
+  {
+    id: '6', slug: 'tree-planting-drive-ogun-2025', type: 'COMMUNITY', status: 'PAST',
+    title: 'Community Tree Planting Drive — Lagos & Ogun 2025',
+    description: '340 volunteers joined AOF\'s inaugural tree-planting campaign across seven communities in Lagos and Ogun states, planting 1,850 trees in a single weekend.',
+    date: 'Saturday, 6 December 2025', time: '7:00 AM – 1:00 PM WAT',
+    location: 'Multiple sites, Lagos & Ogun States',
     image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80',
-    registrations: 203, capacity: 500, isFeatured: false, isVirtual: false,
+    registrations: 340, capacity: 400, isFeatured: false, isVirtual: false,
     tags: ['Environment', 'Volunteer', 'Community'],
   },
 ]
@@ -78,6 +88,7 @@ const TYPE_COLORS: Record<string, string> = {
 export default function EventsPage() {
   const featured = EVENTS.find(e => e.isFeatured)
   const upcoming = EVENTS.filter(e => !e.isFeatured && e.status === 'UPCOMING')
+  const past = EVENTS.filter(e => e.status === 'PAST')
 
   return (
     <main id="main-content">
@@ -143,11 +154,11 @@ export default function EventsPage() {
             </FadeUp>
           )}
 
-          {/* All Upcoming */}
+          {/* Upcoming Events */}
           <SlideIn from="left" className="mb-6">
             <h2 className="heading-2">Upcoming Events</h2>
           </SlideIn>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {upcoming.map(event => (
               <StaggerItem key={event.id} direction="scale">
                 <Card hover className="overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
@@ -183,6 +194,38 @@ export default function EventsPage() {
               </StaggerItem>
             ))}
           </StaggerContainer>
+
+          {/* Past Events */}
+          {past.length > 0 && (
+            <>
+              <SlideIn from="left" className="mb-6">
+                <h2 className="heading-2">Past Events</h2>
+              </SlideIn>
+              <StaggerContainer className="grid sm:grid-cols-2 gap-6">
+                {past.map(event => (
+                  <StaggerItem key={event.id} direction="up">
+                    <Card className="overflow-hidden flex flex-col h-full opacity-85 transition-all duration-300 hover:opacity-100 hover:shadow-card">
+                      <div className="relative h-44">
+                        <Image src={event.image} alt={event.title} fill className="object-cover grayscale-[30%]" sizes="(max-width: 640px) 100vw, 50vw" />
+                        <div className="absolute top-3 left-3 flex gap-2">
+                          <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-neutral-200 text-neutral-600">
+                            Past Event
+                          </span>
+                        </div>
+                      </div>
+                      <div className="p-5 flex flex-col flex-1">
+                        <h3 className="font-display font-semibold text-base mb-2 line-clamp-2">{event.title}</h3>
+                        <div className="flex items-center gap-2 text-xs text-neutral-500 mb-3">
+                          <Calendar className="size-3.5" /><span>{event.date}</span>
+                        </div>
+                        <p className="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2">{event.description}</p>
+                      </div>
+                    </Card>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+            </>
+          )}
         </div>
       </section>
     </main>
