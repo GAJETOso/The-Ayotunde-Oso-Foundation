@@ -252,12 +252,12 @@ export const PROGRAMS: Omit<Program, 'projects'>[] = [
     ],
     beneficiaries: 'Entire communities and future generations',
     impact: {
-      peopleReached: 25000,
-      communitiesServed: 20,
-      keyAchievement: '12,500 trees planted; 8 communities established green teams',
+      peopleReached: 3500,
+      communitiesServed: 4,
+      keyAchievement: '1,850 trees planted across Lagos & Ogun States in inaugural campaign',
     },
     isActive: true,
-    startedAt: new Date('2020-03-01'),
+    startedAt: new Date('2025-10-01'),
   },
   {
     id: 'emergency',
@@ -280,12 +280,12 @@ export const PROGRAMS: Omit<Program, 'projects'>[] = [
     ],
     beneficiaries: 'Communities affected by natural or man-made disasters',
     impact: {
-      peopleReached: 12000,
-      communitiesServed: 8,
-      keyAchievement: '8 emergency responses; avg. 72-hour deployment time',
+      peopleReached: 1440,
+      communitiesServed: 3,
+      keyAchievement: '3 emergency responses; Benue flood relief served 360 families',
     },
     isActive: true,
-    startedAt: new Date('2019-06-01'),
+    startedAt: new Date('2025-11-01'),
   },
 ]
 
@@ -297,7 +297,7 @@ export const FEATURED_TESTIMONIALS: Testimonial[] = [
   {
     id: '1',
     name: 'Chidinma Okafor',
-    title: 'AOF Scholar, 2021',
+    title: 'AOF Scholar, 2025',
     organization: 'University of Lagos',
     location: 'Lagos, Nigeria',
     content:
@@ -308,7 +308,7 @@ export const FEATURED_TESTIMONIALS: Testimonial[] = [
     program: 'education',
     isPublished: true,
     isFeatured: true,
-    date: new Date('2024-03-15'),
+    date: new Date('2026-01-10'),
   },
   {
     id: '2',
@@ -324,7 +324,7 @@ export const FEATURED_TESTIMONIALS: Testimonial[] = [
     program: 'healthcare',
     isPublished: true,
     isFeatured: true,
-    date: new Date('2024-01-20'),
+    date: new Date('2025-10-15'),
   },
   {
     id: '3',
@@ -340,7 +340,7 @@ export const FEATURED_TESTIMONIALS: Testimonial[] = [
     program: 'emergency',
     isPublished: true,
     isFeatured: true,
-    date: new Date('2023-11-08'),
+    date: new Date('2025-11-20'),
   },
   {
     id: '4',
@@ -355,7 +355,7 @@ export const FEATURED_TESTIMONIALS: Testimonial[] = [
     type: 'donor',
     isPublished: true,
     isFeatured: true,
-    date: new Date('2024-02-14'),
+    date: new Date('2026-03-01'),
   },
 ]
 

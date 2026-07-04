@@ -6,16 +6,16 @@ import { motion, useInView } from 'framer-motion'
 // Realistic partner/sponsor logos using text-based representations
 // In production these would be actual logo image files
 const PARTNERS = [
-  { name: 'UNICEF Nigeria', category: 'ngo' },
-  { name: 'Lagos State Govt', category: 'government' },
-  { name: 'Access Bank', category: 'corporate' },
-  { name: 'Dangote Foundation', category: 'foundation' },
   { name: 'MTN Foundation', category: 'corporate' },
-  { name: 'USAID Nigeria', category: 'government' },
-  { name: 'Tony Elumelu Foundation', category: 'foundation' },
-  { name: 'British Council', category: 'international' },
-  { name: 'Zenith Bank', category: 'corporate' },
-  { name: 'Nestle Nigeria', category: 'corporate' },
+  { name: 'Access Bank', category: 'corporate' },
+  { name: 'Lagos State Ministry of Health', category: 'government' },
+  { name: 'Ekiti State Government', category: 'government' },
+  { name: 'Channels TV', category: 'media' },
+  { name: 'University of Lagos', category: 'academic' },
+  { name: 'First Bank of Nigeria', category: 'corporate' },
+  { name: 'WaterAid Nigeria', category: 'ngo' },
+  { name: 'BusinessDay Nigeria', category: 'media' },
+  { name: 'Sterling Bank', category: 'corporate' },
 ]
 
 export function PartnerLogos() {

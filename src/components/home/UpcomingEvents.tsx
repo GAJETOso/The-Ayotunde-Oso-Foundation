@@ -9,42 +9,42 @@ import { formatDate } from '@/lib/utils'
 const EVENTS = [
   {
     id: '1',
-    slug: 'medical-outreach-port-harcourt-july-2025',
-    title: 'Free Medical Outreach — Port Harcourt',
+    slug: 'webinar-digital-skills-2026',
+    title: 'Webinar: Digital Skills for Underserved Youth',
+    type: 'Virtual',
+    date: new Date('2026-07-30'),
+    location: 'Zoom (link sent on registration)',
+    isVirtual: true,
+    capacity: 300,
+    registered: 62,
+    image: 'https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=400',
+    color: 'bg-purple-50 text-purple-700 border-purple-100',
+  },
+  {
+    id: '2',
+    slug: 'free-medical-outreach-lagos-2026',
+    title: 'Free Medical Outreach — Lagos State (Q3 2026)',
     type: 'Healthcare',
-    date: new Date('2025-07-12'),
-    location: 'Rumuola Community Hall, Port Harcourt',
+    date: new Date('2026-08-08'),
+    location: 'Ikorodu Town Hall, Lagos State',
     isVirtual: false,
-    capacity: 600,
-    registered: 340,
+    capacity: null,
+    registered: 0,
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400',
     color: 'bg-red-50 text-red-700 border-red-100',
   },
   {
-    id: '2',
-    slug: 'youth-career-summit-lagos-august-2025',
-    title: 'Youth Career & Entrepreneurship Summit',
-    type: 'Mentorship',
-    date: new Date('2025-08-02'),
-    location: 'Balmoral Hall, Federal Palace Hotel, Lagos',
-    isVirtual: false,
-    capacity: 500,
-    registered: 412,
-    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=400',
-    color: 'bg-purple-50 text-purple-700 border-purple-100',
-  },
-  {
     id: '3',
-    slug: 'annual-gala-dinner-2025',
-    title: 'AOF Annual Gala & Fundraising Dinner',
+    slug: 'aof-annual-gala-2026',
+    title: 'AOF Annual Fundraising Gala 2026',
     type: 'Fundraiser',
-    date: new Date('2025-09-20'),
-    location: 'Eko Hotel & Suites, Lagos',
+    date: new Date('2026-09-19'),
+    location: 'Eko Hotel & Suites, Victoria Island, Lagos',
     isVirtual: false,
     capacity: 300,
-    registered: 187,
-    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400',
-    color: 'bg-gold-50 text-gold-700 border-gold-100',
+    registered: 118,
+    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400',
+    color: 'bg-amber-50 text-amber-700 border-amber-100',
   },
 ]
 
@@ -146,10 +146,17 @@ export function UpcomingEvents() {
                       <MapPin className="h-3 w-3" />
                       {event.location}
                     </span>
-                    <span className="flex items-center gap-1.5">
-                      <Users className="h-3 w-3" />
-                      {event.registered} / {event.capacity} registered
-                    </span>
+                    {event.capacity ? (
+                      <span className="flex items-center gap-1.5">
+                        <Users className="h-3 w-3" />
+                        {event.registered} / {event.capacity} registered
+                      </span>
+                    ) : (
+                      <span className="flex items-center gap-1.5">
+                        <Users className="h-3 w-3" />
+                        Open registration
+                      </span>
+                    )}
                   </div>
                 </div>
 

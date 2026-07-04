@@ -144,8 +144,8 @@ export function MissionSection() {
               transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
               className="absolute -bottom-6 -left-6 rounded-2xl border border-brand-100 bg-white p-6 shadow-floating"
             >
-              <p className="font-serif text-3xl font-bold text-brand-900">7+</p>
-              <p className="mt-1 text-sm text-muted-foreground">Years of impact</p>
+              <p className="font-serif text-3xl font-bold text-brand-900">1+</p>
+              <p className="mt-1 text-sm text-muted-foreground">Year of impact</p>
               <div className="mt-3 flex -space-x-2">
                 {[1, 2, 3, 4].map((i) => (
                   <div
@@ -160,10 +160,10 @@ export function MissionSection() {
                   </div>
                 ))}
                 <div className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-brand-900 text-[9px] font-bold text-white">
-                  340+
+                  94+
                 </div>
               </div>
-              <p className="mt-1.5 text-xs text-muted-foreground">Volunteers worldwide</p>
+              <p className="mt-1.5 text-xs text-muted-foreground">Active volunteers</p>
             </motion.div>
           </motion.div>
         </div>
