@@ -42,6 +42,10 @@ jobs:
 
       - name: Run database migrations
         run: |
+          if [ -z "$DATABASE_URL" ]; then
+            echo "DATABASE_URL not configured — skipping migrations"
+            exit 0
+          fi
           export DIRECT_URL="${DIRECT_URL:-$DATABASE_URL}"
           npx prisma migrate deploy
         env:
