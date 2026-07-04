@@ -9,38 +9,38 @@ import { formatDate } from '@/lib/utils'
 const LATEST_ARTICLES = [
   {
     id: '1',
-    slug: 'aof-medical-outreach-kano',
-    title: 'AOF Conducts Landmark Medical Outreach Reaching 1,500 Residents in Kano',
+    slug: 'aof-year-one-impact-3200-lives',
+    title: 'AOF Year-One Impact: 3,200 Lives Touched Across Seven Communities',
     excerpt:
-      'Our nineteenth medical outreach brought free blood pressure checks, diabetes screenings, eye tests, and mental health consultations to underserved communities in Kano State.',
-    category: 'Healthcare',
-    coverImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600',
-    publishedAt: new Date('2025-05-18'),
-    readingTime: 4,
+      'Fourteen months after our founding, The Ayotunde Oso Foundation has directly reached 3,200 individuals across seven Nigerian communities through education, healthcare, environmental, mentorship, and emergency programmes.',
+    category: 'Impact Story',
+    coverImage: 'https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=600',
+    publishedAt: new Date('2026-01-15'),
+    readingTime: 6,
     isFeatured: true,
   },
   {
     id: '2',
-    slug: 'tree-planting-campaign-2025',
-    title: '10,000 Tree Planting Campaign Launches Across Five States',
+    slug: 'inaugural-scholarship-cohort-2025',
+    title: '12 Scholars Enrolled in AOF Inaugural Education Cohort',
     excerpt:
-      'The foundation has launched an ambitious tree planting initiative targeting five Nigerian states, with community environmental champions trained to sustain the green corridors long-term.',
-    category: 'Environment',
-    coverImage: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600',
-    publishedAt: new Date('2025-04-30'),
-    readingTime: 3,
+      'The Ayotunde Oso Foundation has awarded its first scholarships to 12 exceptional students from underserved communities across Lagos, Ogun, and Ekiti States for the 2025/26 academic year.',
+    category: 'Education',
+    coverImage: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600',
+    publishedAt: new Date('2025-10-20'),
+    readingTime: 4,
     isFeatured: false,
   },
   {
     id: '3',
-    slug: 'scholarship-cohort-2025',
-    title: '120 Students Awarded Full Scholarships in 2025 Education Cohort',
+    slug: 'mobile-clinic-ekiti-340-patients',
+    title: 'AOF Mobile Clinic Reaches 340 Patients in Ekiti State',
     excerpt:
-      'The Ayotunde Oso Foundation is proud to announce its largest ever scholarship cohort, with 120 deserving students from underserved backgrounds awarded full secondary and tertiary education support.',
-    category: 'Education',
-    coverImage: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600',
-    publishedAt: new Date('2025-04-15'),
-    readingTime: 5,
+      'Our third free medical outreach served 340 community members in Ado-Ekiti, providing blood pressure checks, diabetes screenings, eye care, and free medications to those who had never seen a doctor.',
+    category: 'Healthcare',
+    coverImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600',
+    publishedAt: new Date('2025-08-14'),
+    readingTime: 4,
     isFeatured: false,
   },
 ]
@@ -51,6 +51,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   Education: 'bg-blue-50 text-blue-700',
   Mentorship: 'bg-purple-50 text-purple-700',
   Emergency: 'bg-amber-50 text-amber-700',
+  'Impact Story': 'bg-brand-50 text-brand-700',
 }
 
 export function LatestNews() {

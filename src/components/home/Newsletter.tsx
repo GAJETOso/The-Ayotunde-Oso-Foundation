@@ -61,7 +61,7 @@ export function Newsletter() {
               Stay connected with our impact
             </h2>
             <p className="mb-8 text-base text-white/70">
-              Join 5,000+ supporters receiving our monthly impact reports, program
+              Join hundreds of supporters receiving our monthly impact reports, program
               updates, and stories of transformation.
             </p>
 

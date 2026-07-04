@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" fill="none" role="img" aria-label="The Ayotunde Oso Foundation">
+  <!-- Outer circle -->
+  <circle cx="26" cy="26" r="24" fill="#0B4D35"/>
+  <!-- Gold leaf/flame shape -->
+  <path d="M26 8 C20 14 16 20 18 28 C20 34 23 38 26 40 C29 38 32 34 34 28 C36 20 32 14 26 8Z" fill="#D4A843"/>
+  <!-- Inner dark leaf -->
+  <path d="M26 14 C22 19 20 24 21.5 29 C23 33 24.5 36 26 38 C27.5 36 29 33 30.5 29 C32 24 30 19 26 14Z" fill="#0B4D35"/>
+  <!-- Gold dot — spark of potential -->
+  <circle cx="26" cy="28" r="3.5" fill="#D4A843"/>
+  <!-- Small growth dot -->
+  <circle cx="26" cy="18" r="2" fill="#D4A843" fill-opacity="0.6"/>
+</svg>
