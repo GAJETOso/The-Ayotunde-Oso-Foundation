@@ -3,8 +3,10 @@
 import { useRef } from 'react'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
-import { ArrowRight, MapPin, Calendar, Target } from 'lucide-react'
-import { cn, formatCurrency, formatDate } from '@/lib/utils'
+import { ArrowRight, MapPin, Target } from 'lucide-react'
+import { cn, formatCurrencyCompact } from '@/lib/utils'
+
+const NGN_PER_USD = 1640
 
 const PROJECTS = [
   {
@@ -16,41 +18,41 @@ const PROJECTS = [
     program: 'Education',
     status: 'active' as const,
     location: 'Lagos Island, Lagos',
-    startDate: new Date('2025-02-01'),
-    budget: 120000,
-    raised: 89000,
+    startDate: new Date('2025-09-01'),
+    budgetNgn: 18_000_000,
+    raisedNgn: 13_500_000,
     beneficiaries: 500,
     image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600',
     color: 'bg-blue-50 text-blue-700',
   },
   {
     id: '2',
-    slug: 'healthcare-outreach-abuja-q2-2025',
-    title: 'Healthcare Outreach — Abuja (Q2 2025)',
+    slug: 'healthcare-outreach-abuja-q1-2026',
+    title: 'Healthcare Outreach — Abuja (Q1 2026)',
     description:
       'Free blood pressure, diabetes, eye, and mental health screenings for 800+ residents of Garki and Wuse districts.',
     program: 'Healthcare',
     status: 'active' as const,
     location: 'Abuja, FCT',
-    startDate: new Date('2025-04-10'),
-    budget: 45000,
-    raised: 45000,
+    startDate: new Date('2026-01-15'),
+    budgetNgn: 7_200_000,
+    raisedNgn: 5_400_000,
     beneficiaries: 800,
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600',
     color: 'bg-red-50 text-red-700',
   },
   {
     id: '3',
-    slug: 'green-ibadan-2025',
+    slug: 'green-ibadan-2026',
     title: 'Green Ibadan Initiative — 3,000 Trees',
     description:
       'Partnering with Oyo State schools to plant 3,000 trees and train student environmental champions across 12 secondary schools.',
     program: 'Environment',
     status: 'planning' as const,
     location: 'Ibadan, Oyo State',
-    startDate: new Date('2025-07-01'),
-    budget: 35000,
-    raised: 12000,
+    startDate: new Date('2026-09-01'),
+    budgetNgn: 5_500_000,
+    raisedNgn: 1_870_000,
     beneficiaries: 5000,
     image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600',
     color: 'bg-emerald-50 text-emerald-700',
@@ -104,7 +106,7 @@ export function LatestProjects() {
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           {PROJECTS.map((project, i) => {
             const progressPercent = Math.min(
-              Math.round((project.raised / project.budget) * 100),
+              Math.round((project.raisedNgn / project.budgetNgn) * 100),
               100
             )
             const statusInfo = STATUS_LABELS[project.status]
@@ -174,12 +176,22 @@ export function LatestProjects() {
                   {/* Progress bar */}
                   <div className="mb-4">
                     <div className="mb-2 flex justify-between text-xs">
-                      <span className="font-semibold text-brand-700">
-                        {formatCurrency(project.raised)} raised
-                      </span>
-                      <span className="text-muted-foreground">
-                        {progressPercent}% of {formatCurrency(project.budget)}
-                      </span>
+                      <div>
+                        <span className="block font-semibold text-brand-700">
+                          {formatCurrencyCompact(project.raisedNgn, 'NGN')} raised
+                        </span>
+                        <span className="text-[10px] text-muted-foreground">
+                          ≈ {formatCurrencyCompact(Math.round(project.raisedNgn / NGN_PER_USD))} USD
+                        </span>
+                      </div>
+                      <div className="text-right">
+                        <span className="block text-muted-foreground">
+                          {progressPercent}% of goal
+                        </span>
+                        <span className="text-[10px] text-muted-foreground">
+                          {formatCurrencyCompact(project.budgetNgn, 'NGN')}
+                        </span>
+                      </div>
                     </div>
                     <div className="h-2 overflow-hidden rounded-full bg-brand-100">
                       <div
