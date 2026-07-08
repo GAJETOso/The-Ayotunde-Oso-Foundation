@@ -223,6 +223,13 @@ export default function RootLayout({
         </Providers>
         <Analytics />
         <SpeedInsights />
+        {/* KOMVIA AI bubble — positioned left; KomaiWidget occupies bottom-right */}
+        <script
+          async
+          src="https://komvia-ai-os.vercel.app/js/embed.js"
+          data-project="ayotunde-oso-foundation"
+          data-position="left"
+        />
       </body>
     </html>
   )
