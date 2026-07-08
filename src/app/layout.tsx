@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import type { Metadata, Viewport } from 'next'
+import Script from 'next/script'
 import { Inter, Playfair_Display } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 import { Analytics } from '@vercel/analytics/react'
@@ -223,6 +224,11 @@ export default function RootLayout({
         </Providers>
         <Analytics />
         <SpeedInsights />
+        <Script
+          src="https://komvia-ai-os.vercel.app/js/embed.js"
+          data-project="ayotunde-oso-foundation"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   )
