@@ -5,54 +5,11 @@ import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import { ArrowRight, Calendar, Clock } from 'lucide-react'
 import { formatDate } from '@/lib/utils'
+import { ARTICLES, CATEGORY_COLORS } from '@/data/articles'
 
-const LATEST_ARTICLES = [
-  {
-    id: '1',
-    slug: 'aof-year-one-impact-3200-lives',
-    title: 'AOF Year-One Impact: 3,200 Lives Touched Across Seven Communities',
-    excerpt:
-      'Fourteen months after our founding, The Ayotunde Oso Foundation has directly reached 3,200 individuals across seven Nigerian communities through education, healthcare, environmental, mentorship, and emergency programmes.',
-    category: 'Impact Story',
-    coverImage: 'https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=600',
-    publishedAt: new Date('2026-01-15'),
-    readingTime: 6,
-    isFeatured: true,
-  },
-  {
-    id: '2',
-    slug: 'inaugural-scholarship-cohort-2025',
-    title: '12 Scholars Enrolled in AOF Inaugural Education Cohort',
-    excerpt:
-      'The Ayotunde Oso Foundation has awarded its first scholarships to 12 exceptional students from underserved communities across Lagos, Ogun, and Ekiti States for the 2025/26 academic year.',
-    category: 'Education',
-    coverImage: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600',
-    publishedAt: new Date('2025-10-20'),
-    readingTime: 4,
-    isFeatured: false,
-  },
-  {
-    id: '3',
-    slug: 'mobile-clinic-ekiti-340-patients',
-    title: 'AOF Mobile Clinic Reaches 340 Patients in Ekiti State',
-    excerpt:
-      'Our third free medical outreach served 340 community members in Ado-Ekiti, providing blood pressure checks, diabetes screenings, eye care, and free medications to those who had never seen a doctor.',
-    category: 'Healthcare',
-    coverImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600',
-    publishedAt: new Date('2025-08-14'),
-    readingTime: 4,
-    isFeatured: false,
-  },
-]
-
-const CATEGORY_COLORS: Record<string, string> = {
-  Healthcare: 'bg-red-50 text-red-700',
-  Environment: 'bg-emerald-50 text-emerald-700',
-  Education: 'bg-blue-50 text-blue-700',
-  Mentorship: 'bg-purple-50 text-purple-700',
-  Emergency: 'bg-amber-50 text-amber-700',
-  'Impact Story': 'bg-brand-50 text-brand-700',
-}
+const LATEST_ARTICLES = [...ARTICLES]
+  .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+  .slice(0, 3)
 
 export function LatestNews() {
   const ref = useRef<HTMLDivElement>(null)
@@ -130,7 +87,7 @@ export function LatestNews() {
                       CATEGORY_COLORS[article.category] ?? 'bg-brand-50 text-brand-700'
                     }`}
                   >
-                    {article.category}
+                    {article.categoryLabel}
                   </span>
                   <span className="flex items-center gap-1 text-xs text-muted-foreground">
                     <Calendar className="h-3 w-3" />

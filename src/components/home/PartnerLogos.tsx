@@ -3,20 +3,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
-// Realistic partner/sponsor logos using text-based representations
-// In production these would be actual logo image files
-const PARTNERS = [
-  { name: 'MTN Foundation', category: 'corporate' },
-  { name: 'Access Bank', category: 'corporate' },
-  { name: 'Lagos State Ministry of Health', category: 'government' },
-  { name: 'Ekiti State Government', category: 'government' },
-  { name: 'Channels TV', category: 'media' },
-  { name: 'University of Lagos', category: 'academic' },
-  { name: 'First Bank of Nigeria', category: 'corporate' },
-  { name: 'WaterAid Nigeria', category: 'ngo' },
-  { name: 'BusinessDay Nigeria', category: 'media' },
-  { name: 'Sterling Bank', category: 'corporate' },
-]
+import { PARTNERS } from '@/data/partners'
 
 export function PartnerLogos() {
   const ref = useRef<HTMLDivElement>(null)
