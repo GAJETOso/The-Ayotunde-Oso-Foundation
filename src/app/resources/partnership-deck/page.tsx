@@ -75,9 +75,9 @@ export default function PartnershipDeckPage() {
       <section className="section">
         <div className="container-xl">
           <FadeUp className="max-w-2xl mb-12">
-            <h2 className="heading-2 mb-4">What's in the Deck</h2>
+            <h2 className="heading-2 mb-4">What&rsquo;s in the Deck</h2>
             <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-              Our Partnership Deck gives your team the full picture — from AOF's origin story and
+              Our Partnership Deck gives your team the full picture — from AOF&rsquo;s origin story and
               programme reach to financial accountability, co-branding guidelines, and how to get started.
             </p>
           </FadeUp>
