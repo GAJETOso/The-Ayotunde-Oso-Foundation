@@ -3,50 +3,10 @@
 import { useRef } from 'react'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
-import { ArrowRight, Calendar, MapPin, Users } from 'lucide-react'
-import { formatDate } from '@/lib/utils'
+import { ArrowRight, MapPin, Users } from 'lucide-react'
+import { EVENTS } from '@/data/events'
 
-const EVENTS = [
-  {
-    id: '1',
-    slug: 'webinar-digital-skills-2026',
-    title: 'Webinar: Digital Skills for Underserved Youth',
-    type: 'Virtual',
-    date: new Date('2026-07-30'),
-    location: 'Zoom (link sent on registration)',
-    isVirtual: true,
-    capacity: 300,
-    registered: 62,
-    image: 'https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=400',
-    color: 'bg-purple-50 text-purple-700 border-purple-100',
-  },
-  {
-    id: '2',
-    slug: 'free-medical-outreach-lagos-2026',
-    title: 'Free Medical Outreach — Lagos State (Q3 2026)',
-    type: 'Healthcare',
-    date: new Date('2026-08-08'),
-    location: 'Ikorodu Town Hall, Lagos State',
-    isVirtual: false,
-    capacity: null,
-    registered: 0,
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400',
-    color: 'bg-red-50 text-red-700 border-red-100',
-  },
-  {
-    id: '3',
-    slug: 'aof-annual-gala-2026',
-    title: 'AOF Annual Fundraising Gala 2026',
-    type: 'Fundraiser',
-    date: new Date('2026-09-19'),
-    location: 'Eko Hotel & Suites, Victoria Island, Lagos',
-    isVirtual: false,
-    capacity: 300,
-    registered: 118,
-    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400',
-    color: 'bg-amber-50 text-amber-700 border-amber-100',
-  },
-]
+const UPCOMING_EVENTS = EVENTS.filter((e) => e.status === 'UPCOMING').slice(0, 3)
 
 export function UpcomingEvents() {
   const ref = useRef<HTMLDivElement>(null)
@@ -87,7 +47,7 @@ export function UpcomingEvents() {
 
         {/* Events List */}
         <div className="space-y-4">
-          {EVENTS.map((event, i) => (
+          {UPCOMING_EVENTS.map((event, i) => (
             <motion.article
               key={event.id}
               initial={{ opacity: 0, y: 24 }}
@@ -106,13 +66,13 @@ export function UpcomingEvents() {
                 <div className="flex-shrink-0">
                   <div className="flex h-20 w-20 flex-col items-center justify-center rounded-2xl bg-brand-900 text-white">
                     <span className="text-xs font-bold uppercase tracking-wider text-white/60">
-                      {new Date(event.date).toLocaleString('en', { month: 'short' })}
+                      {new Date(event.date).toLocaleString('en', { month: 'short', timeZone: 'UTC' })}
                     </span>
                     <span className="font-serif text-3xl font-bold">
-                      {new Date(event.date).getDate()}
+                      {new Date(event.date).getUTCDate()}
                     </span>
                     <span className="text-xs text-white/60">
-                      {new Date(event.date).getFullYear()}
+                      {new Date(event.date).getUTCFullYear()}
                     </span>
                   </div>
                 </div>
@@ -149,7 +109,7 @@ export function UpcomingEvents() {
                     {event.capacity ? (
                       <span className="flex items-center gap-1.5">
                         <Users className="h-3 w-3" />
-                        {event.registered} / {event.capacity} registered
+                        {event.registrations} / {event.capacity} registered
                       </span>
                     ) : (
                       <span className="flex items-center gap-1.5">

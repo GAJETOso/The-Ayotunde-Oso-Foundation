@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { Quote, Star, ChevronLeft, ChevronRight } from 'lucide-react'
-import { FEATURED_TESTIMONIALS } from '@/lib/constants'
+import { FEATURED_TESTIMONIALS } from '@/data/testimonials'
 import { cn } from '@/lib/utils'
 
 export function Testimonials() {
