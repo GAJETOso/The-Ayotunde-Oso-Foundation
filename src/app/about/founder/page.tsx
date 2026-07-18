@@ -54,7 +54,7 @@ export default function FounderPage() {
           { label: 'About', href: '/about' },
           { label: 'Our Founder', href: '/about/founder' },
         ]}
-        image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&q=80"
+        image="Public/Founder.png"
         size="default"
         gradient="dark"
       />
@@ -83,8 +83,8 @@ export default function FounderPage() {
                     {[
                       ['Title',          'Founder & Executive Director'],
                       ['Based In',       'Lagos, Nigeria'],
-                      ['Education',      'M.Sc. International Development'],
-                      ['Languages',      'English, Yoruba, French'],
+                      ['Education',      'M.Sc. Finance'],
+                      ['Languages',      'English, Yoruba'],
                       ['Specialisation', 'Community Development, Social Enterprise'],
                     ].map(([label, value]) => (
                       <div key={label} className="flex flex-col">
@@ -116,10 +116,7 @@ export default function FounderPage() {
 
                 <div className="space-y-6 text-neutral-700 dark:text-neutral-300 leading-relaxed">
                   <p className="text-lg">
-                    Ayotunde Oso grew up in Mushin, one of Lagos&apos;s most densely populated and underserved
-                    communities. As the first in his family to attend university, he experienced firsthand
-                    what barriers to education look like from the inside — the daily choice between school
-                    fees and food, between ambition and survival.
+                    Ayotunde Oso grew up in Ile-Ife, known as the Origin of the Yorubas.
                   </p>
 
                   <p>
