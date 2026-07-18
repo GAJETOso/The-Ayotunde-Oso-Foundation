@@ -23,7 +23,7 @@ export const PROJECTS: Project[] = [
   {
     id: '1',
     slug: 'digital-literacy-lagos-2025',
-    title: 'Digital Literacy for 500 Youth in Lagos',
+    title: 'Digital Literacy for 100 Youth in Lagos',
     description:
       'A 3-month intensive digital skills programme equipping underserved youth in Lagos Island with web development, digital marketing, and data literacy skills — giving them the tools to participate in the 21st-century economy.',
     program: 'Education',
@@ -37,12 +37,12 @@ export const PROJECTS: Project[] = [
     image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&q=80',
     color: 'bg-blue-50 text-blue-700',
     updates: [
-      { date: '2026-01-15', text: 'Cohort 1 completed with 387 graduates receiving certificates.' },
+      { date: '2026-01-15', text: 'Cohort 1 completed with 87 graduates receiving certificates.' },
       { date: '2025-11-01', text: 'Mid-programme review: 92% attendance rate, 73% on track for job placement.' },
-      { date: '2025-09-01', text: 'Programme launched. 500 students enrolled across 4 training centres.' },
+      { date: '2025-09-01', text: 'Programme launched. 100 students enrolled across 4 training centres.' },
     ],
     outcomes: [
-      '387 graduates certified in web development or digital marketing',
+      '87 graduates certified in web development or digital marketing',
       '73% of graduates placed in tech internships or entry-level roles',
       '4 training centres established in Lagos Island',
       'Partnership with 12 tech companies for job placement',
