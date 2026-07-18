@@ -131,18 +131,18 @@ export const CORE_VALUES = [
 // ============================================================
 
 export const IMPACT_STATS: ImpactStats = {
-  livesImpacted: 3200,
-  communitiesReached: 7,
-  volunteersEngaged: 94,
+  livesImpacted: 1600,
+  communitiesReached: 4,
+  volunteersEngaged: 47,
   countriesPresent: 1,
-  donationsReceived: 410,
-  projectsCompleted: 9,
-  medicalOutreaches: 6,
-  treesPlanted: 1850,
-  studentsSupported: 480,
-  youthMentored: 260,
-  emergencyResponses: 3,
-  totalFundsRaised: 24500000,
+  donationsReceived: 205,
+  projectsCompleted: 5,
+  medicalOutreaches: 3,
+  treesPlanted: 925,
+  studentsSupported: 240,
+  youthMentored: 130,
+  emergencyResponses: 2,
+  totalFundsRaised: 12250000,
   yearsOfImpact: 1,
 }
 
@@ -303,8 +303,8 @@ Always be helpful, accurate, and compassionate. For donations, direct to /donate
 // ============================================================
 
 export const HERO_STATS = [
-  { value: '3.2K+', label: 'Lives Impacted' },
-  { value: '7', label: 'Communities Served' },
-  { value: '94+', label: 'Volunteers' },
+  { value: '1.6K+', label: 'Lives Impacted' },
+  { value: '4', label: 'Communities Served' },
+  { value: '47+', label: 'Volunteers' },
   { value: '1', label: 'Country' },
 ] as const
