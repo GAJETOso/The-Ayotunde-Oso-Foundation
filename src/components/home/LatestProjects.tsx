@@ -205,12 +205,27 @@ export function LatestProjects() {
                     </div>
                   </div>
 
+                  {/* Donate CTAs */}
+                  <div className="flex gap-2 mb-3">
+                    <Link
+                      href={`/donate?project=${project.slug}&currency=NGN`}
+                      className="flex-1 rounded-xl bg-brand-700 px-3 py-2 text-center text-xs font-bold text-white transition-colors hover:bg-brand-800"
+                    >
+                      Donate in ₦ NGN
+                    </Link>
+                    <Link
+                      href={`/donate?project=${project.slug}&currency=USD`}
+                      className="flex-1 rounded-xl border border-brand-700 px-3 py-2 text-center text-xs font-bold text-brand-700 transition-colors hover:bg-brand-50"
+                    >
+                      Donate in $ USD
+                    </Link>
+                  </div>
                   <Link
                     href={`/projects/${project.slug}`}
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-brand-700 transition-all hover:gap-3 hover:text-brand-900"
+                    className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground transition-all hover:gap-3 hover:text-brand-700"
                   >
                     View Project
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight className="h-3 w-3" />
                   </Link>
                 </div>
               </motion.article>
