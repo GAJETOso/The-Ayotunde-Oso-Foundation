@@ -17,7 +17,7 @@ import { BookOpen, GraduationCap, Laptop, Users, CheckCircle2, ArrowRight } from
 export const metadata: Metadata = {
   title: 'Education & Youth Development | The Ayotunde Oso Foundation',
   description:
-    'AOF\'s Education programme provides literacy support, STEM training, scholarships, and digital skills to 45,000+ students across underserved communities.',
+    'AOF\'s Education programme provides digital skills training, university scholarships, literacy support, and teacher development to 480+ young people in underserved communities.',
 }
 
 const SUB_PROGRAMS = [
@@ -26,7 +26,7 @@ const SUB_PROGRAMS = [
     title: 'AOF Literacy Initiative',
     description:
       'Structured literacy intervention for children ages 5–12 who have fallen behind grade-level reading. Trains community facilitators and provides take-home materials.',
-    reach: '18,400 children enrolled',
+    reach: '3 partner schools enrolled',
     metric: 87,
     metricLabel: 'Literacy rate improvement',
   },
@@ -35,16 +35,16 @@ const SUB_PROGRAMS = [
     title: 'AOF Scholars Programme',
     description:
       'Full university scholarships for exceptional students from low-income households, paired with mentorship, internship placement, and career coaching.',
-    reach: '312 scholars active',
+    reach: '12 scholars (inaugural cohort)',
     metric: 100,
-    metricLabel: 'Scholar graduation rate',
+    metricLabel: 'Scholars progressing on track',
   },
   {
     icon: Laptop,
     title: 'Digital Skills & STEM',
     description:
-      'Coding bootcamps, robotics clubs, and digital literacy training for secondary students, equipping them for the 21st-century economy.',
-    reach: '8,200 students trained',
+      'Coding bootcamps, digital marketing, and data literacy training for underserved youth in Lagos, equipping them for the 21st-century economy.',
+    reach: '500 enrolled (cohort 1, Lagos)',
     metric: 73,
     metricLabel: 'Placed in tech internships',
   },
@@ -53,7 +53,7 @@ const SUB_PROGRAMS = [
     title: 'Teacher Capacity Building',
     description:
       'Training and continuous professional development for public school teachers in underserved communities, improving quality at scale.',
-    reach: '1,400 teachers trained',
+    reach: '28 teachers trained',
     metric: 94,
     metricLabel: 'Improved student outcomes',
   },
@@ -64,7 +64,7 @@ export default function EducationPage() {
     <main id="main-content">
       <PageHero
         title="Education & Youth Development"
-        subtitle="When a child learns to read, a universe opens. Our education programme ensures 45,000+ young people have that experience every year."
+        subtitle="When a child learns to read, a universe opens. Our education programme is building that future for young people across underserved communities."
         eyebrow="Programme"
         breadcrumbs={[
           { label: 'Programs', href: '/programs' },
@@ -86,9 +86,9 @@ export default function EducationPage() {
         <div className="container-xl">
           <StaggerContainer className="grid lg:grid-cols-3 gap-8 mb-16">
             {[
-              { value: '45,200+', label: 'Students Supported', desc: 'enrolled across all education sub-programmes' },
-              { value: '312',     label: 'Active Scholars',     desc: 'receiving full university scholarships' },
-              { value: '87%',     label: 'Literacy Improvement', desc: 'among children in our literacy initiative' },
+              { value: '500+',  label: 'Students Enrolled',   desc: 'in digital skills and literacy programmes' },
+              { value: '12',    label: 'Active Scholars',     desc: 'receiving full university scholarships (inaugural cohort)' },
+              { value: '87%',   label: 'Literacy Improvement', desc: 'among children in our literacy initiative' },
             ].map((s) => (
               <StaggerItem key={s.label} direction="up">
                 <Card className="p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
@@ -119,10 +119,10 @@ export default function EducationPage() {
               </div>
               <div className="mt-8 space-y-3">
                 {[
-                  'Trained 1,400+ teachers in 6 states',
-                  '100% of AOF Scholars progress to employment or further study',
-                  '87 partner schools in our literacy network',
-                  'Digital labs in 23 communities',
+                  '28 teachers trained across 3 partner schools',
+                  '100% of inaugural AOF Scholars progressing on track',
+                  '3 community schools in our literacy partnership',
+                  '1 digital skills hub launched in Lagos Island',
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <CheckCircle2 className="size-5 text-brand-600 flex-shrink-0" />
@@ -190,8 +190,8 @@ export default function EducationPage() {
               <div>
                 <h2 className="heading-2 text-white mb-4">Give a child a future</h2>
                 <p className="text-brand-200 leading-relaxed">
-                  $50 funds a child&apos;s school supplies for a full year. $200 covers a semester of tutoring.
-                  $500 provides a vocational training scholarship. Every amount matters.
+                  ₦25,000 funds a child&apos;s school supplies for a full year. ₦100,000 covers a semester of tutoring.
+                  ₦250,000 provides a vocational training scholarship. Every amount matters.
                 </p>
               </div>
               <div className="flex flex-wrap gap-4">

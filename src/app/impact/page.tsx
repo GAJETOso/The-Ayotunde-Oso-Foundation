@@ -26,7 +26,7 @@ const IMPACT_NUMBERS = [
   { to: 1,    suffix: '',  prefix: '',  label: 'Country of Operation',     delta: 'Nigeria',          color: 'text-emerald-700' },
   { to: 94,   suffix: '+', prefix: '',  label: 'Active Volunteers',        delta: 'and growing',      color: 'text-blue-700'   },
   { to: 8,    suffix: '',  prefix: '',  label: 'Partner Organisations',    delta: '100% retained',    color: 'text-purple-700' },
-  { to: 60,   suffix: '',  prefix: '',  label: 'Active Scholars',          delta: 'current cycle',    color: 'text-brand-700'  },
+  { to: 12,   suffix: '',  prefix: '',  label: 'Active Scholars',          delta: 'inaugural cohort', color: 'text-brand-700'  },
 ]
 
 const PROGRAM_BREAKDOWN = [
@@ -203,11 +203,11 @@ export default function ImpactPage() {
                 <h3 className="mb-6 font-display text-xl font-semibold">Financial Summary</h3>
                 <div className="rounded-2xl border border-neutral-200 dark:border-neutral-800">
                   {[
-                    { label: 'Total Revenue 2024',       value: '$4.8M'          },
-                    { label: 'Programme Expenditure',    value: '$4.2M (87.5%)'  },
-                    { label: 'Fundraising Costs',        value: '$384K (8%)'     },
-                    { label: 'Administration',           value: '$216K (4.5%)'   },
-                    { label: 'Reserve Fund',             value: '$520K'          },
+                    { label: 'Total Revenue (FY 2025)',  value: '₦24.5M'         },
+                    { label: 'Programme Services',       value: '₦18.7M (85%)'   },
+                    { label: 'Administration',           value: '₦2.2M (10%)'    },
+                    { label: 'Fundraising Costs',        value: '₦1.1M (5%)'     },
+                    { label: 'Year-end Surplus',         value: '₦2.5M'          },
                   ].map((row, i, arr) => (
                     <div
                       key={row.label}

@@ -16,7 +16,7 @@ import { Heart, Activity, Baby, Brain, CheckCircle2 } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Healthcare Outreaches | The Ayotunde Oso Foundation',
   description:
-    'AOF brings free preventive and primary healthcare to 38,000+ individuals in underserved communities through mobile clinics, nutrition programmes, and mental health support.',
+    'AOF brings free preventive and primary healthcare to 1,500+ individuals across 7 communities through mobile clinics, screening programmes, and health education.',
 }
 
 const SERVICES = [
@@ -68,9 +68,9 @@ export default function HealthcarePage() {
           {/* Stats */}
           <StaggerContainer className="grid lg:grid-cols-3 gap-6 mb-16">
             {[
-              { value: '38,000+', label: 'Patients Treated' },
-              { value: '42',      label: 'Communities Reached' },
-              { value: '6',       label: 'Mobile Clinic Units' },
+              { value: '1,500+', label: 'Patients Served' },
+              { value: '7',      label: 'Communities Reached' },
+              { value: '6',      label: 'Medical Outreaches' },
             ].map((s) => (
               <StaggerItem key={s.label} direction="up">
                 <Card className="p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
@@ -105,8 +105,8 @@ export default function HealthcarePage() {
               <div className="space-y-3">
                 {[
                   'Free consultations, medications, and diagnostics',
-                  '6 mobile units operating quarterly across 3 states',
-                  'Trained 280 Community Health Workers',
+                  '6 outreaches completed across Lagos, Ekiti, and FCT',
+                  'Trained 12 Community Health Advocates',
                   '94% patient satisfaction score',
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
@@ -148,8 +148,8 @@ export default function HealthcarePage() {
           <FadeUp>
             <h2 className="heading-2 text-white mb-4">Every life is worth fighting for</h2>
             <p className="text-red-200 mb-8 max-w-xl mx-auto">
-              $20 provides one patient with a free consultation and medications.
-              $100 sponsors a community health worker for a month.
+              ₦15,000 provides one patient with a free consultation and medications.
+              ₦75,000 sponsors a community health worker for a month.
             </p>
             <Button variant="white" size="lg" asChild>
               <Link href="/donate?program=healthcare">Donate to Healthcare</Link>

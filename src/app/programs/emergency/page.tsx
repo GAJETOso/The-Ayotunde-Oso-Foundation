@@ -46,9 +46,9 @@ export default function EmergencyPage() {
           {/* Stats */}
           <StaggerContainer className="grid lg:grid-cols-4 gap-6 mb-16">
             {[
-              { value: '31,400+', label: 'People Assisted' },
+              { value: '1,440',   label: 'People Assisted' },
               { value: '72hrs',   label: 'Response Time' },
-              { value: '14',      label: 'Emergency Operations' },
+              { value: '3',       label: 'Emergency Operations' },
               { value: '100%',    label: 'Aid Reach Target' },
             ].map((s) => (
               <StaggerItem key={s.label} direction="up">
@@ -76,7 +76,7 @@ export default function EmergencyPage() {
               </p>
               <div className="space-y-3">
                 {[
-                  'Pre-positioned emergency supplies in 6 states',
+                  'Pre-positioned emergency supplies across 3 states',
                   '72-hour first-response SLA for all declarations',
                   'Dedicated emergency response reserve fund',
                   'Post-crisis rehabilitation and psychosocial support',
