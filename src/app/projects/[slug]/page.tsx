@@ -113,28 +113,46 @@ export default async function ProjectPage({ params }: Props) {
                   <Badge variant={status.variant} className="mb-4">{status.label}</Badge>
 
                   {/* Progress */}
-                  <div className="mb-6">
-                    <div className="flex justify-between text-xs mb-2">
-                      <div>
+                  <div className="mb-6 space-y-3">
+                    {/* NGN bar */}
+                    <div>
+                      <div className="flex justify-between text-xs mb-1.5">
                         <p className="font-bold text-brand-700 dark:text-brand-400">
                           ₦{(project.raisedNgn / 1_000_000).toFixed(1)}M raised
                         </p>
-                        <p className="text-xs text-neutral-500">≈ ${raisedUsd.toLocaleString()} USD raised</p>
+                        <p className="text-neutral-500">{progressPercent}% · ₦{(project.budgetNgn / 1_000_000).toFixed(1)}M goal</p>
                       </div>
-                      <div className="text-right">
-                        <p className="font-semibold text-neutral-700 dark:text-neutral-300">{progressPercent}% of goal</p>
-                        <p className="text-neutral-500 text-[10px]">₦{(project.budgetNgn / 1_000_000).toFixed(1)}M target</p>
+                      <div className="h-2.5 overflow-hidden rounded-full bg-brand-100 dark:bg-brand-900/40">
+                        <div
+                          className="h-full rounded-full bg-gradient-brand"
+                          style={{ width: `${progressPercent}%` }}
+                          role="progressbar"
+                          aria-label="NGN fundraising progress"
+                          aria-valuenow={progressPercent}
+                          aria-valuemin={0}
+                          aria-valuemax={100}
+                        />
                       </div>
                     </div>
-                    <div className="h-2.5 overflow-hidden rounded-full bg-brand-100 dark:bg-brand-900/40">
-                      <div
-                        className="h-full rounded-full bg-gradient-brand"
-                        style={{ width: `${progressPercent}%` }}
-                        role="progressbar"
-                        aria-valuenow={progressPercent}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                      />
+                    {/* USD bar */}
+                    <div>
+                      <div className="flex justify-between text-xs mb-1.5">
+                        <p className="font-bold text-amber-700 dark:text-amber-400">
+                          ${raisedUsd.toLocaleString()} USD raised
+                        </p>
+                        <p className="text-neutral-500">{progressPercent}% · ${budgetUsd.toLocaleString()} goal</p>
+                      </div>
+                      <div className="h-2.5 overflow-hidden rounded-full bg-amber-100 dark:bg-amber-900/40">
+                        <div
+                          className="h-full rounded-full bg-amber-500"
+                          style={{ width: `${progressPercent}%` }}
+                          role="progressbar"
+                          aria-label="USD fundraising progress"
+                          aria-valuenow={progressPercent}
+                          aria-valuemin={0}
+                          aria-valuemax={100}
+                        />
+                      </div>
                     </div>
                   </div>
 

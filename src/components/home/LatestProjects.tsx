@@ -123,35 +123,51 @@ export function LatestProjects() {
                     </span>
                   </div>
 
-                  {/* Progress bar */}
-                  <div className="mb-4">
-                    <div className="mb-2 flex justify-between text-xs">
-                      <div>
-                        <span className="block font-semibold text-brand-700">
+                  {/* Progress bars */}
+                  <div className="mb-4 space-y-3">
+                    {/* NGN bar */}
+                    <div>
+                      <div className="mb-1.5 flex justify-between text-xs">
+                        <span className="font-semibold text-brand-700">
                           {formatCurrencyCompact(project.raisedNgn, 'NGN')} raised
                         </span>
-                        <span className="block text-xs text-muted-foreground">
-                          ≈ {formatCurrencyCompact(Math.round(project.raisedNgn / NGN_PER_USD))} USD raised
+                        <span className="text-muted-foreground">
+                          {progressPercent}% · {formatCurrencyCompact(project.budgetNgn, 'NGN')} goal
                         </span>
                       </div>
-                      <div className="text-right">
-                        <span className="block text-muted-foreground">
-                          {progressPercent}% of goal
-                        </span>
-                        <span className="text-[10px] text-muted-foreground">
-                          {formatCurrencyCompact(project.budgetNgn, 'NGN')}
-                        </span>
+                      <div className="h-2 overflow-hidden rounded-full bg-brand-100">
+                        <div
+                          className="h-full rounded-full bg-gradient-brand transition-all duration-1000 ease-out-expo"
+                          style={{ width: `${progressPercent}%` }}
+                          role="progressbar"
+                          aria-label="NGN fundraising progress"
+                          aria-valuenow={progressPercent}
+                          aria-valuemin={0}
+                          aria-valuemax={100}
+                        />
                       </div>
                     </div>
-                    <div className="h-2 overflow-hidden rounded-full bg-brand-100">
-                      <div
-                        className="h-full rounded-full bg-gradient-brand transition-all duration-1000 ease-out-expo"
-                        style={{ width: `${progressPercent}%` }}
-                        role="progressbar"
-                        aria-valuenow={progressPercent}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                      />
+                    {/* USD bar */}
+                    <div>
+                      <div className="mb-1.5 flex justify-between text-xs">
+                        <span className="font-semibold text-amber-700">
+                          {formatCurrencyCompact(Math.round(project.raisedNgn / NGN_PER_USD))} raised
+                        </span>
+                        <span className="text-muted-foreground">
+                          {progressPercent}% · {formatCurrencyCompact(Math.round(project.budgetNgn / NGN_PER_USD))} goal
+                        </span>
+                      </div>
+                      <div className="h-2 overflow-hidden rounded-full bg-amber-100">
+                        <div
+                          className="h-full rounded-full bg-amber-500 transition-all duration-1000 ease-out-expo"
+                          style={{ width: `${progressPercent}%` }}
+                          role="progressbar"
+                          aria-label="USD fundraising progress"
+                          aria-valuenow={progressPercent}
+                          aria-valuemin={0}
+                          aria-valuemax={100}
+                        />
+                      </div>
                     </div>
                   </div>
 
