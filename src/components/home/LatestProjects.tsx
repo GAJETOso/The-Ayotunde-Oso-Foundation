@@ -180,8 +180,8 @@ export function LatestProjects() {
                         <span className="block font-semibold text-brand-700">
                           {formatCurrencyCompact(project.raisedNgn, 'NGN')} raised
                         </span>
-                        <span className="text-[10px] text-muted-foreground">
-                          ≈ {formatCurrencyCompact(Math.round(project.raisedNgn / NGN_PER_USD))} USD
+                        <span className="block text-xs text-muted-foreground">
+                          ≈ {formatCurrencyCompact(Math.round(project.raisedNgn / NGN_PER_USD))} USD raised
                         </span>
                       </div>
                       <div className="text-right">
@@ -206,16 +206,16 @@ export function LatestProjects() {
                   </div>
 
                   {/* Donate CTAs */}
-                  <div className="flex gap-2 mb-3">
+                  <div className="flex flex-col gap-2 mb-3">
                     <Link
                       href={`/donate?project=${project.slug}&currency=NGN`}
-                      className="flex-1 rounded-xl bg-brand-700 px-3 py-2 text-center text-xs font-bold text-white transition-colors hover:bg-brand-800"
+                      className="w-full rounded-xl bg-brand-700 px-3 py-2 text-center text-xs font-bold text-white transition-colors hover:bg-brand-800"
                     >
                       Donate in ₦ NGN
                     </Link>
                     <Link
                       href={`/donate?project=${project.slug}&currency=USD`}
-                      className="flex-1 rounded-xl border border-brand-700 px-3 py-2 text-center text-xs font-bold text-brand-700 transition-colors hover:bg-brand-50"
+                      className="w-full rounded-xl border border-brand-700 px-3 py-2 text-center text-xs font-bold text-brand-700 transition-colors hover:bg-brand-50"
                     >
                       Donate in $ USD
                     </Link>

@@ -208,7 +208,7 @@ export default async function ProjectPage({ params }: Props) {
                         <p className="font-bold text-brand-700 dark:text-brand-400">
                           ₦{(project.raisedNgn / 1_000_000).toFixed(1)}M raised
                         </p>
-                        <p className="text-neutral-500 text-[10px]">≈ ${raisedUsd.toLocaleString()} USD</p>
+                        <p className="text-xs text-neutral-500">≈ ${raisedUsd.toLocaleString()} USD raised</p>
                       </div>
                       <div className="text-right">
                         <p className="font-semibold text-neutral-700 dark:text-neutral-300">{progressPercent}% of goal</p>
