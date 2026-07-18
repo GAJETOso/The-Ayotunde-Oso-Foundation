@@ -5,59 +5,9 @@ import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import { ArrowRight, MapPin, Target } from 'lucide-react'
 import { cn, formatCurrencyCompact } from '@/lib/utils'
+import { PROJECTS } from '@/data/projects'
 
 const NGN_PER_USD = 1640
-
-const PROJECTS = [
-  {
-    id: '1',
-    slug: 'digital-literacy-lagos-2025',
-    title: 'Digital Literacy for 500 Youth in Lagos',
-    description:
-      'A 3-month intensive digital skills program equipping underserved youth with web development, digital marketing, and data literacy skills.',
-    program: 'Education',
-    status: 'active' as const,
-    location: 'Lagos Island, Lagos',
-    startDate: new Date('2025-09-01'),
-    budgetNgn: 18_000_000,
-    raisedNgn: 13_500_000,
-    beneficiaries: 500,
-    image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600',
-    color: 'bg-blue-50 text-blue-700',
-  },
-  {
-    id: '2',
-    slug: 'healthcare-outreach-abuja-q1-2026',
-    title: 'Healthcare Outreach — Abuja (Q1 2026)',
-    description:
-      'Free blood pressure, diabetes, eye, and mental health screenings for 800+ residents of Garki and Wuse districts.',
-    program: 'Healthcare',
-    status: 'active' as const,
-    location: 'Abuja, FCT',
-    startDate: new Date('2026-01-15'),
-    budgetNgn: 7_200_000,
-    raisedNgn: 5_400_000,
-    beneficiaries: 800,
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600',
-    color: 'bg-red-50 text-red-700',
-  },
-  {
-    id: '3',
-    slug: 'green-ibadan-2026',
-    title: 'Green Ibadan Initiative — 3,000 Trees',
-    description:
-      'Partnering with Oyo State schools to plant 3,000 trees and train student environmental champions across 12 secondary schools.',
-    program: 'Environment',
-    status: 'planning' as const,
-    location: 'Ibadan, Oyo State',
-    startDate: new Date('2026-09-01'),
-    budgetNgn: 5_500_000,
-    raisedNgn: 1_870_000,
-    beneficiaries: 5000,
-    image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600',
-    color: 'bg-emerald-50 text-emerald-700',
-  },
-]
 
 const STATUS_LABELS: Record<string, { label: string; color: string }> = {
   active: { label: 'Active', color: 'bg-green-100 text-green-700' },
@@ -180,8 +130,8 @@ export function LatestProjects() {
                         <span className="block font-semibold text-brand-700">
                           {formatCurrencyCompact(project.raisedNgn, 'NGN')} raised
                         </span>
-                        <span className="text-[10px] text-muted-foreground">
-                          ≈ {formatCurrencyCompact(Math.round(project.raisedNgn / NGN_PER_USD))} USD
+                        <span className="block text-xs text-muted-foreground">
+                          ≈ {formatCurrencyCompact(Math.round(project.raisedNgn / NGN_PER_USD))} USD raised
                         </span>
                       </div>
                       <div className="text-right">
@@ -206,16 +156,16 @@ export function LatestProjects() {
                   </div>
 
                   {/* Donate CTAs */}
-                  <div className="flex gap-2 mb-3">
+                  <div className="flex flex-col gap-2 mb-3">
                     <Link
                       href={`/donate?project=${project.slug}&currency=NGN`}
-                      className="flex-1 rounded-xl bg-brand-700 px-3 py-2 text-center text-xs font-bold text-white transition-colors hover:bg-brand-800"
+                      className="w-full rounded-xl bg-brand-700 px-3 py-2 text-center text-xs font-bold text-white transition-colors hover:bg-brand-800"
                     >
                       Donate in ₦ NGN
                     </Link>
                     <Link
                       href={`/donate?project=${project.slug}&currency=USD`}
-                      className="flex-1 rounded-xl border border-brand-700 px-3 py-2 text-center text-xs font-bold text-brand-700 transition-colors hover:bg-brand-50"
+                      className="w-full rounded-xl border border-brand-700 px-3 py-2 text-center text-xs font-bold text-brand-700 transition-colors hover:bg-brand-50"
                     >
                       Donate in $ USD
                     </Link>
