@@ -16,7 +16,7 @@ import { Users, Compass, Briefcase, Star, CheckCircle2 } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Youth Mentorship | The Ayotunde Oso Foundation',
   description:
-    'AOF\'s mentorship programme connects 3,200+ young people with trained mentors for career development, personal growth, and life skills through one-on-one and group sessions.',
+    'AOF\'s mentorship programme connects 260 young people with trained mentors for career development, personal growth, and life skills through one-on-one and group sessions.',
 }
 
 export default function MentorshipPage() {
@@ -46,9 +46,9 @@ export default function MentorshipPage() {
           {/* Stats */}
           <StaggerContainer className="grid lg:grid-cols-4 gap-6 mb-16">
             {[
-              { value: '3,200+', label: 'Youth Mentored' },
-              { value: '840',    label: 'Active Mentors' },
-              { value: '12,800', label: 'Mentorship Hours' },
+              { value: '260',    label: 'Youth Mentored' },
+              { value: '48',     label: 'Active Mentors' },
+              { value: '1,040',  label: 'Mentorship Hours' },
               { value: '78%',    label: 'Career Placement Rate' },
             ].map((s) => (
               <StaggerItem key={s.label} direction="up">

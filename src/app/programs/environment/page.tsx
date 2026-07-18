@@ -16,7 +16,7 @@ import { Leaf, Droplets, Wind, Recycle, CheckCircle2 } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Environmental Sustainability | The Ayotunde Oso Foundation',
   description:
-    'AOF\'s environmental programme has planted 250,000+ trees, provided clean water to 30 communities, and trained 5,000+ climate champions across West Africa.',
+    'AOF\'s environmental programme has planted 1,850 trees across Lagos & Ogun States, engaged 600 community members in sustainability initiatives, and launched a school reforestation partnership.',
 }
 
 export default function EnvironmentPage() {
@@ -46,10 +46,10 @@ export default function EnvironmentPage() {
           {/* Stats */}
           <StaggerContainer className="grid lg:grid-cols-4 gap-6 mb-16">
             {[
-              { value: '250,000+', label: 'Trees Planted',                color: 'text-emerald-600' },
-              { value: '30',       label: 'Communities with Clean Water', color: 'text-blue-600'    },
-              { value: '5,000+',   label: 'Climate Champions Trained',    color: 'text-emerald-600' },
-              { value: '12',       label: 'Ecosystems Restored',          color: 'text-emerald-600' },
+              { value: '1,850',    label: 'Trees Planted',             color: 'text-emerald-600' },
+              { value: '4',        label: 'Communities Engaged',        color: 'text-blue-600'    },
+              { value: '600',      label: 'Community Members Reached',  color: 'text-emerald-600' },
+              { value: '2',        label: 'States Active',              color: 'text-emerald-600' },
             ].map((s) => (
               <StaggerItem key={s.label} direction="up">
                 <Card className="p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
@@ -87,10 +87,10 @@ export default function EnvironmentPage() {
               </p>
               <div className="space-y-3">
                 {[
-                  '250,000+ trees planted across 4 Nigerian states',
-                  'Solar-powered clean water points in 30 communities',
-                  'Youth Green Corps: 5,000 trained climate advocates',
-                  'Plastic waste collection partnerships in 8 cities',
+                  '1,850 trees planted across Lagos & Ogun States',
+                  'Green Corps launched in 12 partner schools',
+                  '600 community members engaged in sustainability initiatives',
+                  '1 community recycling programme launched in Lagos',
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <CheckCircle2 className="size-5 text-emerald-600 flex-shrink-0" />
@@ -132,8 +132,8 @@ export default function EnvironmentPage() {
           <FadeUp>
             <h2 className="heading-2 text-white mb-4">Plant a tree. Restore a future.</h2>
             <p className="text-emerald-200 mb-8 max-w-xl mx-auto">
-              $10 plants and nurtures a tree for three years. $100 provides a family with clean water
-              access. $500 trains a community climate champion.
+              ₦5,000 plants and nurtures a tree for one year. ₦50,000 sponsors a school Green Corps session.
+              ₦200,000 funds a community reforestation drive.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button variant="white" size="lg" asChild>
