@@ -16,7 +16,7 @@ import { Quote } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Meet Our Founder | The Ayotunde Oso Foundation',
   description:
-    'The story of Ayotunde Oso — visionary, servant leader, and founder of the Ayotunde Oso Foundation. A journey from personal experience to transformational impact.',
+    'The story of Ayotunde Oso — the last born of three university-educated siblings from Ile-Ife, the ancient cradle of the Yoruba people, who turned privilege into purpose.',
 }
 
 const QUOTES = [
@@ -30,17 +30,17 @@ const QUOTES = [
   },
   {
     text: 'I have met people with extraordinary gifts trapped by ordinary circumstances. The Foundation exists to remove those circumstances.',
-    context: 'On the Foundation\'s Purpose',
+    context: "On the Foundation's Purpose",
   },
 ]
 
 const ACHIEVEMENTS = [
   { year: 'May 2025', milestone: 'Founded The Ayotunde Oso Foundation' },
-  { year: 'Jul 2025', milestone: 'First medical outreach — 200+ screened in Mushin, Lagos' },
-  { year: 'Sep 2025', milestone: 'Inaugural scholarship cohort — 12 students supported' },
-  { year: 'Nov 2025', milestone: 'Launched youth mentorship programme with 60 mentees' },
-  { year: 'Feb 2026', milestone: 'Environmental drive — 1,000+ trees planted' },
-  { year: '2026', milestone: '3,200+ lives impacted across 7 communities' },
+  { year: 'Jul 2025', milestone: 'First medical outreach — 100+ screened in Ile-Ife, Osun State' },
+  { year: 'Sep 2025', milestone: 'Inaugural scholarship cohort — 6 students supported' },
+  { year: 'Nov 2025', milestone: 'Launched youth mentorship programme with 30 mentees' },
+  { year: 'Feb 2026', milestone: 'Environmental drive — 500+ trees planted' },
+  { year: '2026',     milestone: '1,600+ lives impacted across 4 communities' },
 ]
 
 export default function FounderPage() {
@@ -54,7 +54,7 @@ export default function FounderPage() {
           { label: 'About', href: '/about' },
           { label: 'Our Founder', href: '/about/founder' },
         ]}
-        image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&q=80"
+        image="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&q=80"
         size="default"
         gradient="dark"
       />
@@ -67,11 +67,12 @@ export default function FounderPage() {
             <SlideIn from="left">
               <div className="space-y-6 lg:sticky lg:top-28">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[3/4]">
+                  {/* Place your photo at /public/founder.jpg to display it here */}
                   <Image
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80"
+                    src="/founder.jpg"
                     alt="Ayotunde Oso, Founder of The Ayotunde Oso Foundation"
                     fill
-                    className="object-cover"
+                    className="object-cover object-top"
                     sizes="380px"
                   />
                 </div>
@@ -82,6 +83,7 @@ export default function FounderPage() {
                   <dl className="space-y-3">
                     {[
                       ['Title',          'Founder & Executive Director'],
+                      ['Hometown',       'Ile-Ife, Osun State, Nigeria'],
                       ['Based In',       'Lagos, Nigeria'],
                       ['Education',      'M.Sc. International Development'],
                       ['Languages',      'English, Yoruba, French'],
@@ -112,27 +114,30 @@ export default function FounderPage() {
               <article className="prose-content">
                 <Badge variant="brand" className="mb-6">Biography</Badge>
 
-                <h2 className="heading-3 mb-6">A life shaped by purpose</h2>
+                <h2 className="heading-3 mb-6">A life shaped by roots and responsibility</h2>
 
                 <div className="space-y-6 text-neutral-700 dark:text-neutral-300 leading-relaxed">
                   <p className="text-lg">
-                    Ayotunde Oso grew up in Mushin, one of Lagos&apos;s most densely populated and underserved
-                    communities. As the first in his family to attend university, he experienced firsthand
-                    what barriers to education look like from the inside — the daily choice between school
-                    fees and food, between ambition and survival.
+                    Ayotunde Oso grew up in Ile-Ife, Osun State — the ancient city revered across the world as
+                    the cradle of the Yoruba people and the mythological birthplace of humanity itself. To grow
+                    up in Ile-Ife is to grow up surrounded by history, culture, and a profound sense of
+                    collective identity. It is a place that teaches you, early, that you belong to something
+                    larger than yourself.
                   </p>
 
                   <p>
-                    That experience did not break him. It became his compass. During his undergraduate years
-                    at the University of Lagos studying Public Administration, Ayotunde began organising
-                    informal tutoring sessions for neighbourhood children. What started as Saturday afternoons
-                    with eight students quickly grew to a registered community group serving hundreds.
+                    The last born of three children, Ayotunde was raised in a home where education was not
+                    optional — it was the family&apos;s shared language and highest aspiration. All three siblings
+                    attended university. That foundation of academic achievement gave Ayotunde something rare:
+                    the confidence to dream wide, and the awareness of how many in his community had been
+                    denied the same opportunity.
                   </p>
 
                   <p>
-                    &ldquo;I realised,&rdquo; he recalls, &ldquo;that the problem was never a lack of brilliance.
-                    The children I worked with were extraordinary. The problem was that the systems around
-                    them were designed to keep them exactly where they were.&rdquo;
+                    &ldquo;I was lucky,&rdquo; he reflects. &ldquo;My siblings and I all went to university — something my
+                    parents made enormous sacrifices to ensure. But all around us in Ile-Ife, I saw brilliant
+                    children who never got that chance. Not because they lacked the ability — but because the
+                    systems around them were designed to keep them exactly where they were.&rdquo;
                   </p>
 
                   {/* Pull quote */}
@@ -140,26 +145,33 @@ export default function FounderPage() {
                     <div className="border-l-4 border-gold-500 pl-6 my-8 bg-gold-50 dark:bg-gold-900/10 py-6 pr-6 rounded-r-2xl">
                       <Quote className="size-8 text-gold-400 mb-3" />
                       <p className="text-xl font-display font-medium text-neutral-900 dark:text-neutral-100 leading-relaxed italic">
-                        The moment I understood that systems — not people — were the obstacle, I knew
-                        what my life&apos;s work had to be: change the systems.
+                        Ile-Ife taught me that I come from greatness. That is not a reason to feel superior —
+                        it is a reason to serve.
                       </p>
                       <p className="text-sm text-neutral-500 mt-4">Ayotunde Oso</p>
                     </div>
                   </FadeUp>
 
                   <p>
+                    During his undergraduate years studying Public Administration, Ayotunde began organising
+                    informal tutoring sessions for neighbourhood children in Ile-Ife. What started as Saturday
+                    afternoons with a handful of students grew quickly into a registered community group. He
+                    saw first-hand how mentorship, access to resources, and consistent care could transform
+                    a young person&apos;s trajectory.
+                  </p>
+
+                  <p>
                     After completing a Master&apos;s degree in International Development in London, Ayotunde
                     returned to Nigeria with a clear mandate. In May 2025, he formally established The Ayotunde
-                    Oso Foundation, combining academic rigour with deep grassroots passion and an
-                    unshakeable belief in human potential.
+                    Oso Foundation, naming it after himself not as a monument to ego but as a statement of
+                    personal accountability — a permanent promise that he would dedicate his life to the work.
                   </p>
 
                   <p>
                     In just over a year, the Foundation has launched five integrated programmes, impacted
-                    over 3,200 lives across seven communities in Nigeria, and built partnerships with
-                    local organisations and individuals committed to lasting change. Ayotunde remains most
-                    at home in the field — visiting schools, sitting with community elders, and listening
-                    to the people the Foundation exists to serve.
+                    over 1,600 lives across four communities in Nigeria, and built partnerships committed to
+                    lasting change. Ayotunde remains most at home in the field — visiting schools, sitting
+                    with community elders, and listening to the people the Foundation exists to serve.
                   </p>
 
                   <p>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { PageHero } from '@/components/shared/PageHero'
+import { SDGTicker } from '@/components/shared/SDGTicker'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -12,6 +13,12 @@ import {
   CountUp,
   AnimatedProgress,
 } from '@/components/ui/animations'
+import {
+  IMPACT_NUMBERS,
+  PROGRAM_BREAKDOWN,
+  ANNUAL_DATA,
+  FINANCIAL_SUMMARY,
+} from '@/data/impact'
 
 export const metadata: Metadata = {
   title: 'Impact Dashboard | The Ayotunde Oso Foundation',
@@ -19,38 +26,6 @@ export const metadata: Metadata = {
     'Real-time impact data: lives changed, programmes delivered, funds deployed. Full transparency on how AOF is creating measurable change.',
   openGraph: { title: 'Impact Dashboard | The Ayotunde Oso Foundation' },
 }
-
-const IMPACT_NUMBERS = [
-  { to: 3200, suffix: '+', prefix: '',  label: 'Total Lives Impacted',    delta: 'Year 1 milestone', color: 'text-brand-700'   },
-  { to: 24.5, suffix: 'M', prefix: '₦', label: 'Total Funds Raised',      delta: 'since May 2025',   color: 'text-gold-700',  decimals: 1 },
-  { to: 1,    suffix: '',  prefix: '',  label: 'Country of Operation',     delta: 'Nigeria',          color: 'text-emerald-700' },
-  { to: 94,   suffix: '+', prefix: '',  label: 'Active Volunteers',        delta: 'and growing',      color: 'text-blue-700'   },
-  { to: 8,    suffix: '',  prefix: '',  label: 'Partner Organisations',    delta: '100% retained',    color: 'text-purple-700' },
-  { to: 12,   suffix: '',  prefix: '',  label: 'Active Scholars',          delta: 'inaugural cohort', color: 'text-brand-700'  },
-]
-
-const PROGRAM_BREAKDOWN = [
-  { name: 'Education & Youth', beneficiaries: 480,  budget: 38, color: 'brand'   as const },
-  { name: 'Healthcare',        beneficiaries: 1500, budget: 29, color: 'success' as const },
-  { name: 'Mentorship',        beneficiaries: 260,  budget: 12, color: 'gold'    as const },
-  { name: 'Environment',       beneficiaries: 600,  budget: 11, color: 'success' as const },
-  { name: 'Emergency Relief',  beneficiaries: 360,  budget: 10, color: 'warning' as const },
-]
-
-const ANNUAL_DATA = [
-  { year: '2025', lives: 1850, funds: 14500000 },
-  { year: '2026', lives: 3200, funds: 24500000 },
-]
-
-const SDG_ALIGNMENT = [
-  { number: 1,  title: 'No Poverty',          programmes: ['Emergency Relief', 'Education'] },
-  { number: 3,  title: 'Good Health',          programmes: ['Healthcare'] },
-  { number: 4,  title: 'Quality Education',    programmes: ['Education', 'Mentorship'] },
-  { number: 6,  title: 'Clean Water',          programmes: ['Environment'] },
-  { number: 10, title: 'Reduced Inequalities', programmes: ['All Programmes'] },
-  { number: 13, title: 'Climate Action',       programmes: ['Environment'] },
-  { number: 17, title: 'Partnerships',         programmes: ['All Programmes'] },
-]
 
 export default function ImpactPage() {
   return (
@@ -202,13 +177,7 @@ export default function ImpactPage() {
               <div>
                 <h3 className="mb-6 font-display text-xl font-semibold">Financial Summary</h3>
                 <div className="rounded-2xl border border-neutral-200 dark:border-neutral-800">
-                  {[
-                    { label: 'Total Revenue (FY 2025)',  value: '₦24.5M'         },
-                    { label: 'Programme Services',       value: '₦18.7M (85%)'   },
-                    { label: 'Administration',           value: '₦2.2M (10%)'    },
-                    { label: 'Fundraising Costs',        value: '₦1.1M (5%)'     },
-                    { label: 'Year-end Surplus',         value: '₦2.5M'          },
-                  ].map((row, i, arr) => (
+                  {FINANCIAL_SUMMARY.map((row, i, arr) => (
                     <div
                       key={row.label}
                       className={`flex justify-between px-5 py-4 ${
@@ -233,7 +202,7 @@ export default function ImpactPage() {
         </div>
       </section>
 
-      {/* SDG Alignment */}
+      {/* SDG Alignment — all 17 goals scrolling ticker */}
       <section className="section bg-brand-900 dark:bg-brand-950">
         <div className="container-xl">
           <FadeUp className="mb-10 text-center">
@@ -241,20 +210,11 @@ export default function ImpactPage() {
             <h2 className="heading-2 text-white">
               UN Sustainable Development Goal Alignment
             </h2>
+            <p className="mt-3 text-brand-300 max-w-xl mx-auto text-sm">
+              AOF&apos;s programmes directly contribute to all 17 UN Sustainable Development Goals.
+            </p>
           </FadeUp>
-          <StaggerContainer className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
-            {SDG_ALIGNMENT.map((sdg) => (
-              <StaggerItem key={sdg.number} direction="scale">
-                <div className="rounded-2xl bg-brand-800/70 p-5 text-center ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:bg-brand-700/70 hover:ring-gold/30">
-                  <div className="font-display text-3xl font-bold text-gold">#{sdg.number}</div>
-                  <p className="mt-1 text-xs font-semibold text-white">{sdg.title}</p>
-                  {sdg.programmes.map((p) => (
-                    <span key={p} className="mt-1 block text-[10px] text-brand-300">{p}</span>
-                  ))}
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+          <SDGTicker />
         </div>
       </section>
 

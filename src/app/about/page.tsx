@@ -13,7 +13,7 @@ import {
   StaggerItem,
   CountUp,
 } from '@/components/ui/animations'
-import { CORE_VALUES } from '@/lib/constants'
+import { CORE_VALUES, IMPACT_STATS } from '@/lib/constants'
 import { ChevronRight, Users, Globe, Award, Heart } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -37,39 +37,39 @@ const TIMELINE = [
     year: 'Jul 2025',
     title: 'First Community Outreach',
     description:
-      'AOF conducts its inaugural free medical outreach in Mushin, Lagos, screening over 200 community members and distributing essential health supplies.',
+      'AOF conducts its inaugural free medical outreach in Ile-Ife, screening over 100 community members and distributing essential health supplies.',
   },
   {
     year: 'Sep 2025',
     title: 'Education Programme Launches',
     description:
-      'The AOF Education initiative awards its first set of scholarships to 12 students from underserved communities in Lagos and Ogun states.',
+      'The AOF Education initiative awards its first set of scholarships to 6 students from underserved communities in Lagos and Ogun states.',
   },
   {
     year: 'Nov 2025',
     title: 'Youth Mentorship Cohort',
     description:
-      'Sixty young people enrol in the first AOF mentorship cohort, matched with professionals across tech, healthcare, education, and entrepreneurship.',
+      'Thirty young people enrol in the first AOF mentorship cohort, matched with professionals across tech, healthcare, education, and entrepreneurship.',
   },
   {
     year: 'Feb 2026',
     title: 'Environmental Drive',
     description:
-      'AOF volunteers plant 1,000+ trees across two communities and run a waste management awareness campaign reaching 800+ residents.',
+      'AOF volunteers plant 500+ trees across two communities and run a waste management awareness campaign reaching 400+ residents.',
   },
   {
     year: '2026',
     title: 'Growing Our Reach',
     description:
-      'With 3,200+ lives impacted and 94 active volunteers, AOF is building toward expanding into two additional Nigerian states and deepening community partnerships.',
+      'With 1,600+ lives impacted and 47 active volunteers, AOF is building toward expanding into two additional Nigerian states and deepening community partnerships.',
   },
 ]
 
 const REACH_STATS = [
-  { icon: Users,  to: 3200,  suffix: '+', label: 'Lives Impacted',   color: 'text-brand-400'   },
-  { icon: Globe,  to: 7,     suffix: '',  label: 'Communities Served', color: 'text-gold-400'  },
-  { icon: Award,  to: 9,     suffix: '',  label: 'Projects Completed', color: 'text-emerald-400' },
-  { icon: Heart,  to: 94,    suffix: '+', label: 'Volunteers',         color: 'text-red-400'   },
+  { icon: Users,  to: IMPACT_STATS.livesImpacted,      suffix: '+', label: 'Lives Impacted',    color: 'text-brand-400'   },
+  { icon: Globe,  to: IMPACT_STATS.communitiesReached,  suffix: '',  label: 'Communities Served', color: 'text-gold-400'   },
+  { icon: Award,  to: IMPACT_STATS.projectsCompleted,   suffix: '',  label: 'Projects Completed', color: 'text-emerald-400' },
+  { icon: Heart,  to: IMPACT_STATS.volunteersEngaged,   suffix: '+', label: 'Volunteers',          color: 'text-red-400'   },
 ]
 
 export default function AboutPage() {
