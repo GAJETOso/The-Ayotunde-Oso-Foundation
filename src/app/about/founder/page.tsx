@@ -54,7 +54,7 @@ export default function FounderPage() {
           { label: 'About', href: '/about' },
           { label: 'Our Founder', href: '/about/founder' },
         ]}
-        image="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&q=80"
+        image="/Founder.png"
         size="default"
         gradient="dark"
       />
@@ -67,9 +67,8 @@ export default function FounderPage() {
             <SlideIn from="left">
               <div className="space-y-6 lg:sticky lg:top-28">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[3/4]">
-                  {/* Place your photo at /public/founder.jpg to display it here */}
                   <Image
-                    src="/founder.jpg"
+                    src="/Founder.png"
                     alt="Ayotunde Oso, Founder of The Ayotunde Oso Foundation"
                     fill
                     className="object-cover object-top"
@@ -85,8 +84,8 @@ export default function FounderPage() {
                       ['Title',          'Founder & Executive Director'],
                       ['Hometown',       'Ile-Ife, Osun State, Nigeria'],
                       ['Based In',       'Lagos, Nigeria'],
-                      ['Education',      'M.Sc. International Development'],
-                      ['Languages',      'English, Yoruba, French'],
+                      ['Education',      'M.Sc. Finance'],
+                      ['Languages',      'English, Yoruba'],
                       ['Specialisation', 'Community Development, Social Enterprise'],
                     ].map(([label, value]) => (
                       <div key={label} className="flex flex-col">
@@ -118,11 +117,10 @@ export default function FounderPage() {
 
                 <div className="space-y-6 text-neutral-700 dark:text-neutral-300 leading-relaxed">
                   <p className="text-lg">
-                    Ayotunde Oso grew up in Ile-Ife, Osun State — the ancient city revered across the world as
-                    the cradle of the Yoruba people and the mythological birthplace of humanity itself. To grow
-                    up in Ile-Ife is to grow up surrounded by history, culture, and a profound sense of
-                    collective identity. It is a place that teaches you, early, that you belong to something
-                    larger than yourself.
+                    Ayotunde Oso grew up in Ile-Ife — known worldwide as the Origin of the Yorubas, the
+                    ancient city where Yoruba civilisation itself was born. To grow up in Ile-Ife is to grow
+                    up surrounded by history, culture, and a profound sense of collective identity. It is a
+                    place that teaches you, early, that you belong to something larger than yourself.
                   </p>
 
                   <p>
