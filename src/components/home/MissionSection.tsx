@@ -4,7 +4,7 @@ import { useRef, type ComponentType } from 'react'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import { Quote } from 'lucide-react'
-import { FOUNDATION, CORE_VALUES } from '@/lib/constants'
+import { FOUNDATION, CORE_VALUES, IMPACT_STATS } from '@/lib/constants'
 import {
   Shield, Heart, Eye, CheckCircle, Lightbulb, Zap, Users, Globe, Leaf, Hand
 } from 'lucide-react'
@@ -160,7 +160,7 @@ export function MissionSection() {
                   </div>
                 ))}
                 <div className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-brand-900 text-[9px] font-bold text-white">
-                  94+
+                  {IMPACT_STATS.volunteersEngaged}+
                 </div>
               </div>
               <p className="mt-1.5 text-xs text-muted-foreground">Active volunteers</p>
