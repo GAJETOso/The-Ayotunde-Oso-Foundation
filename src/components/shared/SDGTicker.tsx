@@ -29,7 +29,7 @@ export function SDGTicker() {
             >
               {sdg.number}
             </div>
-            <p className="mt-1 text-[11px] font-semibold text-white leading-tight">
+            <p className="mt-1 text-[11px] font-semibold leading-tight" style={{ color: sdg.color }}>
               {sdg.title}
             </p>
           </div>

@@ -40,6 +40,14 @@ const FOOTER_LINKS = {
     { label: 'FAQ', href: '/faq' },
     { label: 'Contact Us', href: '/contact' },
   ],
+  legal: [
+    { label: 'Legal & Compliance', href: '/legal' },
+    { label: 'Safeguarding Policy', href: '/safeguarding' },
+    { label: 'Whistleblower Policy', href: '/whistleblower' },
+    { label: 'AML Policy', href: '/aml-policy' },
+    { label: 'Refund Policy', href: '/refund-policy' },
+    { label: 'Staff Portal', href: 'https://aof-internal.vercel.app/' },
+  ],
 }
 
 const SOCIAL_LINKS = [
@@ -95,7 +103,7 @@ export function Footer() {
     <footer className="bg-forest-dark text-white" aria-label="Site footer">
       {/* Main Footer */}
       <div className="container-wide py-16 md:py-20">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-6">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-7">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block" aria-label="Home">
@@ -151,8 +159,8 @@ export function Footer() {
           </div>
 
           {/* Link Columns */}
-          <div className="lg:col-span-4">
-            <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+          <div className="lg:col-span-5">
+            <div className="grid grid-cols-2 gap-6 md:grid-cols-3 xl:grid-cols-5">
               <div>
                 <h3 className="mb-5 text-xs font-bold uppercase tracking-widest text-white/40">
                   Organization
@@ -217,6 +225,25 @@ export function Footer() {
                       <Link
                         href={link.href}
                         className="text-sm text-white/60 transition-colors hover:text-gold"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="mb-5 text-xs font-bold uppercase tracking-widest text-white/40">
+                  Legal
+                </h3>
+                <ul className="space-y-3">
+                  {FOOTER_LINKS.legal.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-sm text-white/60 transition-colors hover:text-gold"
+                        {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                       >
                         {link.label}
                       </Link>

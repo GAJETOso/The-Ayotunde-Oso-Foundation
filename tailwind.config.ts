@@ -59,6 +59,7 @@ const config: Config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        'brand-green': '#0B4D35',
         brand: {
           '50': '#F0FAF5',
           '100': '#DCFAEC',
