@@ -16,7 +16,7 @@ export const FOUNDATION = {
     'To build a world where every individual, regardless of background, has access to opportunities, quality healthcare, education, dignity, and hope.',
   founded: 2025,
   foundedMonth: 'May',
-  registrationNumber: 'CAC/IT/NO 123456',
+  registrationNumber: 'CAC RC-8610457',
   email: 'info@ayotundeosofoundation.org',
   supportEmail: 'support@ayotundeosofoundation.org',
   pressEmail: 'press@ayotundeosofoundation.org',
