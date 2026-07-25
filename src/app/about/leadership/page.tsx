@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import { PageHero } from '@/components/shared/PageHero'
 import { Badge } from '@/components/ui/badge'
-import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import {
   FadeUp,
@@ -11,22 +9,12 @@ import {
   StaggerContainer,
   StaggerItem,
 } from '@/components/ui/animations'
-import { Linkedin, Twitter, Mail } from 'lucide-react'
+import { LeaderCard, type Leader } from './LeaderCard'
 
 export const metadata: Metadata = {
   title: 'Leadership | The Ayotunde Oso Foundation',
   description:
-    'Meet the Board of Trustees, Executive Team, and Advisory Council driving the Ayotunde Oso Foundation\'s mission forward.',
-}
-
-type Leader = {
-  name: string
-  title: string
-  bio: string
-  image: string
-  linkedin?: string
-  twitter?: string
-  email?: string
+    "Meet the Board of Trustees, Executive Team, and Advisory Council driving the Ayotunde Oso Foundation's mission forward.",
 }
 
 const BOARD: Leader[] = [
@@ -34,16 +22,23 @@ const BOARD: Leader[] = [
     name: 'Oso Oluwafemi',
     title: 'Board Chair',
     bio: 'Distinguished engineer from LAUTECH with 15+ years in various aspects of engineering and governance.',
-    image: '',
+    image: '/leadership-oso-oluwafemi.png',
     linkedin: '#',
   },
   {
     name: 'Oso Jesutofunmi',
     title: 'Vice Chair',
     bio: '',
-    image: '',
+    image: '/leadership-oso-jesutofunmi.png',
     linkedin: '#',
     twitter: '#',
+  },
+  {
+    name: '',
+    title: 'Treasurer',
+    bio: '',
+    image: '',
+    linkedin: '#',
   },
   {
     name: '',
@@ -57,7 +52,7 @@ const BOARD: Leader[] = [
     title: 'Board Member & Legal Counsel',
     bio: '',
     image: '',
-    email: '#',
+    email: 'legal@ayotundeosofoundation.org',
   },
 ]
 
@@ -66,20 +61,13 @@ const EXECUTIVE: Leader[] = [
     name: 'Ayotunde Oso',
     title: 'Founder & Executive Director',
     bio: 'Visionary leader and social entrepreneur. Read the full biography on our Founder page.',
-    image: '',
+    image: '/Founder.png',
     linkedin: '#',
     twitter: '#',
   },
   {
     name: '',
     title: 'Chief Operating Officer',
-    bio: '',
-    image: '',
-    linkedin: '#',
-  },
-   {
-    name: '',
-    title: 'Treasurer',
     bio: '',
     image: '',
     linkedin: '#',
@@ -110,7 +98,7 @@ const EXECUTIVE: Leader[] = [
     name: 'Ms. Yetunde Bello',
     title: 'Head of Communications',
     bio: '',
-    image: '',
+    image: '/leadership-yetunde-bello.png',
     linkedin: '#',
     twitter: '#',
   },
@@ -133,56 +121,9 @@ const ADVISORS: Leader[] = [
     name: '',
     title: 'Advisory Council — Youth Development',
     bio: '',
-    image: '0',
+    image: '',
   },
 ]
-
-function LeaderCard({ person }: { person: Leader }) {
-  return (
-    <Card hover className="overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
-      <div className="relative h-64">
-        <Image src={person.image} alt={person.name} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-        {(person.linkedin || person.twitter || person.email) && (
-          <div className="absolute bottom-3 right-3 flex gap-2">
-            {person.linkedin && (
-              <Link
-                href={person.linkedin}
-                className="size-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/40 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="size-3.5" />
-              </Link>
-            )}
-            {person.twitter && (
-              <Link
-                href={person.twitter}
-                className="size-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/40 transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="size-3.5" />
-              </Link>
-            )}
-            {person.email && (
-              <Link
-                href={`mailto:${person.email}`}
-                className="size-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/40 transition-colors"
-                aria-label="Email"
-              >
-                <Mail className="size-3.5" />
-              </Link>
-            )}
-          </div>
-        )}
-      </div>
-      <div className="p-5">
-        <h3 className="font-display font-semibold text-neutral-900 dark:text-neutral-100">{person.name}</h3>
-        <p className="text-xs font-medium text-brand-600 dark:text-brand-400 mt-0.5 mb-3">{person.title}</p>
-        <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">{person.bio}</p>
-      </div>
-    </Card>
-  )
-}
 
 export default function LeadershipPage() {
   return (
@@ -204,15 +145,16 @@ export default function LeadershipPage() {
           <SlideIn from="left" className="mb-12">
             <Badge variant="brand" className="mb-3">Governance</Badge>
             <h2 className="heading-2">Board of Trustees</h2>
-            <p className="text-body max-w-2xl mt-3 text-neutral-600 dark:text-neutral-400">
-              Our Board provides strategic oversight, fiduciary accountability, and institutional wisdom
-              to ensure AOF fulfils its mission with integrity.
+            <p className="mt-3 max-w-2xl text-neutral-600 dark:text-neutral-400">
+              Our Board of Trustees provides strategic oversight, governance, and accountability
+              for all AOF activities. Each trustee serves in a voluntary capacity.
             </p>
           </SlideIn>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {BOARD.map((p) => (
-              <StaggerItem key={p.name} direction="scale">
-                <LeaderCard person={p} />
+
+          <StaggerContainer className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {BOARD.map((person) => (
+              <StaggerItem key={person.title} direction="up">
+                <LeaderCard person={person} />
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -222,18 +164,19 @@ export default function LeadershipPage() {
       {/* Executive */}
       <section className="section bg-neutral-50 dark:bg-neutral-900/50">
         <div className="container-xl">
-          <SlideIn from="left" className="mb-12">
-            <Badge variant="gold" className="mb-3">Operations</Badge>
+          <SlideIn from="right" className="mb-12">
+            <Badge variant="gold" className="mb-3">Management</Badge>
             <h2 className="heading-2">Executive Team</h2>
-            <p className="text-body max-w-2xl mt-3 text-neutral-600 dark:text-neutral-400">
-              Day-to-day leadership with deep field experience, sector expertise, and an unyielding
-              drive for results.
+            <p className="mt-3 max-w-2xl text-neutral-600 dark:text-neutral-400">
+              Our executive team manages day-to-day operations and leads programme delivery
+              across all regions where AOF works.
             </p>
           </SlideIn>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {EXECUTIVE.map((p) => (
-              <StaggerItem key={p.name} direction="scale">
-                <LeaderCard person={p} />
+
+          <StaggerContainer className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {EXECUTIVE.map((person) => (
+              <StaggerItem key={person.title} direction="up">
+                <LeaderCard person={person} />
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -244,33 +187,38 @@ export default function LeadershipPage() {
       <section className="section">
         <div className="container-xl">
           <FadeUp className="mb-12">
-            <Badge variant="secondary" className="mb-3">Expert Guidance</Badge>
+            <Badge variant="brand" className="mb-3">Advisory</Badge>
             <h2 className="heading-2">Advisory Council</h2>
+            <p className="mt-3 max-w-2xl text-neutral-600 dark:text-neutral-400">
+              Distinguished experts who provide specialised guidance to AOF&apos;s programme and
+              strategy teams.
+            </p>
           </FadeUp>
-          <StaggerContainer className="grid sm:grid-cols-3 gap-6">
-            {ADVISORS.map((p) => (
-              <StaggerItem key={p.name} direction="scale">
-                <LeaderCard person={p} />
+
+          <StaggerContainer className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {ADVISORS.map((person) => (
+              <StaggerItem key={person.title} direction="up">
+                <LeaderCard person={person} />
               </StaggerItem>
             ))}
           </StaggerContainer>
         </div>
       </section>
 
-      {/* Join */}
-      <section className="section bg-brand-700">
-        <div className="container-xl text-center">
-          <FadeUp>
-            <h2 className="heading-2 text-white mb-4">Join Our Team</h2>
-            <p className="text-brand-200 mb-8 max-w-xl mx-auto">
-              We are always looking for passionate individuals to join our staff, volunteer corps,
-              or advisory network.
+      {/* CTA */}
+      <section className="section bg-neutral-50 dark:bg-neutral-900/50">
+        <div className="container-xl">
+          <FadeUp className="max-w-2xl mx-auto text-center">
+            <h2 className="heading-2 mb-4">Join Our Team</h2>
+            <p className="text-neutral-600 dark:text-neutral-400 mb-8">
+              We are always looking for talented, mission-driven individuals to join our staff,
+              volunteer team, or advisory council.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="gold" size="lg" asChild>
+              <Button asChild>
                 <Link href="/careers">View Open Positions</Link>
               </Button>
-              <Button variant="outline-white" size="lg" asChild>
+              <Button variant="outline" asChild>
                 <Link href="/volunteer">Volunteer With Us</Link>
               </Button>
             </div>
