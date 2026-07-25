@@ -85,7 +85,7 @@ const POLICIES = [
 const LEGAL_NOTICES = [
   {
     title: 'Registered Organisation',
-    body: 'The Ayotunde Oso Foundation is registered with the Corporate Affairs Commission (CAC) of Nigeria as a Not-for-Profit Organisation (NPO). Registration number: RC-NPO-XXXXX.',
+    body: 'The Ayotunde Oso Foundation is registered with the Corporate Affairs Commission (CAC) of Nigeria as a Not-for-Profit Organisation (NPO). Registration number: CAC RC-8610457.',
   },
   {
     title: 'Governing Law',
