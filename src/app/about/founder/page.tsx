@@ -16,7 +16,7 @@ import { Quote } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Meet Our Founder | The Ayotunde Oso Foundation',
   description:
-    'The story of Ayotunde Oso — the last born of three university-educated siblings from Ile-Ife, the ancient cradle of the Yoruba people, who turned privilege into purpose.',
+    'The story of Ayotunde Oso — the last born of three university-educated siblings from Usi-Ekiti but grew up in Ile-Ife, the ancient cradle of the Yoruba people, who turned privilege into purpose.',
 }
 
 const QUOTES = [
@@ -82,7 +82,7 @@ export default function FounderPage() {
                   <dl className="space-y-3">
                     {[
                       ['Title',          'Founder & Executive Director'],
-                      ['Hometown',       'Ile-Ife, Osun State, Nigeria'],
+                      ['Hometown',       'Usi-EKiti, Ekiti State, Nigeria'],
                       ['Based In',       'Lagos, Nigeria'],
                       ['Education',      'M.Sc. Finance'],
                       ['Languages',      'English, Yoruba'],
@@ -151,23 +151,22 @@ export default function FounderPage() {
                   </FadeUp>
 
                   <p>
-                    During his undergraduate years studying Public Administration, Ayotunde began organising
-                    informal tutoring sessions for neighbourhood children in Ile-Ife. What started as Saturday
-                    afternoons with a handful of students grew quickly into a registered community group. He
+                    During his undergraduate years studying Accounting, Ayotunde began organising
+                    informal tutoring sessions for neighbourhood children in Ile-Ife. He
                     saw first-hand how mentorship, access to resources, and consistent care could transform
                     a young person&apos;s trajectory.
                   </p>
 
                   <p>
-                    After completing a Master&apos;s degree in International Development in London, Ayotunde
-                    returned to Nigeria with a clear mandate. In May 2025, he formally established The Ayotunde
+                    After completing a Master&apos;s degree in Finance from UNILAG, Ayotunde
+                    had a clear mandate. In May 2025, he formally established The Ayotunde
                     Oso Foundation, naming it after himself not as a monument to ego but as a statement of
                     personal accountability — a permanent promise that he would dedicate his life to the work.
                   </p>
 
                   <p>
                     In just over a year, the Foundation has launched five integrated programmes, impacted
-                    over 1,600 lives across four communities in Nigeria, and built partnerships committed to
+                    over 200 lives across four communities in Nigeria, and built partnerships committed to
                     lasting change. Ayotunde remains most at home in the field — visiting schools, sitting
                     with community elders, and listening to the people the Foundation exists to serve.
                   </p>
