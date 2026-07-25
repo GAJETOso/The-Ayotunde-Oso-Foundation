@@ -36,7 +36,7 @@ const POLICY_SECTIONS = [
     bg: 'bg-red-50 dark:bg-red-900/10',
     border: 'border-red-200 dark:border-red-800',
     title: 'What Is Not Eligible',
-    body: 'The following are not eligible for refund: donations where the designated programme has already been carried out; requests submitted more than 7 days after the donation date; voluntary donations where no error occurred; and donations made via third-party fundraising platforms (please contact the platform directly).',
+    body: 'Once the programme a donation was designated to has been carried out, no refund is possible under any circumstances — regardless of the reason or how recently the donation was made. Additionally, the following are not eligible: requests submitted more than 7 days after the donation date; voluntary donations where no billing error occurred; and donations made via third-party fundraising platforms (please contact the platform directly).',
   },
   {
     icon: Clock,
@@ -116,6 +116,9 @@ export default function RefundPolicyPage() {
                 </p>
                 <p>
                   <strong className="text-white">Exception 2 — Programme not yet carried out:</strong> if the programme your donation was designated to has not been delivered, you may request a refund within <strong className="text-white">7 days</strong> of your donation date.
+                </p>
+                <p className="text-white font-semibold border-t border-white/20 pt-3 mt-1">
+                  Once the designated programme has been carried out, no refund is possible under any circumstances.
                 </p>
               </div>
             </div>

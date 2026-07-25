@@ -133,6 +133,9 @@ export default function RefundRequestPage() {
                     <strong className="text-neutral-700 dark:text-neutral-300">Exception 2 — Programme not yet carried out:</strong>{' '}
                     if the programme your donation was designated to has not been delivered, submit within <strong>7 days</strong> of your donation date.
                   </p>
+                  <p className="font-semibold text-red-600 dark:text-red-400">
+                    Once the designated programme has been carried out, no refund is possible under any circumstances.
+                  </p>
                 </div>
               </div>
 
