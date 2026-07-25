@@ -20,7 +20,7 @@ const POLICY_SECTIONS = [
     bg: 'bg-amber-50 dark:bg-amber-900/10',
     border: 'border-amber-200 dark:border-amber-800',
     title: 'General Policy',
-    body: 'Donations to The Ayotunde Oso Foundation are generally non-refundable. Once a gift is received, funds are allocated to programme delivery within 30 days — supporting scholarships, medical outreaches, mentorship activities, and emergency response. Because this deployment begins quickly, we are unable to offer automatic refunds on completed charitable donations.',
+    body: 'Donations to The Ayotunde Oso Foundation are generally non-refundable. Once a gift is received, funds are allocated to programme delivery — supporting scholarships, medical outreaches, mentorship activities, and emergency response. Because this deployment begins quickly, we are unable to offer automatic refunds on completed charitable donations.',
   },
   {
     icon: CheckCircle2,
@@ -28,7 +28,7 @@ const POLICY_SECTIONS = [
     bg: 'bg-emerald-50 dark:bg-emerald-900/10',
     border: 'border-emerald-200 dark:border-emerald-800',
     title: 'When We Will Review a Refund',
-    body: 'We take errors seriously. If you believe one of the following occurred, you may submit a refund request and our team will review it within 5 business days: (1) a duplicate charge was made to your card or account; (2) you were charged an amount different from what you intended; (3) a technical error caused an unintended transaction.',
+    body: 'We take two types of situations seriously. (1) Billing errors — duplicate charge, wrong amount, or unintended technical transaction: submit within 30 days and our team will review. (2) Programme not yet carried out — if you designated your donation to a specific programme that has not yet been delivered, you may request a refund within 7 days of your donation date.',
   },
   {
     icon: XCircle,
@@ -36,15 +36,15 @@ const POLICY_SECTIONS = [
     bg: 'bg-red-50 dark:bg-red-900/10',
     border: 'border-red-200 dark:border-red-800',
     title: 'What Is Not Eligible',
-    body: 'The following are not eligible for refund: donations made more than 30 days before the request date; voluntary donations where no technical error occurred; donations designated to a specific programme that has already received and deployed the funds; and donations made via third-party fundraising platforms (please contact the platform directly).',
+    body: 'The following are not eligible for refund: donations where the designated programme has already been carried out; requests submitted after the applicable deadline (7 days for undelivered programmes; 30 days for billing errors); voluntary donations where no error occurred; and donations made via third-party fundraising platforms (please contact the platform directly).',
   },
   {
     icon: Clock,
     color: 'text-blue-600',
     bg: 'bg-blue-50 dark:bg-blue-900/10',
     border: 'border-blue-200 dark:border-blue-800',
-    title: 'Processing Time',
-    body: 'Approved refunds are processed within 7–10 business days and returned to the original payment method. Stripe and card payments typically reflect within 5–7 business days after approval. Bank transfers may take up to 10 business days depending on your financial institution.',
+    title: 'Submission Deadlines',
+    body: 'The deadline depends on the reason: (1) Programme not yet carried out — request must be submitted within 7 days of the donation date. (2) Billing error (wrong amount, duplicate charge, technical error) — request must be submitted within 30 days of the transaction date. Requests outside these windows will not be considered.',
   },
   {
     icon: RefreshCw,
@@ -60,7 +60,7 @@ const POLICY_SECTIONS = [
     bg: 'bg-brand-50 dark:bg-brand-900/10',
     border: 'border-brand-200 dark:border-brand-800',
     title: 'How to Request a Refund',
-    body: 'Use our online Refund Request Form — it captures all the information our team needs to review your case quickly. Alternatively, email giving@ayotundeosofoundation.org with your name, email, transaction reference, amount, date of donation, and a brief description of the issue. All requests must be submitted within 30 days of the transaction date.',
+    body: 'Use our online Refund Request Form — it captures all the information our team needs to review your case quickly. Alternatively, email giving@ayotundeosofoundation.org with your name, email, transaction reference, amount, date of donation, and a brief description of the issue. Processing time once approved is 7–10 business days.',
   },
 ]
 
@@ -105,14 +105,19 @@ export default function RefundPolicyPage() {
               <p className="text-white text-lg font-medium mb-3">
                 Donations are generally non-refundable, because funds are immediately deployed to programmes.
               </p>
-              <p className="text-brand-200 max-w-3xl leading-relaxed">
-                <strong className="text-white">Exception:</strong> if a donor believes an error occurred — wrong amount,
-                duplicate charge — they can email{' '}
-                <a href="mailto:giving@ayotundeosofoundation.org" className="text-gold-300 underline">
-                  giving@ayotundeosofoundation.org
-                </a>{' '}
-                or fill the form within <strong className="text-white">30 days</strong> and the foundation will review the case manually.
-              </p>
+              <div className="max-w-3xl space-y-2 text-brand-200 leading-relaxed">
+                <p>
+                  <strong className="text-white">Exception 1 — Billing error</strong> (wrong amount, duplicate charge):
+                  email{' '}
+                  <a href="mailto:giving@ayotundeosofoundation.org" className="text-gold-300 underline">
+                    giving@ayotundeosofoundation.org
+                  </a>{' '}
+                  or fill the form within <strong className="text-white">30 days</strong> and the foundation will review the case manually.
+                </p>
+                <p>
+                  <strong className="text-white">Exception 2 — Programme not yet carried out:</strong> if the programme your donation was designated to has not been delivered, you may request a refund within <strong className="text-white">7 days</strong> of your donation date.
+                </p>
+              </div>
             </div>
           </SlideIn>
 
