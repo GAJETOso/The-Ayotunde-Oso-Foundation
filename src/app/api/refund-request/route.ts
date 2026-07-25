@@ -13,7 +13,7 @@ const RefundSchema = z.object({
   currency: z.enum(['NGN', 'USD', 'GBP', 'EUR']),
   transactionRef: z.string().optional(),
   paymentMethod: z.enum(['card', 'paystack', 'flutterwave', 'paypal', 'bank_transfer', 'other']),
-  reason: z.enum(['duplicate', 'wrong_amount', 'technical_error', 'other']),
+  reason: z.enum(['programme_not_carried_out', 'duplicate', 'wrong_amount', 'technical_error', 'other']),
   description: z.string().min(10).max(2000),
 })
 
@@ -45,9 +45,10 @@ export async function POST(req: NextRequest) {
     const referenceNumber = `RFD-${Date.now()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`
 
     const reasonLabels: Record<string, string> = {
-      duplicate: 'Duplicate charge',
-      wrong_amount: 'Wrong amount charged',
-      technical_error: 'Technical error',
+      programme_not_carried_out: 'Programme not yet carried out (7-day window)',
+      duplicate: 'Duplicate charge (7-day window)',
+      wrong_amount: 'Wrong amount charged (7-day window)',
+      technical_error: 'Technical error (7-day window)',
       other: 'Other',
     }
 

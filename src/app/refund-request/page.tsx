@@ -14,9 +14,10 @@ import { CheckCircle2, Clock, Mail, ShieldCheck } from 'lucide-react'
 import { toast } from '@/components/ui/toast'
 
 const REASONS = [
-  { value: 'duplicate', label: 'Duplicate charge — I was charged more than once' },
-  { value: 'wrong_amount', label: 'Wrong amount — I was charged a different amount than intended' },
-  { value: 'technical_error', label: 'Technical error — an unintended transaction occurred' },
+  { value: 'programme_not_carried_out', label: 'Programme not yet carried out — the designated programme has not been delivered (7-day window)' },
+  { value: 'duplicate', label: 'Duplicate charge — I was charged more than once (7-day window)' },
+  { value: 'wrong_amount', label: 'Wrong amount — I was charged a different amount than intended (7-day window)' },
+  { value: 'technical_error', label: 'Technical error — an unintended transaction occurred (7-day window)' },
   { value: 'other', label: 'Other — please describe below' },
 ]
 
@@ -120,17 +121,19 @@ export default function RefundRequestPage() {
 
               {/* Policy summary */}
               <div className="rounded-xl border border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-900/10 p-5 mb-8">
-                <p className="text-sm font-semibold text-neutral-800 dark:text-neutral-200 mb-1">
+                <p className="text-sm font-semibold text-neutral-800 dark:text-neutral-200 mb-2">
                   Donations are generally non-refundable, because funds are immediately deployed to programmes.
                 </p>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                  <strong>Exception:</strong> if you believe an error occurred — wrong amount, duplicate charge —
-                  you can email{' '}
-                  <a href="mailto:giving@ayotundeosofoundation.org" className="underline text-brand-600">
-                    giving@ayotundeosofoundation.org
-                  </a>{' '}
-                  or fill this form within 30 days and the foundation will review the case manually.
-                </p>
+                <div className="text-sm text-neutral-600 dark:text-neutral-400 space-y-1.5">
+                  <p>
+                    <strong className="text-neutral-700 dark:text-neutral-300">Exception:</strong> if a donor believes an error occurred — wrong amount, duplicate charge — they can email{' '}
+                    <a href="mailto:giving@ayotundeosofoundation.org" className="underline text-brand-600">giving@ayotundeosofoundation.org</a>{' '}
+                    or fill this form within <strong>7 days</strong> (if the programme donated towards has not yet been executed) and the foundation will review the case manually.
+                  </p>
+                  <p className="font-semibold text-red-600 dark:text-red-400">
+                    Once the designated programme has been carried out, no refund is possible under any circumstances.
+                  </p>
+                </div>
               </div>
 
               {submitted ? (
@@ -359,9 +362,9 @@ export default function RefundRequestPage() {
                     <span className="text-neutral-500">Processing (if approved)</span>
                     <span className="font-medium">7–10 business days</span>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between gap-4">
                     <span className="text-neutral-500">Submission deadline</span>
-                    <span className="font-medium">30 days from donation</span>
+                    <span className="font-medium text-amber-600">7 days</span>
                   </div>
                 </div>
               </Card>
