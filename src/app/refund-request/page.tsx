@@ -15,9 +15,9 @@ import { toast } from '@/components/ui/toast'
 
 const REASONS = [
   { value: 'programme_not_carried_out', label: 'Programme not yet carried out — the designated programme has not been delivered (7-day window)' },
-  { value: 'duplicate', label: 'Duplicate charge — I was charged more than once (30-day window)' },
-  { value: 'wrong_amount', label: 'Wrong amount — I was charged a different amount than intended (30-day window)' },
-  { value: 'technical_error', label: 'Technical error — an unintended transaction occurred (30-day window)' },
+  { value: 'duplicate', label: 'Duplicate charge — I was charged more than once (7-day window)' },
+  { value: 'wrong_amount', label: 'Wrong amount — I was charged a different amount than intended (7-day window)' },
+  { value: 'technical_error', label: 'Technical error — an unintended transaction occurred (7-day window)' },
   { value: 'other', label: 'Other — please describe below' },
 ]
 
@@ -127,7 +127,7 @@ export default function RefundRequestPage() {
                 <div className="text-sm text-neutral-600 dark:text-neutral-400 space-y-1.5">
                   <p>
                     <strong className="text-neutral-700 dark:text-neutral-300">Exception 1 — Billing error</strong> (wrong amount, duplicate charge):
-                    submit within <strong>30 days</strong> and the foundation will review the case manually.
+                    submit within <strong>7 days</strong> and the foundation will review the case manually.
                   </p>
                   <p>
                     <strong className="text-neutral-700 dark:text-neutral-300">Exception 2 — Programme not yet carried out:</strong>{' '}
@@ -363,11 +363,7 @@ export default function RefundRequestPage() {
                     <span className="font-medium">7–10 business days</span>
                   </div>
                   <div className="flex justify-between gap-4">
-                    <span className="text-neutral-500">Deadline — billing error</span>
-                    <span className="font-medium">30 days</span>
-                  </div>
-                  <div className="flex justify-between gap-4">
-                    <span className="text-neutral-500">Deadline — undelivered programme</span>
+                    <span className="text-neutral-500">Submission deadline</span>
                     <span className="font-medium text-amber-600">7 days</span>
                   </div>
                 </div>

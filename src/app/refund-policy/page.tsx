@@ -28,7 +28,7 @@ const POLICY_SECTIONS = [
     bg: 'bg-emerald-50 dark:bg-emerald-900/10',
     border: 'border-emerald-200 dark:border-emerald-800',
     title: 'When We Will Review a Refund',
-    body: 'We take two types of situations seriously. (1) Billing errors — duplicate charge, wrong amount, or unintended technical transaction: submit within 30 days and our team will review. (2) Programme not yet carried out — if you designated your donation to a specific programme that has not yet been delivered, you may request a refund within 7 days of your donation date.',
+    body: 'We take two types of situations seriously. (1) Billing errors — duplicate charge, wrong amount, or unintended technical transaction: submit within 7 days and our team will review. (2) Programme not yet carried out — if you designated your donation to a specific programme that has not yet been delivered, you may also request a refund within 7 days of your donation date.',
   },
   {
     icon: XCircle,
@@ -36,15 +36,15 @@ const POLICY_SECTIONS = [
     bg: 'bg-red-50 dark:bg-red-900/10',
     border: 'border-red-200 dark:border-red-800',
     title: 'What Is Not Eligible',
-    body: 'The following are not eligible for refund: donations where the designated programme has already been carried out; requests submitted after the applicable deadline (7 days for undelivered programmes; 30 days for billing errors); voluntary donations where no error occurred; and donations made via third-party fundraising platforms (please contact the platform directly).',
+    body: 'The following are not eligible for refund: donations where the designated programme has already been carried out; requests submitted more than 7 days after the donation date; voluntary donations where no error occurred; and donations made via third-party fundraising platforms (please contact the platform directly).',
   },
   {
     icon: Clock,
     color: 'text-blue-600',
     bg: 'bg-blue-50 dark:bg-blue-900/10',
     border: 'border-blue-200 dark:border-blue-800',
-    title: 'Submission Deadlines',
-    body: 'The deadline depends on the reason: (1) Programme not yet carried out — request must be submitted within 7 days of the donation date. (2) Billing error (wrong amount, duplicate charge, technical error) — request must be submitted within 30 days of the transaction date. Requests outside these windows will not be considered.',
+    title: 'Submission Deadline',
+    body: 'All refund requests — whether for a billing error (wrong amount, duplicate charge, technical error) or for a programme not yet carried out — must be submitted within 7 days of the donation date. Requests outside this window will not be considered.',
   },
   {
     icon: RefreshCw,
@@ -112,7 +112,7 @@ export default function RefundPolicyPage() {
                   <a href="mailto:giving@ayotundeosofoundation.org" className="text-gold-300 underline">
                     giving@ayotundeosofoundation.org
                   </a>{' '}
-                  or fill the form within <strong className="text-white">30 days</strong> and the foundation will review the case manually.
+                  or fill the form within <strong className="text-white">7 days</strong> and the foundation will review the case manually.
                 </p>
                 <p>
                   <strong className="text-white">Exception 2 — Programme not yet carried out:</strong> if the programme your donation was designated to has not been delivered, you may request a refund within <strong className="text-white">7 days</strong> of your donation date.

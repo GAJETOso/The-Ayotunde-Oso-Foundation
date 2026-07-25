@@ -46,9 +46,9 @@ export async function POST(req: NextRequest) {
 
     const reasonLabels: Record<string, string> = {
       programme_not_carried_out: 'Programme not yet carried out (7-day window)',
-      duplicate: 'Duplicate charge (30-day window)',
-      wrong_amount: 'Wrong amount charged (30-day window)',
-      technical_error: 'Technical error (30-day window)',
+      duplicate: 'Duplicate charge (7-day window)',
+      wrong_amount: 'Wrong amount charged (7-day window)',
+      technical_error: 'Technical error (7-day window)',
       other: 'Other',
     }
 
