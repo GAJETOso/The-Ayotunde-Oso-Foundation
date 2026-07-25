@@ -58,7 +58,7 @@ const FAQ_SECTIONS = [
       },
       {
         q: 'Can I get a refund on my donation?',
-        a: 'Donations to AOF are generally non-refundable, as funds are immediately deployed to programme delivery. There are two exceptions, both with a 7-day window from the donation date: (1) Billing error — if a duplicate charge or incorrect amount was applied. (2) Programme not yet carried out — if the programme your donation was designated to has not been delivered. Important: once the designated programme has been carried out, no refund is possible under any circumstances. Visit /refund-request to complete the form, or email giving@ayotundeosofoundation.org. Our finance team reviews all requests within 5 business days. See our full Refund Policy at /refund-policy.',
+        a: 'Donations to AOF are generally non-refundable, because funds are immediately deployed to programmes. Exception: if a donor believes an error occurred — wrong amount, duplicate charge — they can email giving@ayotundeosofoundation.org or fill the refund request form within 7 days (if the programme donated towards has not yet been executed) and the foundation will review the case manually. Once the designated programme has been carried out, no refund is possible under any circumstances. Visit /refund-request or see our full Refund Policy at /refund-policy.',
       },
     ],
   },

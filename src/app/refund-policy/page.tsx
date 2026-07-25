@@ -105,19 +105,15 @@ export default function RefundPolicyPage() {
               <p className="text-white text-lg font-medium mb-3">
                 Donations are generally non-refundable, because funds are immediately deployed to programmes.
               </p>
-              <div className="max-w-3xl space-y-2 text-brand-200 leading-relaxed">
+              <div className="max-w-3xl space-y-3 text-brand-200 leading-relaxed">
                 <p>
-                  <strong className="text-white">Exception 1 — Billing error</strong> (wrong amount, duplicate charge):
-                  email{' '}
+                  <strong className="text-white">Exception:</strong> if a donor believes an error occurred — wrong amount, duplicate charge — they can email{' '}
                   <a href="mailto:giving@ayotundeosofoundation.org" className="text-gold-300 underline">
                     giving@ayotundeosofoundation.org
                   </a>{' '}
-                  or fill the form within <strong className="text-white">7 days</strong> and the foundation will review the case manually.
+                  or fill the form within <strong className="text-white">7 days</strong> (if the programme donated towards has not yet been executed) and the foundation will review the case manually.
                 </p>
-                <p>
-                  <strong className="text-white">Exception 2 — Programme not yet carried out:</strong> if the programme your donation was designated to has not been delivered, you may request a refund within <strong className="text-white">7 days</strong> of your donation date.
-                </p>
-                <p className="text-white font-semibold border-t border-white/20 pt-3 mt-1">
+                <p className="text-white font-semibold border-t border-white/20 pt-3">
                   Once the designated programme has been carried out, no refund is possible under any circumstances.
                 </p>
               </div>

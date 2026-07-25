@@ -126,12 +126,9 @@ export default function RefundRequestPage() {
                 </p>
                 <div className="text-sm text-neutral-600 dark:text-neutral-400 space-y-1.5">
                   <p>
-                    <strong className="text-neutral-700 dark:text-neutral-300">Exception 1 — Billing error</strong> (wrong amount, duplicate charge):
-                    submit within <strong>7 days</strong> and the foundation will review the case manually.
-                  </p>
-                  <p>
-                    <strong className="text-neutral-700 dark:text-neutral-300">Exception 2 — Programme not yet carried out:</strong>{' '}
-                    if the programme your donation was designated to has not been delivered, submit within <strong>7 days</strong> of your donation date.
+                    <strong className="text-neutral-700 dark:text-neutral-300">Exception:</strong> if a donor believes an error occurred — wrong amount, duplicate charge — they can email{' '}
+                    <a href="mailto:giving@ayotundeosofoundation.org" className="underline text-brand-600">giving@ayotundeosofoundation.org</a>{' '}
+                    or fill this form within <strong>7 days</strong> (if the programme donated towards has not yet been executed) and the foundation will review the case manually.
                   </p>
                   <p className="font-semibold text-red-600 dark:text-red-400">
                     Once the designated programme has been carried out, no refund is possible under any circumstances.
