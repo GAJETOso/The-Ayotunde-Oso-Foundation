@@ -118,6 +118,21 @@ export default function RefundRequestPage() {
             <div>
               <Badge variant="brand" className="mb-6">Refund Request Form</Badge>
 
+              {/* Policy summary */}
+              <div className="rounded-xl border border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-900/10 p-5 mb-8">
+                <p className="text-sm font-semibold text-neutral-800 dark:text-neutral-200 mb-1">
+                  Donations are generally non-refundable, because funds are immediately deployed to programmes.
+                </p>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                  <strong>Exception:</strong> if you believe an error occurred — wrong amount, duplicate charge —
+                  you can email{' '}
+                  <a href="mailto:giving@ayotundeosofoundation.org" className="underline text-brand-600">
+                    giving@ayotundeosofoundation.org
+                  </a>{' '}
+                  or fill this form within 30 days and the foundation will review the case manually.
+                </p>
+              </div>
+
               {submitted ? (
                 <div className="text-center py-16">
                   <div className="size-20 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mx-auto mb-6">

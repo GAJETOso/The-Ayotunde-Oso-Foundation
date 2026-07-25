@@ -101,11 +101,17 @@ export default function RefundPolicyPage() {
           {/* Summary banner */}
           <SlideIn from="bottom" delay={0.05}>
             <div className="rounded-2xl bg-brand-700 p-8 text-white mb-16">
-              <h2 className="font-display text-2xl font-bold mb-2">The Short Version</h2>
+              <h2 className="font-display text-2xl font-bold mb-3">The Short Version</h2>
+              <p className="text-white text-lg font-medium mb-3">
+                Donations are generally non-refundable, because funds are immediately deployed to programmes.
+              </p>
               <p className="text-brand-200 max-w-3xl leading-relaxed">
-                Donations are non-refundable unless a genuine error occurred (wrong amount, duplicate charge).
-                If that happened, contact us within <strong className="text-white">30 days</strong> and we will make it right.
-                Use our refund request form or email <strong className="text-white">giving@ayotundeosofoundation.org</strong>.
+                <strong className="text-white">Exception:</strong> if a donor believes an error occurred — wrong amount,
+                duplicate charge — they can email{' '}
+                <a href="mailto:giving@ayotundeosofoundation.org" className="text-gold-300 underline">
+                  giving@ayotundeosofoundation.org
+                </a>{' '}
+                or fill the form within <strong className="text-white">30 days</strong> and the foundation will review the case manually.
               </p>
             </div>
           </SlideIn>
