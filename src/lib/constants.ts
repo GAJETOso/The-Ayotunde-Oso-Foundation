@@ -11,9 +11,11 @@ export const FOUNDATION = {
   shortName: 'AOF',
   tagline: 'Empowering people. Transforming communities.',
   mission:
-    'To empower individuals and communities by providing tools, education, mentorship, healthcare, and opportunities that improve lives and create lasting impact.',
+    'To empower individuals and communities through education, healthcare, environmental sustainability, mentorship, and emergency humanitarian response — creating pathways to dignity, opportunity, and lasting change.',
   vision:
-    'To build a world where every individual, regardless of background, has access to opportunities, quality healthcare, education, dignity, and hope.',
+    'A world where every individual — regardless of background, geography, or circumstance — has access to the opportunities, healthcare, education, and support needed to live with dignity and purpose.',
+  purpose:
+    'To address the root causes of poverty, exclusion, and vulnerability across Nigeria and Africa through sustainable, community-led programmes that unlock human potential.',
   founded: 2025,
   foundedMonth: 'May',
   registrationNumber: 'CAC RC-8610457',
