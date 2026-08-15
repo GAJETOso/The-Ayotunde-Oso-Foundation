@@ -95,7 +95,7 @@ const EXECUTIVE: Leader[] = [
     linkedin: '#',
   },
   {
-    name: 'Ms. Yetunde Bello',
+    name: '',
     title: 'Head of Communications',
     bio: '',
     image: '/leadership-yetunde-bello.png',
