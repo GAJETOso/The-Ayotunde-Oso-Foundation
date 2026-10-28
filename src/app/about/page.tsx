@@ -13,7 +13,7 @@ import {
   StaggerItem,
   CountUp,
 } from '@/components/ui/animations'
-import { CORE_VALUES, IMPACT_STATS } from '@/lib/constants'
+import { CORE_VALUES, FOUNDATION, IMPACT_STATS } from '@/lib/constants'
 import { ChevronRight, Users, Globe, Award, Heart } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -96,17 +96,13 @@ export default function AboutPage() {
                 <div className="rounded-r-xl border-l-4 border-brand-600 bg-brand-50/50 py-4 pl-6 pr-4 dark:bg-brand-900/20">
                   <h3 className="mb-2 text-lg font-semibold text-brand-700">Mission</h3>
                   <p className="text-body leading-relaxed text-neutral-600 dark:text-neutral-400">
-                    To empower individuals and communities through education, healthcare, environmental
-                    sustainability, mentorship, and emergency humanitarian response — creating pathways
-                    to dignity, opportunity, and lasting change.
+                    {FOUNDATION.mission}
                   </p>
                 </div>
                 <div className="rounded-r-xl border-l-4 border-gold-500 bg-gold-50/50 py-4 pl-6 pr-4 dark:bg-gold-900/10">
                   <h3 className="mb-2 text-lg font-semibold text-gold-700">Vision</h3>
                   <p className="text-body leading-relaxed text-neutral-600 dark:text-neutral-400">
-                    A world where every individual — regardless of background, geography, or circumstance
-                    — has access to the opportunities, healthcare, education, and support needed to
-                    live with dignity and purpose.
+                    {FOUNDATION.vision}
                   </p>
                 </div>
               </div>
