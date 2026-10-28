@@ -58,10 +58,22 @@ const TIMELINE = [
       'AOF volunteers plant 500+ trees across two communities and run a waste management awareness campaign reaching 400+ residents.',
   },
   {
-    year: '2026',
-    title: 'Growing Our Reach',
+    year: 'Apr 2026',
+    title: 'Healthcare Programme Expands',
     description:
-      'With 1,600+ lives impacted and 47 active volunteers, AOF is building toward expanding into two additional Nigerian states and deepening community partnerships.',
+      'A second and third medical outreach bring free screenings, consultations, and essential medicines to communities in Ibadan and Abeokuta — tripling AOF\'s healthcare reach in under a year.',
+  },
+  {
+    year: 'Jun 2026',
+    title: 'Emergency Response Activated',
+    description:
+      'AOF deploys its Emergency Humanitarian Relief programme twice, providing food packages, shelter materials, and psychosocial support to families displaced by flooding in Ogun State.',
+  },
+  {
+    year: 'Oct 2026',
+    title: '1,600+ Lives Impacted',
+    description:
+      'Eighteen months in, AOF has reached over 1,600 lives across four communities — with 240 students supported, 130 youth mentored, 925 trees planted, and active partnerships spanning education, health, and sustainability.',
   },
 ]
 
@@ -175,7 +187,7 @@ export default function AboutPage() {
         <div className="container-xl">
           <FadeUp className="mb-16 text-center">
             <Badge variant="brand" className="mb-4">Our Journey</Badge>
-            <h2 className="heading-2">One year of growing impact</h2>
+            <h2 className="heading-2">Eighteen months of growing impact</h2>
           </FadeUp>
 
           <div className="relative">
